@@ -1,0 +1,114 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock1" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="req_id" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock2" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:int" minOccurs="0" />
+                <xs:element name="parent_id" type="xs:int" minOccurs="0" />
+                <xs:element name="contrNm" type="xs:string" minOccurs="0" />
+                <xs:element name="BdSurvDt" type="xs:string" minOccurs="0" />
+                <xs:element name="BdSurvNm" type="xs:string" minOccurs="0" />
+                <xs:element name="BdSurvTelno" type="xs:string" minOccurs="0" />
+                <xs:element name="BdIntrvwNm" type="xs:string" minOccurs="0" />
+                <xs:element name="BdIntrvwRel" type="xs:string" minOccurs="0" />
+                <xs:element name="BdIntrvwTelno" type="xs:string" minOccurs="0" />
+                <xs:element name="invgrReq1" type="xs:string" minOccurs="0" />
+                <xs:element name="invgrReq2" type="xs:string" minOccurs="0" />
+                <xs:element name="BdLvlOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdJoinBzTypeOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdRateBzTypeOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdZipcdOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdAddrOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdownrNmOrg" type="xs:string" minOccurs="0" />
+                <xs:element name="BdLvl" type="xs:string" minOccurs="0" />
+                <xs:element name="BdJoinBzType" type="xs:string" minOccurs="0" />
+                <xs:element name="BdRateBzType" type="xs:string" minOccurs="0" />
+                <xs:element name="BdZipcd" type="xs:string" minOccurs="0" />
+                <xs:element name="BdAddr" type="xs:string" minOccurs="0" />
+                <xs:element name="BdownrNm" type="xs:string" minOccurs="0" />
+                <xs:element name="BdLvlChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdJoinBzTypeChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdRateBzTypeChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdZipcdChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdAddrChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdownrNmChk" type="xs:string" minOccurs="0" />
+                <xs:element name="BdLvlCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BdJoinBzTypeCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BdRateBzTypeCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BdZipcdCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BdAddrCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BdownrNmCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="strCol" type="xs:string" minOccurs="0" />
+                <xs:element name="strOutWall" type="xs:string" minOccurs="0" />
+                <xs:element name="strRoof" type="xs:string" minOccurs="0" />
+                <xs:element name="strPanYN" type="xs:string" minOccurs="0" />
+                <xs:element name="strPanCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="strTentYN" type="xs:string" minOccurs="0" />
+                <xs:element name="strTentCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="strFireWallYN" type="xs:string" minOccurs="0" />
+                <xs:element name="strChkCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeBsCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeF1Cnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeF2Cnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeF3Cnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeF4Cnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeF5Cnts" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeFoCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="DisStoreYN" type="xs:string" minOccurs="0" />
+                <xs:element name="TradMarketYN" type="xs:string" minOccurs="0" />
+                <xs:element name="BzTypeChkCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="LocChkYN" type="xs:string" minOccurs="0" />
+                <xs:element name="LocChkCnts" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock3" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="parent_id" type="xs:int" minOccurs="0" />
+                <xs:element name="serl" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock4" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="parent_id" type="xs:int" minOccurs="0" />
+                <xs:element name="serl" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock5" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="parent_id" type="xs:int" minOccurs="0" />
+                <xs:element name="serl" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock6" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="parent_id" type="xs:int" minOccurs="0" />
+                <xs:element name="serl" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>

@@ -1,0 +1,88 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock3" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ObjSymb" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjCatgCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="InsurObjDvs" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjInsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjInsValueTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjRmnAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjGivInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjPrsCndt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltLosCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltUsg" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltLftmYear" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltPasDprcRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltBuyDt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltPrgMm" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatStdDprcCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatStdRmnObjCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltTotArea" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltRePurcTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RePurcGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RePurcGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RePurcRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRstrGexpTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRmnRmvTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatStdInsValueCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatStdLosCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjSelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjStrtRmk" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock4" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ObjCatgCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="RprtSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSymb" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurObjNm" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjUsg" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjArea" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjLosCnt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjBuyDt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjInsurRegsFg" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjMker" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRePurcAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjDprcTotRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjInsureValue" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LosAmt" type="xs:decimal" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock5" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ObjCatgCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="EvatCd" type="xs:int" minOccurs="0" />
+                <xs:element name="EvatCatg" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatCnts" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>

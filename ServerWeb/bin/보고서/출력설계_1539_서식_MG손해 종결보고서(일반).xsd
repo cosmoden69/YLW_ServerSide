@@ -1,0 +1,223 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock2" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SurvReqDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FldRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="MidRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="DlyRprtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRprtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno1" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno2" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="InsurChrgSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="CustSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="FullName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurCo" type="xs:string" minOccurs="0" />
+                <xs:element name="BizNo" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDept" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrg" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtTm" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnTeamLeadName" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnTeamLeadOP" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpName" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpRank" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpOP" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpHP" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhotoLead" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhotoEmp" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock3" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ClntTdncEvat" type="xs:string" minOccurs="0" />
+                <xs:element name="UnusDtil" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplSpcf1" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplPnt1" type="xs:int" minOccurs="0" />
+                <xs:element name="CmplSpcf2" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplPnt2" type="xs:int" minOccurs="0" />
+                <xs:element name="CmplSpcf3" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplPnt3" type="xs:int" minOccurs="0" />
+                <xs:element name="CmplSpcf4" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplPnt4" type="xs:int" minOccurs="0" />
+                <xs:element name="CmplSpcf5" type="xs:string" minOccurs="0" />
+                <xs:element name="CmplPnt5" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock4" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtTm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCaus" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtAddressSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtAddressName" type="xs:string" minOccurs="0" />
+                <xs:element name="S111_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S111_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S111_ShrtCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S111_ShrtCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S111_ShrtCnts3" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock5" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtExprDt" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJob" type="xs:string" minOccurs="0" />
+                <xs:element name="Bnfc" type="xs:string" minOccurs="0" />
+                <xs:element name="Insurant" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdAddressSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrdAddressName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock6" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CltrCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SubSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock7" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="S131_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S131_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S131_ShrtCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S131_ShrtCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJob" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJobDmnd" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJobNow" type="xs:string" minOccurs="0" />
+                <xs:element name="S131_LongCnts3" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock8" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="S211_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S211_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S211_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S212_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S212_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S212_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S221_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S221_LongCnts2" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock9" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Gubun" type="xs:string" minOccurs="0" />
+                <xs:element name="CureFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="VstHosp" type="xs:string" minOccurs="0" />
+                <xs:element name="CureSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock10" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OthInsurCoNm" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurSurvOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDmndAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OthInsurCtrtSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock11" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="S321_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S321_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S321_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S322_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S322_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S331_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S331_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S331_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S332_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S332_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S341_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S341_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S341_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S351_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S351_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S351_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S401_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S401_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S401_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S402_LongCnts1" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock12" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FileTypCd" type="xs:int" minOccurs="0" />
+                <xs:element name="FileSavSerl" type="xs:int" minOccurs="0" />
+                <xs:element name="FileCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="FileRels" type="xs:string" minOccurs="0" />
+                <xs:element name="FileCntsCn" type="xs:int" minOccurs="0" />
+                <xs:element name="FileRmk" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock13" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtTm" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrgSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="InsurChrg" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmp" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock14" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PrgMgtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtHed" type="xs:string" minOccurs="0" />
+                <xs:element name="MetMthd" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvGuideCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>

@@ -1,0 +1,140 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock2" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SurvReqDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno1" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno2" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="InsurChrgSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="CustSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="FullName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurCo" type="xs:string" minOccurs="0" />
+                <xs:element name="BizNo" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDept" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrg" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtTm" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnTeamLeadName" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnTeamLeadOP" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpName" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpDeptName" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpRank" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpOP" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpHP" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhotoLead" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhotoEmp" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock3" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtExprDt" type="xs:string" minOccurs="0" />
+                <xs:element name="Insurant" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtStts" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtSttsDt" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock4" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="ShrtCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJobGrad" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJob" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJobGradDmnd" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJobDmnd" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock5" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="S2_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S2_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S3_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S3_ShrtCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S3_LongCnts2" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock6" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OthInfoSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ShrtCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="ShrtCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="ShrtCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInfoGrp" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock7" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Gubun" type="xs:string" minOccurs="0" />
+                <xs:element name="CureFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="VstHosp" type="xs:string" minOccurs="0" />
+                <xs:element name="CureSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock8" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OthInsurCoNm" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtExprDt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurSurvOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurCtrtSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock9" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="S5_LongCnts1" type="xs:string" minOccurs="0" />
+                <xs:element name="S5_LongCnts2" type="xs:string" minOccurs="0" />
+                <xs:element name="S5_LongCnts3" type="xs:string" minOccurs="0" />
+                <xs:element name="S5_ShrtCnts1" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock10" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PrgMgtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtHed" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvGuideCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="MetObj" type="xs:string" minOccurs="0" />
+                <xs:element name="MetObjRels" type="xs:string" minOccurs="0" />
+                <xs:element name="MetMthd" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>

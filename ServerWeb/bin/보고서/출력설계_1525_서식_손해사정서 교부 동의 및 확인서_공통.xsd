@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="ko-KR">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock2" msdata:Locale="ko-KR">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Insurant" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="DmdRgtAgrNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="Bnfc" type="xs:string" minOccurs="0" />
+                <xs:element name="LosrptDlvrFg_Isrt" type="xs:int" minOccurs="0" />
+                <xs:element name="LosrptDlvrFg_Isrd" type="xs:int" minOccurs="0" />
+                <xs:element name="LosrptDlvrFg_DmdRgt" type="xs:int" minOccurs="0" />
+                <xs:element name="LosrptDlvrFg_Vitm" type="xs:int" minOccurs="0" />
+                <xs:element name="LosrptDlvrFg_Bnfc" type="xs:int" minOccurs="0" />
+                <xs:element name="SndDt_Isrt" type="xs:string" minOccurs="0" />
+                <xs:element name="SndDt_Isrd" type="xs:string" minOccurs="0" />
+                <xs:element name="SndDt_DmdRgt" type="xs:string" minOccurs="0" />
+                <xs:element name="SndDt_Vitm" type="xs:string" minOccurs="0" />
+                <xs:element name="SndDt_Bnfc" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrtGuidRcvMthd" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrdGuidRcvMthd" type="xs:int" minOccurs="0" />
+                <xs:element name="DmdGuidRcvMthd" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmGuidRcvMthd" type="xs:int" minOccurs="0" />
+                <xs:element name="BnfcGuidRcvMthd" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrtPrsInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrdPrsInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="DmdRgtPrsInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmPrsInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="BnfcPrsInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrtSstvInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrdSstvInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="DmdRgtSstvInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmSstvInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="BnfcSstvInfoAgrFg" type="xs:int" minOccurs="0" />
+                <xs:element name="IsrtOthTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdOthTel" type="xs:string" minOccurs="0" />
+                <xs:element name="DmdRgtOthTel" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmOthTel" type="xs:string" minOccurs="0" />
+                <xs:element name="BnfcOthTel" type="xs:string" minOccurs="0" />
+                <xs:element name="LosrptDlvrAgrPathSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="LosrptCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrtTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
+                <xs:element name="BnfcTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCnts" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>

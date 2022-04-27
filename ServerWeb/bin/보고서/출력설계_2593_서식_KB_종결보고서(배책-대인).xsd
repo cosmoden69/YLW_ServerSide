@@ -1,0 +1,412 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock1" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="LasRprtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
+	    		<xs:element name="LeadAdjusterr" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpNm" type="xs:string" minOccurs="0" />
+                <xs:element name="DeptName" type="xs:string" minOccurs="0" />
+                <xs:element name="DeptFax" type="xs:string" minOccurs="0" />
+                <xs:element name="DeptPhone" type="xs:string" minOccurs="0" />
+                <xs:element name="EmpWorkAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="EmpPhone" type="xs:string" minOccurs="0" />
+                <xs:element name="EmpCellPhone" type="xs:string" minOccurs="0" />
+                <xs:element name="UMJpName" type="xs:string" minOccurs="0" />
+                <xs:element name="EmpFax" type="xs:string" minOccurs="0" />
+                <xs:element name="EmpEmail" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtYear" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtMonth" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtDay" type="xs:int" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtTm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCaus" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurGivObj" type="xs:string" minOccurs="0" />
+                <xs:element name="GivInsurCalcBrdn" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjRels" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjBank" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjAcntNum" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurCo" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDept" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrg" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtExprDt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurValue" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InsurCond" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurBillBas" type="xs:string" minOccurs="0" />
+                <xs:element name="Insurant" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="SelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OthCtrtCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="CltrCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRpstNm" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno1" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRegno2" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdJob" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdBsns" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdOpenDt" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdBsnsCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="CltrSpcCtrt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurPrdtRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurNoRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtNoRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurantRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsuredRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="CtrtDtRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurRegsAmtRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="SelfBearAmtRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurCondRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtCntsRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurBillBasRevw" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmTel" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAgrmActnTel" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="CompanyName" type="xs:string" minOccurs="0" />
+                <xs:element name="Owner" type="xs:string" minOccurs="0" />
+                <xs:element name="OwnerJpName" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="FdRpPrbm" type="xs:string" minOccurs="0" />
+                <xs:element name="FdRpNxtPlan" type="xs:string" minOccurs="0" />
+                <xs:element name="CclsExptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="MidRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg1Nm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg2Nm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg3Nm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg1" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg2" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatg3" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatgS" type="xs:string" minOccurs="0" />
+                <xs:element name="MidRprtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="EndorsDtil" type="xs:string" minOccurs="0" />
+                <xs:element name="DgnsNm" type="xs:string" minOccurs="0" />
+                <xs:element name="CureFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="VstHosp" type="xs:string" minOccurs="0" />
+                <xs:element name="CureMjrCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausNm" type="xs:string" minOccurs="0" />
+                <xs:element name="DiSubTotReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DiSubTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DiTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DiSelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DIGivInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DmobNm" type="xs:string" minOccurs="0" />
+                <xs:element name="DmobDmgStts" type="xs:string" minOccurs="0" />
+                <xs:element name="RentFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="RentToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FixFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FixToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FixSpcf" type="xs:string" minOccurs="0" />
+                <xs:element name="FixCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="AgrmAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="IsrtRegno1" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrtRegno2" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrtTel" type="xs:string" minOccurs="0" />
+	    		<xs:element name="DoFixReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoFixAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoFixCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoFixBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoNoCarfeeReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoNoCarfeeAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoNoCarfeeCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoNoCarfeeBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoRentCarReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoRentCarAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoRentCarCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoRentCarBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoOthExpsHed" type="xs:string" minOccurs="0" />
+                <xs:element name="DoOthExpsReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoOthExpsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoOthExpsCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoOthExpsBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoSubTotReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoSubTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoNglgBearReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoNglgBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoNglgBearCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoNglgBearBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoSelfBearReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoSelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoSelfBearCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoSelfBearBss" type="xs:string" minOccurs="0" />
+                <xs:element name="DoTotReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoGivInsurReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoGivInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="IsrdMjrPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="MonSellAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="IsrdChrg" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock2" msdata:Locale="en-US">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AcdtPictFg" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjNm" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSymb" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtPictCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjInsurRegsFg" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock3" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CltrStpltRspsbFg" type="xs:string" minOccurs="0" />
+                <xs:element name="CltrStpltRspsbSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="CltrStpltRspsbBss" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbFg" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbBss" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbRaw" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNglgRate" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmNglgBss" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNglgSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="RgtCpstCnclsRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="RgtCpstSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="RgtCpstOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="RgtCpstOthOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="OthAcdtSurvOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="SharUnraw" type="xs:string" minOccurs="0" />
+                <xs:element name="PastAcdtCnts" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock4" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FileNo" type="xs:long" minOccurs="0" />
+                <xs:element name="FileCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="FileRels" type="xs:string" minOccurs="0" />
+                <xs:element name="FileAmt" type="xs:string" minOccurs="0" />
+                <xs:element name="FIleEtc" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock5" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InsurGivObj" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjBank" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjAcntNum" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="GivObjInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="GivObjRels" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock6" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OthInsurCo" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCltrSpcCtrt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthCtrtExprDt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OthInsurant" type="xs:string" minOccurs="0" />
+                <xs:element name="OthInsured" type="xs:string" minOccurs="0" />
+                <xs:element name="OthSelfBearAmt" type="xs:decimal" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock7" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PrgMgtSerl" type="xs:long" minOccurs="0" />
+                <xs:element name="PrgMgtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtDays" type="xs:int" minOccurs="0" />
+                <xs:element name="PrgMgtHed" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvGuideCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="DlyDay" type="xs:int" minOccurs="0" />
+                <xs:element name="DlyResnCd" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock8" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="VitmSubSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmTel" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock9" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="VitmSubSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="CureSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="DgnsNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VstHosp" type="xs:string" minOccurs="0" />
+                <xs:element name="CureFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CureToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="VstHospResn" type="xs:string" minOccurs="0" />
+                <xs:element name="TestNmRslt" type="xs:string" minOccurs="0" />
+                <xs:element name="DoctDgns" type="xs:string" minOccurs="0" />
+                <xs:element name="MedHstr" type="xs:string" minOccurs="0" />
+                <xs:element name="CureCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="CureMjrCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="Medfee" type="xs:decimal" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="InHospDay" type="xs:int" minOccurs="0" />
+                <xs:element name="OutHospDay" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock10" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AcdtPictImage" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtPictCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtPictFg" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjNm" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock11" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DmobNm" type="xs:string" minOccurs="0" />
+                <xs:element name="DmobDmgStts" type="xs:string" minOccurs="0" />
+                <xs:element name="DmobCarNo" type="xs:string" minOccurs="0" />
+                <xs:element name="CarPrdtYear" type="xs:string" minOccurs="0" />
+                <xs:element name="CarTyp" type="xs:string" minOccurs="0" />
+                <xs:element name="FixShop" type="xs:string" minOccurs="0" />
+                <xs:element name="RentCo" type="xs:string" minOccurs="0" />
+                <xs:element name="FixCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="RentFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="RentToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FixFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="FixToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DmobStrtCnts" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock12" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ObjSymb" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjCatgCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="InsurObjDvs" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjInsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjInsValueTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjRmnAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjTotAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjGivInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjPrsCndt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltLosCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltUsg" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltLftmYear" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltPasDprcRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltBuyDt" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltPrgMm" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatStdDprcCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatStdRmnObjCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="EvatRsltTotArea" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRsltRePurcTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RePurcGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RePurcGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjRstrGexpTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RstrRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRmnRmvTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvGexpRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvGexpAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjRmvRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjSelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjInsurRegsFg" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock13" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TrtCd" type="xs:int" minOccurs="0" />
+                <xs:element name="RmnObjNm" type="xs:string" minOccurs="0" />
+                <xs:element name="TrtBsns" type="xs:string" minOccurs="0" />
+                <xs:element name="RmnObjStd" type="xs:string" minOccurs="0" />
+                <xs:element name="RmnObjUnit" type="xs:string" minOccurs="0" />
+                <xs:element name="RmnObjCnt" type="xs:int" minOccurs="0" />
+                <xs:element name="RmnObjCost" type="xs:decimal" minOccurs="0" />
+                <xs:element name="RmnObjAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="AuctFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AuctToDt" type="xs:string" minOccurs="0" />
+                <xs:element name="SucBidDt" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock14" msdata:Locale="en-US">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ObjCatgCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="RprtSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ObjSymb" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurObjNm" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjStrt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjUsg" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjArea" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjBuyDt" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjInsurRegsFg" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjMker" type="xs:string" minOccurs="0" />
+                <xs:element name="ObjRePurcAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjDprcTotRate" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjInsureValue" type="xs:decimal" minOccurs="0" />
+                <xs:element name="LosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InsurObjDvs" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock15" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ExpsGrp" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsSubHed" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsLosReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ExpsLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ExpsCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsBss" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
