@@ -1,0 +1,583 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FF9DC18-70B5-42F3-A6C1-8D6D7896BDC9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YLW_WebService.ServerSide</RootNamespace>
+    <AssemblyName>ServerWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <Use64BitIISExpress />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\YLW_Service\YLWService\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerService">
+      <HintPath>..\ServerService\bin\Debug\ServerService.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="YLWService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\YLW_Service\YLWService\bin\Debug\YLWService.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\보고서\이미지이름변경.JPG" />
+    <Content Include="bin\보고서\캡처.PNG" />
+    <Content Include="WebClose.aspx" />
+    <Content Include="Service1.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WebTest.aspx" />
+    <Content Include="WebTest1.aspx" />
+    <Content Include="wfOpenSendSSLImg.aspx" />
+    <Content Include="wfOpenSendSSLImg3.aspx" />
+    <Content Include="wfOpenSendSSL3.aspx" />
+    <Content Include="wfOpenSendSSL.aspx" />
+    <Content Include="wfOpenHRFileView.aspx" />
+    <Content Include="wfOpenAttachFileView.aspx" />
+    <Content Include="wfOpenHRFileView3.aspx" />
+    <Content Include="wfOpenAttachFileView3.aspx" />
+    <Content Include="wfOpenSurvRptEDIKDB.aspx" />
+    <Content Include="wfAcptUploadSSL.aspx" />
+    <Content Include="wfOpenSurvRptEDILina.aspx" />
+    <Content Include="wfOpenAcdtPictGoods.aspx" />
+    <Content Include="wfOpenSurvRptEDIKDB3.aspx" />
+    <Content Include="wfAcptUploadSSL3.aspx" />
+    <Content Include="wfOpenSurvRptEDILina3.aspx" />
+    <Content Include="wfOpenAcdtPictGoods3.aspx" />
+    <Content Include="wfOpenSaveReport3.aspx" />
+    <Content Include="wfOpenSaveReport.aspx" />
+    <Content Include="WebFormIn3.aspx" />
+    <Content Include="WebFormIn.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WebClose.aspx.cs">
+      <DependentUpon>WebClose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebClose.aspx.designer.cs">
+      <DependentUpon>WebClose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IService1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
+    <Compile Include="webCommon.cs" />
+    <Compile Include="WebTest.aspx.cs">
+      <DependentUpon>WebTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebTest.aspx.designer.cs">
+      <DependentUpon>WebTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebTest1.aspx.cs">
+      <DependentUpon>WebTest1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebTest1.aspx.designer.cs">
+      <DependentUpon>WebTest1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSendSSLImg.aspx.cs">
+      <DependentUpon>wfOpenSendSSLImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSendSSLImg.aspx.designer.cs">
+      <DependentUpon>wfOpenSendSSLImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSendSSLImg3.aspx.cs">
+      <DependentUpon>wfOpenSendSSLImg3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSendSSLImg3.aspx.designer.cs">
+      <DependentUpon>wfOpenSendSSLImg3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSendSSL3.aspx.cs">
+      <DependentUpon>wfOpenSendSSL3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSendSSL3.aspx.designer.cs">
+      <DependentUpon>wfOpenSendSSL3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSendSSL.aspx.cs">
+      <DependentUpon>wfOpenSendSSL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSendSSL.aspx.designer.cs">
+      <DependentUpon>wfOpenSendSSL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenHRFileView.aspx.cs">
+      <DependentUpon>wfOpenHRFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenHRFileView.aspx.designer.cs">
+      <DependentUpon>wfOpenHRFileView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenAttachFileView.aspx.cs">
+      <DependentUpon>wfOpenAttachFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenAttachFileView.aspx.designer.cs">
+      <DependentUpon>wfOpenAttachFileView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenHRFileView3.aspx.cs">
+      <DependentUpon>wfOpenHRFileView3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenHRFileView3.aspx.designer.cs">
+      <DependentUpon>wfOpenHRFileView3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenAttachFileView3.aspx.cs">
+      <DependentUpon>wfOpenAttachFileView3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenAttachFileView3.aspx.designer.cs">
+      <DependentUpon>wfOpenAttachFileView3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDIKDB.aspx.cs">
+      <DependentUpon>wfOpenSurvRptEDIKDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDIKDB.aspx.designer.cs">
+      <DependentUpon>wfOpenSurvRptEDIKDB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAcptUploadSSL.aspx.cs">
+      <DependentUpon>wfAcptUploadSSL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAcptUploadSSL.aspx.designer.cs">
+      <DependentUpon>wfAcptUploadSSL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDILina.aspx.cs">
+      <DependentUpon>wfOpenSurvRptEDILina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDILina.aspx.designer.cs">
+      <DependentUpon>wfOpenSurvRptEDILina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenAcdtPictGoods.aspx.cs">
+      <DependentUpon>wfOpenAcdtPictGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenAcdtPictGoods.aspx.designer.cs">
+      <DependentUpon>wfOpenAcdtPictGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDIKDB3.aspx.cs">
+      <DependentUpon>wfOpenSurvRptEDIKDB3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDIKDB3.aspx.designer.cs">
+      <DependentUpon>wfOpenSurvRptEDIKDB3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAcptUploadSSL3.aspx.cs">
+      <DependentUpon>wfAcptUploadSSL3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAcptUploadSSL3.aspx.designer.cs">
+      <DependentUpon>wfAcptUploadSSL3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDILina3.aspx.cs">
+      <DependentUpon>wfOpenSurvRptEDILina3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSurvRptEDILina3.aspx.designer.cs">
+      <DependentUpon>wfOpenSurvRptEDILina3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenAcdtPictGoods3.aspx.cs">
+      <DependentUpon>wfOpenAcdtPictGoods3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenAcdtPictGoods3.aspx.designer.cs">
+      <DependentUpon>wfOpenAcdtPictGoods3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSaveReport3.aspx.cs">
+      <DependentUpon>wfOpenSaveReport3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSaveReport3.aspx.designer.cs">
+      <DependentUpon>wfOpenSaveReport3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenSaveReport.aspx.cs">
+      <DependentUpon>wfOpenSaveReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenSaveReport.aspx.designer.cs">
+      <DependentUpon>wfOpenSaveReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormIn3.aspx.cs">
+      <DependentUpon>WebFormIn3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormIn3.aspx.designer.cs">
+      <DependentUpon>WebFormIn3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormIn.aspx.cs">
+      <DependentUpon>WebFormIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormIn.aspx.designer.cs">
+      <DependentUpon>WebFormIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\보고서\DlgAdjSLSurvRptLina.docx" />
+    <None Include="bin\보고서\DlgAdjSLSurvRptLina.xsd" />
+    <Content Include="bin\보고서\RptAdjSLRptEDISSL.docx" />
+    <None Include="bin\보고서\RptAdjSLRptEDISSL.xsd" />
+    <Content Include="bin\보고서\RptAdjSLRptSurvRptPers.docx" />
+    <None Include="bin\보고서\RptAdjSLRptSurvRptPers.xsd" />
+    <Content Include="bin\보고서\RptAdjSLRptSurvRptPersMid.docx" />
+    <None Include="bin\보고서\RptAdjSLRptSurvRptPersMid.xsd" />
+    <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.docx" />
+    <None Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.xsd" />
+    <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준_Image.docx" />
+    <Content Include="bin\보고서\출력설계_1511_서식_중간보고서_표준.docx" />
+    <None Include="bin\보고서\출력설계_1511_서식_중간보고서_표준.xsd" />
+    <Content Include="bin\보고서\출력설계_1511_서식_중간보고서_표준_Image.docx" />
+    <Content Include="bin\보고서\출력설계_1511_정의_종결보고서_표준.docx" />
+    <Content Include="bin\보고서\출력설계_1522_서식_손해사정서.docx" />
+    <None Include="bin\보고서\출력설계_1522_서식_손해사정서.xsd" />
+    <Content Include="bin\보고서\출력설계_1522_정의_손해사정서.docx" />
+    <Content Include="bin\보고서\출력설계_1525_서식_손해사정서 교부 동의 및 확인서_공통.docx" />
+    <None Include="bin\보고서\출력설계_1525_서식_손해사정서 교부 동의 및 확인서_공통.xsd" />
+    <Content Include="bin\보고서\출력설계_1525_정의_손해사정서 교부 동의 및 확인_공통.docx" />
+    <Content Include="bin\보고서\출력설계_1526_서식_손해사정서 교부 동의 및 확인서_라이나생명.docx" />
+    <None Include="bin\보고서\출력설계_1526_서식_손해사정서 교부 동의 및 확인서_라이나생명.xsd" />
+    <Content Include="bin\보고서\출력설계_1526_정의_손해사정서 교부 동의 및 확인_라이나생명.docx" />
+    <Content Include="bin\보고서\출력설계_1527_서식_손해사정서 교부 동의 및 확인서_삼성화재.docx" />
+    <None Include="bin\보고서\출력설계_1527_서식_손해사정서 교부 동의 및 확인서_삼성화재.xsd" />
+    <Content Include="bin\보고서\출력설계_1527_정의_손해사정서 교부 동의 및 확인_삼성화재.docx" />
+    <Content Include="bin\보고서\출력설계_1528_서식_손해사정서 교부 동의 및 확인서_흥국화재.docx" />
+    <None Include="bin\보고서\출력설계_1528_서식_손해사정서 교부 동의 및 확인서_흥국화재.xsd" />
+    <Content Include="bin\보고서\출력설계_1528_정의_손해사정서 교부 동의 및 확인_흥국화재.docx" />
+    <Content Include="bin\보고서\출력설계_1533_서식_메리츠 종결보고서.docx" />
+    <None Include="bin\보고서\출력설계_1533_서식_메리츠 종결보고서.xsd" />
+    <Content Include="bin\보고서\출력설계_1533_정의_메리츠 종결보고서.docx" />
+    <Content Include="bin\보고서\출력설계_1534_서식_현대해상 종결보고서.docx" />
+    <None Include="bin\보고서\출력설계_1534_서식_현대해상 종결보고서.xsd" />
+    <Content Include="bin\보고서\출력설계_1534_정의_현대해상 종결보고서.docx" />
+    <Content Include="bin\보고서\출력설계_1535_서식_흥국화재 종결보고서.docx" />
+    <None Include="bin\보고서\출력설계_1535_서식_흥국화재 종결보고서.xsd" />
+    <Content Include="bin\보고서\출력설계_1535_정의_흥국화재 종결보고서.docx" />
+    <Content Include="bin\보고서\출력설계_1536_서식_DB생명 종결보고서.docx" />
+    <None Include="bin\보고서\출력설계_1536_서식_DB생명 종결보고서.xsd" />
+    <Content Include="bin\보고서\출력설계_1536_정의_DB생명 종결보고서.docx" />
+    <Content Include="bin\보고서\출력설계_1537_서식_DB손해 종결보고서.docx" />
+    <None Include="bin\보고서\출력설계_1537_서식_DB손해 종결보고서.xsd" />
+    <Content Include="bin\보고서\출력설계_1537_정의_DB손해 종결보고서.docx" />
+    <Content Include="bin\보고서\출력설계_1538_서식_MG손해 종결보고서%28단순%29.docx" />
+    <None Include="bin\보고서\출력설계_1538_서식_MG손해 종결보고서%28단순%29.xsd" />
+    <Content Include="bin\보고서\출력설계_1538_정의_MG손해 종결보고서%28단순%29.docx" />
+    <Content Include="bin\보고서\출력설계_1539_서식_MG손해 종결보고서%28일반%29.docx" />
+    <None Include="bin\보고서\출력설계_1539_서식_MG손해 종결보고서%28일반%29.xsd" />
+    <Content Include="bin\보고서\출력설계_1539_정의_MG손해 종결보고서%28일반%29.docx" />
+    <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29_Pict.docx" />
+    <Content Include="bin\보고서\출력설계_2511_정의_현장보고서%28재물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2512_서식_현장보고서%28재물-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2512_서식_현장보고서%28재물-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2512_서식_현장보고서%28재물-대물%29_Pict.docx" />
+    <Content Include="bin\보고서\출력설계_2512_정의_현장보고서%28재물-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Inventory.docx" />
+    <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2531_정의_중간보고서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2532_서식_중간보고서%28재물-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2532_서식_중간보고서%28재물-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2532_서식_중간보고서%28재물-대물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2532_서식_중간보고서%28재물-대물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2532_서식_중간보고서%28재물-대물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2532_정의_중간보고서%28재물-대물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2533_서식_중간보고서%28배책-대인%29.docx" />
+    <None Include="bin\보고서\출력설계_2533_서식_중간보고서%28배책-대인%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2533_정의_중간보고서%28배책-대인%29.docx" />
+    <Content Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2534_정의_중간보고서%28배책-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Inventory.docx" />
+    <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2541_정의_손해사정서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2542_서식_손해사정서%28재물-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2542_서식_손해사정서%28재물-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2542_서식_손해사정서%28재물-대물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2542_서식_손해사정서%28재물-대물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2542_서식_손해사정서%28재물-대물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2542_정의_손해사정서%28재물-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Inventory.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2551_정의_종결보고서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2552_서식_종결보고서%28재물-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2552_서식_종결보고서%28재물-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2552_서식_종결보고서%28재물-대물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2552_서식_종결보고서%28재물-대물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2552_서식_종결보고서%28재물-대물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2552_정의_종결보고서%28재물-대물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2553_서식_종결보고서%28배책-대인%29.docx" />
+    <None Include="bin\보고서\출력설계_2553_서식_종결보고서%28배책-대인%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2553_정의_종결보고서%28배책-대인%29.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2554_정의_종결보고서%28배책-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Head2.docx" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Head3.docx" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2562_서식_농협_종결보고서%28재물-대물, 배책-차량%29.docx" />
+    <None Include="bin\보고서\출력설계_2562_서식_농협_종결보고서%28재물-대물, 배책-차량%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2562_정의_농협_종결보고서%28재물-대물, 배책-차량%29.docx" />
+    <None Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2563_서식_농협_종결보고서%28재물, 간편%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2563_정의_농협_종결보고서%28재물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2564_서식_농협_종결보고서%28재물-대물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2564_서식_농협_종결보고서%28재물-대물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2564_정의_농협_종결보고서%28재물-대물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Head2.docx" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Head3.docx" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2565_서식_농협_진행보고서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2566_서식_농협_진행보고서%28재물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2566_서식_농협_진행보고서%28재물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2566_정의_농협_진행보고서%28재물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2567_서식_농협_진행보고서%28재물-대물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2567_서식_농협_진행보고서%28재물-대물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2567_정의_농협_진행보고서%28재물-대물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2568_서식_농협_현장보고서%28재물-대물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2568_서식_농협_현장보고서%28재물-대물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2568_서식_농협_현장보고서%28재물-대물, 간편%29_Pict.docx" />
+    <Content Include="bin\보고서\출력설계_2568_정의_농협_현장보고서%28재물-대물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2571_서식_농협_종결보고서%28배책-대인%29.docx" />
+    <None Include="bin\보고서\출력설계_2571_서식_농협_종결보고서%28배책-대인%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2571_정의_농협_종결보고서%28배책-대인%29.docx" />
+    <Content Include="bin\보고서\출력설계_2573_서식_농협_종결보고서%28배책-대인, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2573_서식_농협_종결보고서%28배책-대인, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2573_정의_농협_종결보고서%28배책-대인, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2574_서식_농협_종결보고서%28배책-차량, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2574_서식_농협_종결보고서%28배책-차량, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2574_정의_농협_종결보고서%28배책-차량, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2575_서식_농협_진행보고서%28배책-대인, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2575_서식_농협_진행보고서%28배책-대인, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2575_정의_농협_진행보고서%28배책-대인, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2576_서식_농협_진행보고서%28배책-차량, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2576_서식_농협_진행보고서%28배책-차량, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2576_정의_농협_진행보고서%28배책-차량, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2577_서식_농협_현장보고서%28배책-대인, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2577_서식_농협_현장보고서%28배책-대인, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2577_서식_농협_현장보고서%28배책-대인, 간편%29_Pict.docx" />
+    <Content Include="bin\보고서\출력설계_2577_정의_농협_현장보고서%28배책-대인, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2578_서식_농협_현장보고서%28배책-차량, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2578_서식_농협_현장보고서%28배책-차량, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2578_서식_농협_현장보고서%28배책-차량, 간편%29_Pict.docx" />
+    <Content Include="bin\보고서\출력설계_2578_정의_농협_현장보고서%28배책-차량, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2581_서식_DB_종결보고서%28재물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2581_정의_DB_종결보고서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29-구.xsd" />
+    <None Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29_Goods.docx" />
+    <Content Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29_Pers.docx" />
+    <Content Include="bin\보고서\출력설계_2582_서식_DB_종결보고서%28배책%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2582_정의_DB_종결보고서%28배책%29.docx" />
+    <Content Include="bin\보고서\출력설계_2585_서식_DB_현장보고서%28재물%29.docx" />
+    <None Include="bin\보고서\출력설계_2585_서식_DB_현장보고서%28재물%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2585_정의_DB_현장보고서%28재물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2586_서식_DB_현장보고서%28배책%29.docx" />
+    <None Include="bin\보고서\출력설계_2586_서식_DB_현장보고서%28배책%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2586_정의_DB_현장보고서%28배책%29.docx" />
+    <None Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Inventory.docx" />
+    <Content Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Object.docx" />
+    <None Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Object.xsd" />
+    <Content Include="bin\보고서\출력설계_2591_서식_KB_종결보고서%28재물, 간편%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2591_정의_KB_종결보고서%28재물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2592_서식_KB_종결보고서%28재물-대물, 간편%29.docx" />
+    <None Include="bin\보고서\출력설계_2592_서식_KB_종결보고서%28재물-대물, 간편%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2592_정의_KB_종결보고서%28제물-대물, 간편%29.docx" />
+    <Content Include="bin\보고서\출력설계_2593_서식_KB_종결보고서%28배책-대인%29.docx" />
+    <None Include="bin\보고서\출력설계_2593_서식_KB_종결보고서%28배책-대인%29.xsd" />
+    <Content Include="bin\보고서\출력설계_2593_정의_KB_종결보고서%28배책-대인%29.docx" />
+    <Content Include="bin\보고서\출력설계_2631_서식_교부용 손해사정서_재물_표준.docx" />
+    <None Include="bin\보고서\출력설계_2631_서식_교부용 손해사정서_재물_표준.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2631_서식_교부용 손해사정서_재물_표준.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2631_정의_교부용 손해사정서_재물_표준.docx" />
+    <Content Include="bin\보고서\출력설계_2632_서식_교부용 손해사정서_재물_현대해상.docx" />
+    <None Include="bin\보고서\출력설계_2632_서식_교부용 손해사정서_재물_현대해상.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2632_서식_교부용 손해사정서_재물_현대해상.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2632_정의_교부용 손해사정서_재물_현대해상.docx" />
+    <Content Include="bin\보고서\출력설계_2641_서식_교부용 손해사정서_배상_표준.docx" />
+    <None Include="bin\보고서\출력설계_2641_서식_교부용 손해사정서_배상_표준.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2641_서식_교부용 손해사정서_배상_표준.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2641_정의_교부용 손해사정서_배상_표준.docx" />
+    <Content Include="bin\보고서\출력설계_2642_서식_교부용 손해사정서_배상_현대해상.docx" />
+    <None Include="bin\보고서\출력설계_2642_서식_교부용 손해사정서_배상_현대해상.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2642_서식_교부용 손해사정서_배상_현대해상.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2642_정의_교부용 손해사정서_배상_현대해상.docx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>61477</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

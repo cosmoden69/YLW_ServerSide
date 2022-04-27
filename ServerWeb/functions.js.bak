@@ -1,0 +1,47 @@
+function alertmy(url) 
+{
+    alert('aaa');
+}
+function sendPost(address, params) 
+{
+	$.ajax({
+            type: "POST",
+            url: address,
+            contentType: "Application/json; charset=utf-8",
+            dataType: "json",
+            data: params,
+            success: function (data) {
+                alert(data.d);
+            }
+        });
+}
+function sendPost2(address, params) 
+{
+		var http = new XMLHttpRequest();
+
+    var value = '{ "prop1": "value 1", "prop2": "value 2" }';
+    // It would be better to use JSON.stringify to properly generate
+    // a JSON string
+    /**
+    var value = JSON.stringify({
+        prop1: 'value 1',
+        prop2: 'value 2'
+    });
+    **/
+
+    http.open('POST', address, false);
+    http.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    http.setRequestHeader('Content-Length', value.length);
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+        }
+    }
+    http.send(value);
+}
+function WebServiceCall(String address) {
+    var con = new XMLHttpRequest();
+    con.open("GET", address, false);
+    con.send();
+    window.close();
+}

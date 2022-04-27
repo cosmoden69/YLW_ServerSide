@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D6DEBF9-41FE-44B8-84CE-17941BC98373}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>YLW_WebService.ServerSide</RootNamespace>
+    <AssemblyName>ServerService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\..\YLW_Service\YLWService\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\YLW_Service\YLWService\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="YLWService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\YLW_Service\YLWService\bin\Debug\YLWService.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RptAdjSLRptEDISSL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DlgAdjSLSurvRptLina.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDmg1528.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDmg1527.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDmg1526.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDmg1525.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDmg.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDBLife.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersDBLoss.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersMGLossSmpl.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersMGLoss.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersHyundai.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersHeungkuk.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersMeritz.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoodsN.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoodsN_HD.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptLiabilityGoods.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptLiabilityGoods_HD.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Building.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Head2.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Head3.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Head.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Object.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Head3.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Head2.cs" />
+    <Compile Include="RptAdjSLXSaveReport.cs" />
+    <Compile Include="RptAdjSLRptMain.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPersMid.cs" />
+    <Compile Include="RptAdjSLRptSurvRptPers.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods2.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods2_Head.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods2_Object.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods2_Tail.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods2.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods2NH_S.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods2_Head.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods2_Object.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods2_Tail.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoodsNH_S.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Building.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Head.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Object.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Tail.cs" />
+    <Compile Include="RptAdjSLSurvMidRptLiabilityGoods.cs" />
+    <Compile Include="RptAdjSLSurvMidRptLiabilityGoodsNH_S.cs" />
+    <Compile Include="RptAdjSLSurvMidRptLiabilityPers.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods.cs" />
+    <Compile Include="RptAdjSLSurvMidRptLiabilityPersNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2KB_S.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2NH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB_Building.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB_Object.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsDB_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S_Building.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S_Object.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsKB_S_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods_Building.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods_Head.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods_Object.cs" />
+    <Compile Include="RptAdjSLSurvDmgRptGoods_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Building.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Object.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_S_Building.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_S_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_S_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoodsNH_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2_Object.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods2_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityDB.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityDB_Goods.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityDB_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityDB_Pers.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityDB_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityPersKB.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptGoods2.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptGoods2NH_S.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptGoodsDB.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityDB.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoodsNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoodsNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoodsNH.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityPersNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityPersNH_S.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityPersNH.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptGoods.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods_Building.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods_Inventory.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods_Object.cs" />
+    <Compile Include="RptAdjSLSurvRptGoods_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityPers.cs" />
+    <Compile Include="RptUtils.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
