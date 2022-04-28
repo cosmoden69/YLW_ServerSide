@@ -19,6 +19,9 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 using YLWService;
 
 namespace YLW_WebService.ServerSide
@@ -29,6 +32,8 @@ namespace YLW_WebService.ServerSide
 
         public Response RptMain(ReportParam para, ref string rptPath, ref string rptName)
         {
+            Alert.WriteHist("RptMain", JsonConvert.SerializeObject(para));
+
             if (para.ReportName == "SaveReport")   //저장된 리포트를 반환
             {
                 RptAdjSLXSaveReport rpt = new RptAdjSLXSaveReport(myPath);
