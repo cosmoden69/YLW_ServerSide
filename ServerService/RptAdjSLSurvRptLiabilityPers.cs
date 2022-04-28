@@ -628,7 +628,7 @@ namespace YLW_WebService.ServerSide
                         {
                             rUtil.ReplaceTableRow(oRow, "@B7ExpsLosReq7@", Utils.AddComma(dReq));
                             rUtil.ReplaceTableRow(oRow, "@B7ExpsLosAmt7@", Utils.AddComma(dAmt));
-                            rUtil.ReplaceTableRow(oRow, "@B7/*ExpsCmnt7*/@", sExpsCmnt);
+                            rUtil.ReplaceTableRow(oRow, "@B7ExpsCmnt7@", sExpsCmnt);
                             rUtil.ReplaceTableRow(oRow, "@B7ExpsBss7@", sExpsBss);
                         }
 
