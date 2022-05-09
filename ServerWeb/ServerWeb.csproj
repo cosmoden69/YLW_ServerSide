@@ -318,15 +318,9 @@
     <Content Include="bin\보고서\RptAdjSLRptSurvRptPersMid.docx" />
     <None Include="bin\보고서\RptAdjSLRptSurvRptPersMid.xsd" />
     <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.docx" />
-    <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.xsc">
-      <DependentUpon>출력설계_1511_서식_종결보고서_표준.xsd</DependentUpon>
-    </Content>
     <None Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.xsd" />
     <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준_Image.docx" />
     <Content Include="bin\보고서\출력설계_1511_서식_중간보고서_표준.docx" />
-    <Content Include="bin\보고서\출력설계_1511_서식_종결보고서_표준.xss">
-      <DependentUpon>출력설계_1511_서식_종결보고서_표준.xsd</DependentUpon>
-    </Content>
     <None Include="bin\보고서\출력설계_1511_서식_중간보고서_표준.xsd" />
     <Content Include="bin\보고서\출력설계_1511_서식_중간보고서_표준_Image.docx" />
     <Content Include="bin\보고서\출력설계_1511_정의_종결보고서_표준.docx" />
