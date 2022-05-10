@@ -243,7 +243,7 @@ namespace YLW_WebService.ServerSide
                                 db1SelfBearAmt += Utils.ToDouble(sValue);
                                 sValue = Utils.AddComma(sValue);
                             }
-                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto")
+                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
                                 {
