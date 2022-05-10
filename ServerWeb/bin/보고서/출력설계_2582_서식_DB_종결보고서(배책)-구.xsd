@@ -8,7 +8,7 @@
               <xs:sequence>
                 <xs:element name="LasRprtNo" type="xs:string" minOccurs="0" />
                 <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
-	            <xs:element name="LeadAdjusterr" type="xs:string" minOccurs="0" />
+	              <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnEmpNm" type="xs:string" minOccurs="0" />
                 <xs:element name="DeptName" type="xs:string" minOccurs="0" />

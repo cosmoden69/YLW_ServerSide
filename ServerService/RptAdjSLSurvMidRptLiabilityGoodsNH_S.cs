@@ -207,7 +207,7 @@ namespace YLW_WebService.ServerSide
                             //if (col.ColumnName == "ObjSelfBearAmt") sValue = Utils.AddComma(sValue);
                             if (col.ColumnName == "AcdtDt") sValue = Utils.DateFormat(sValue, "yyyy년 MM월 dd일");
                             if (col.ColumnName == "AcdtTm") sValue = Utils.TimeConv(sValue, ":", "SHORT");
-                            if (col.ColumnName == "LeadAdjusterr") sValue = Utils.Adjuster(sValue);
+                            if (col.ColumnName == "LeadAdjuster") sValue = Utils.Adjuster(sValue);
                             if (col.ColumnName == "ChrgAdjuster") sValue = Utils.Adjuster(sValue);
                             if (col.ColumnName == "CclsExptDt") sValue = Utils.DateFormat(sValue, "yyyy년 MM월 dd일");
 
@@ -220,7 +220,7 @@ namespace YLW_WebService.ServerSide
                             if (col.ColumnName == "DoNglgBearAmt") sValue = Utils.AddComma(sValue);
                             if (col.ColumnName == "DoSelfBearAmt") sValue = Utils.AddComma(sValue);
                             if (col.ColumnName == "DoGivInsurAmt") sValue = Utils.AddComma(sValue);
-                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto")
+                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
                                 {

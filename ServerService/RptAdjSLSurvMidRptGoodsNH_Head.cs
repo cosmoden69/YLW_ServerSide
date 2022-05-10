@@ -269,7 +269,7 @@ namespace YLW_WebService.ServerSide
                             if (col.ColumnName == "MidRptSbmsDt") sValue = Utils.DateFormat(sValue, "yyyy. MM. dd.");
                             if (col.ColumnName == "LasRptSbmsDt") sValue = Utils.DateFormat(sValue, "yyyy. MM. dd.");
                             if (col.ColumnName == "GivObjInsurAmt") sValue = Utils.AddComma(sValue);
-                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto")
+                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
                                 {

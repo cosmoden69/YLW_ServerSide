@@ -27,7 +27,7 @@
                 <xs:element name="AcdtAddress" type="xs:string" minOccurs="0" />
                 <xs:element name="DmobNm" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausNm" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjusterr" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnEmpNm" type="xs:string" minOccurs="0" />
                 <xs:element name="UMJpName" type="xs:string" minOccurs="0" />
@@ -111,6 +111,7 @@
                 <xs:element name="DoGivInsurReq" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DoGivInsurAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="Vitm" type="xs:string" minOccurs="0" />
                 <xs:element name="VitmNm" type="xs:string" minOccurs="0" />

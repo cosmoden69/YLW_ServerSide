@@ -26,7 +26,7 @@
                 <xs:element name="AcdtCausCatg2" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg3" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatgS" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjusterr" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnEmpNm" type="xs:string" minOccurs="0" />
                 <xs:element name="EmpPhone" type="xs:string" minOccurs="0" />
