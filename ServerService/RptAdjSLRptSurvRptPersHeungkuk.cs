@@ -259,7 +259,7 @@ namespace YLW_WebService.ServerSide
                                     sValue = "(" + sValue + ")";
                                 }
                             }
-                            if (col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "SealPhotoLead" || col.ColumnName == "SealPhotoEmp")
+                            if (col.ColumnName == "LeadAdjPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "SealPhotoLead" || col.ColumnName == "SealPhotoEmp")
                             {
                                 try
                                 {

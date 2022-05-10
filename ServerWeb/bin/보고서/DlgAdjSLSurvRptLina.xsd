@@ -30,7 +30,7 @@
                 <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
                 <xs:element name="Insured" type="xs:string" minOccurs="0" />
                 <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjusterr" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnTeamLeadName" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnTeamLeadOP" type="xs:string" minOccurs="0" />
@@ -49,6 +49,7 @@
                 <xs:element name="OthContractCalcRsltYn" type="xs:string" minOccurs="0" />
                 <xs:element name="SealPhotoLead" type="xs:string" minOccurs="0" />
                 <xs:element name="SealPhotoEmp" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>

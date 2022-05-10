@@ -249,7 +249,7 @@ namespace YLW_WebService.ServerSide
                             if (col.ColumnName == "AcdtTm") sValue = Utils.TimeFormat(sValue, "HH:mm");
                             if (col.ColumnName == "LeadAdjuster") sValue = Utils.Adjuster(sValue);
                             if (col.ColumnName == "ChrgAdjuster") sValue = Utils.Adjuster(sValue);
-                            if (col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "SealPhotoLead" || col.ColumnName == "SealPhotoEmp")
+                            if (col.ColumnName == "LeadAdjPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "SealPhotoLead" || col.ColumnName == "SealPhotoEmp")
                             {
                                 try
                                 {
