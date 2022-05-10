@@ -284,7 +284,7 @@ namespace YLW_WebService.ServerSide
                             if (col.ColumnName == "EmpCellPhone") sValue = (sValue == "" ? "" : Utils.TelNumber(sValue));
                             if (col.ColumnName == "MonSellAmt") sValue = Utils.AddComma(sValue);
                             if (col.ColumnName == "VitmTel") sValue = (sValue == "" ? "-" : sValue);
-                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto")
+                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
                                 {

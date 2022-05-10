@@ -87,6 +87,8 @@
                 <xs:element name="Owner" type="xs:string" minOccurs="0" />
                 <xs:element name="OwnerJpName" type="xs:string" minOccurs="0" />
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpPrbm" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpNxtPlan" type="xs:string" minOccurs="0" />
                 <xs:element name="CclsExptDt" type="xs:string" minOccurs="0" />
@@ -121,7 +123,7 @@
                 <xs:element name="IsrtRegno1" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrtRegno2" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrtTel" type="xs:string" minOccurs="0" />
-	            <xs:element name="DoFixReq" type="xs:decimal" minOccurs="0" />
+	            	<xs:element name="DoFixReq" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DoFixAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DoFixCmnt" type="xs:string" minOccurs="0" />
                 <xs:element name="DoFixBss" type="xs:string" minOccurs="0" />
