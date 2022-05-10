@@ -131,7 +131,9 @@ namespace YLW_WebService.ServerSide
                             sValue = dr[col] + "";
                             if (col.ColumnName == "EmpCellPhone") sValue = (sValue == "" ? "" : Utils.TelNumber(sValue));
                             if (col.ColumnName == "EmpEmail") sValue = (sValue == "" ? "" : sValue);
-                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto")
+                            if (col.ColumnName == "LeadAdjuster") sValue = Utils.Adjuster(sValue);
+                            if (col.ColumnName == "ChrgAdjuster") sValue = Utils.Adjuster(sValue);
+                            if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
                                 {
