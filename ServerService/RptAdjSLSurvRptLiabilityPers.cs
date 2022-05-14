@@ -261,8 +261,8 @@ namespace YLW_WebService.ServerSide
                             if (col.ColumnName == "IsrtTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue));
                             if (col.ColumnName == "IsrdTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue));
                             if (col.ColumnName == "VitmTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue));
-                            if (col.ColumnName == "ExpsLosAmtTot1") if (sValue != "") {sValue = Utils.ConvertToString(Utils.AddComma(sValue)) + "￦"; }
-                            if (col.ColumnName == "ExpsLosAmtTot2") if (sValue != "") { sValue = Utils.ConvertToString(Utils.AddComma(sValue)) + "￦"; }
+                            if (col.ColumnName == "ExpsLosAmtTot1") if (sValue != "") {sValue = "￦" + Utils.ConvertToString(Utils.AddComma(sValue)); }
+                            if (col.ColumnName == "ExpsLosAmtTot2") if (sValue != "") { sValue = "￦" + Utils.ConvertToString(Utils.AddComma(sValue)); }
                             if (col.ColumnName == "SealPhoto" || col.ColumnName == "ChrgAdjPhoto" || col.ColumnName == "LeadAdjPhoto")
                             {
                                 try
