@@ -412,7 +412,10 @@ namespace YLW_WebService.ServerSide
 
 
                                 }
-                                tmp += (tmp != "" ? "\n" : "") + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                                if (Utils.ConvertToString(dr["InsurObjDvs"]) != "")
+                                {
+                                    tmp += "\n" + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                                }
                             }
                         }
                     }

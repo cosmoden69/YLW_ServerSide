@@ -330,7 +330,10 @@ namespace YLW_WebService.ServerSide
                         }
                         rUtil.ReplaceTables(lstTable, "@db6ObjSelfBearAmt@", Utils.AddComma(db6ObjSelfBearAmt));
 
-                        tmp += (tmp != "" ? "\n" : "") + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                        if (Utils.ConvertToString(dr["InsurObjDvs"]) != "")
+                        {
+                            tmp += "\n" + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                        }
                         rUtil.ReplaceTables(lstTable, "@db6ObjStrtRmk@", tmp);
                     }
 

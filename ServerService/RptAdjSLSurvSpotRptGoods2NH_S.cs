@@ -474,7 +474,10 @@ namespace YLW_WebService.ServerSide
                                     //rUtil.ReplaceTableRow(oTblF_2Row, sKey, sValue);
                                     //rUtil.ReplaceTableRow(oTblF_3Row, sKey, sValue);
                                 }
-                                tmp += (tmp != "" ? "\n" : "") + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                                if (Utils.ConvertToString(dr["InsurObjDvs"]) != "")
+                                {
+                                    tmp += "\n" + dr["InsurObjDvs"] + "/" + dr["ObjStrt"];
+                                }
                             }
                         }
                     }
