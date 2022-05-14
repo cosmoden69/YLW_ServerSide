@@ -76,6 +76,8 @@ namespace YLW_WebService.ServerSide
                     pds.ReadXml(xmlReader);
                 }
 
+                int headpage = 0;
+
                 string sSampleDocx = myPath + @"\보고서\출력설계_2531_서식_중간보고서(재물)_Head.docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
                 RptAdjSLSurvMidRptGoods_Head toHead = new RptAdjSLSurvMidRptGoods_Head();
@@ -84,6 +86,47 @@ namespace YLW_WebService.ServerSide
                 {
                     return new Response() { Result = -1, Message = sRet };
                 }
+
+                DataRow[] drs = null;
+                drs = pds.Tables["DataBlock3"]?.Select("ObjCatgCd % 10 = 1");
+                if (drs.Length > 0)  //건물
+                {
+                    sSampleDocx = myPath + @"\보고서\출력설계_2531_서식_중간보고서(재물)_Head_Building.docx";
+                    sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                    RptAdjSLSurvMidRptGoods_Head_Building toWord = new RptAdjSLSurvMidRptGoods_Head_Building();
+                    sRet = toWord.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile);
+                    if (sRet != "")
+                    {
+                        return new Response() { Result = -1, Message = sRet };
+                    }
+                    addFiles.Add(sSampleAddFile);
+                    headpage++;
+                }
+                drs = pds.Tables["DataBlock3"]?.Select("ObjCatgCd % 10 = 3");
+                if (drs.Length > 0)  //기계
+                {
+                    sSampleDocx = myPath + @"\보고서\출력설계_2531_서식_중간보고서(재물)_Head_Machine.docx";
+                    sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                    RptAdjSLSurvMidRptGoods_Head_Machine toWord = new RptAdjSLSurvMidRptGoods_Head_Machine();
+                    sRet = toWord.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile);
+                    if (sRet != "")
+                    {
+                        return new Response() { Result = -1, Message = sRet };
+                    }
+                    addFiles.Add(sSampleAddFile);
+                    headpage++;
+                }
+
+                sSampleDocx = myPath + @"\보고서\출력설계_2531_서식_중간보고서(재물)_Head_Tail.docx";
+                sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                RptAdjSLSurvMidRptGoods_Head_Tail toHTail = new RptAdjSLSurvMidRptGoods_Head_Tail();
+                sRet = toHTail.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile);
+                if (sRet != "")
+                {
+                    return new Response() { Result = -1, Message = sRet };
+                }
+                addFiles.Add(sSampleAddFile);
+                headpage++;
 
                 string[] arryStartWord = new string[] { "가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하", "가가", "가나", "가다", "가라", "가마", "가바", "가사", "가아", "가자", "가차", "가카", "가타", "가파", "가하" };
 
@@ -167,14 +210,13 @@ namespace YLW_WebService.ServerSide
                 }
                 addFiles.Add(sSampleAddFile);
 
-
                 //DOCX 파일합치기 
                 WordprocessingDocument wdoc = WordprocessingDocument.Open(sSample1Relt, true);
                 MainDocumentPart mainPart = wdoc.MainDocumentPart;
                 for (int ii = 0; ii < addFiles.Count; ii++)
                 {
                     string addFile = addFiles[ii];
-                    RptUtils.AppendFile(mainPart, addFile, (ii > 0 ? true : false));
+                    RptUtils.AppendFile(mainPart, addFile, (ii != headpage ? true : false));
                     Utils.DeleteFile(addFile);
                 }
                 mainPart.Document.Save();

@@ -109,6 +109,9 @@
     <Compile Include="RptAdjSLSurvMidRptGoodsNH_Inventory.cs" />
     <Compile Include="RptAdjSLSurvMidRptGoodsNH_Object.cs" />
     <Compile Include="RptAdjSLSurvMidRptGoodsNH_Tail.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Head_Tail.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Head_Machine.cs" />
+    <Compile Include="RptAdjSLSurvMidRptGoods_Head_Building.cs" />
     <Compile Include="RptAdjSLSurvRptGoodsNH_Head3.cs" />
     <Compile Include="RptAdjSLSurvRptGoodsNH_Head2.cs" />
     <Compile Include="RptAdjSLSurvRptGoods_Head_Tail.cs" />
