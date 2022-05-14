@@ -407,6 +407,9 @@
     <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Head.docx" />
     <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Inventory.docx" />
     <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Object.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Head_Building.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Head_machine.docx" />
+    <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Head_Tail.docx" />
     <None Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Object.xsd" />
     <Content Include="bin\보고서\출력설계_2551_서식_종결보고서%28재물%29_Tail.docx" />
     <Content Include="bin\보고서\출력설계_2551_정의_종결보고서%28재물%29.docx" />

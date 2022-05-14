@@ -58,10 +58,6 @@ namespace YLW_WebService.ServerSide
                     Table oTbl타보험계약사항_공백 = rUtil.GetTable(lstTable, "@db6OthInsurCoEmpty@");
                     Table oTbl피보험자관련사항 = rUtil.GetTable(lstTable, "@B2IsrdRentCtrt@");
                     Table oTbl목적물현황 = rUtil.GetTable(lstTable, "@B3ObjPrsCndt@");
-                    Table oTbl건물현황및배치도 = rUtil.GetTable(lstTable, "@B7AcdtPictImage@");
-                    Table oTbl기계배치도 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@");
-                    Table oTbl사고내용 = rUtil.GetTable(lstTable, "@B1AcdtDtTm@");
-                    Table oTbl손해상황 = rUtil.GetTable(lstTable, "@B15AcdtPictImage@");
                     Table oTblA = rUtil.GetTable(lstTable, "@B1GivInsurCalcBrdn@");
                     TableRow oTblARow = rUtil.GetTableRow(oTblA?.Elements<TableRow>(), "@B17InsurGivObj@");
                     Table oTbl보험금지급처 = oTblARow?.GetCell(0).Elements<Table>().FirstOrDefault();
@@ -103,26 +99,6 @@ namespace YLW_WebService.ServerSide
                             //테이블의 중간에 삽입
                             rUtil.TableInsertRow(oTableD, 1, drs.Length - 1);
                         }
-
-                        //3.일반사항 - 다.건물현황 및 배치도
-                        Table oTableE = rUtil.GetSubTable(oTbl건물현황및배치도, "@B4ObjSymb_12@");
-                        if (oTableE != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTableE, 1, drs.Length - 1);
-                        }
-                    }
-
-                    //3.일반사항 - 라.기계배치도
-                    drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 3 OR ObjCatgCd % 10 = 4");
-                    if (drs != null && drs.Length > 0)
-                    {
-                        Table oTableF = rUtil.GetSubTable(oTbl기계배치도, "@B4ObjSymb_13@");
-                        if (oTableF != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTableF, 1, drs.Length - 1);
-                        }
                     }
 
                     dtB = pds.Tables["DataBlock6"];
@@ -143,78 +119,6 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                         
-                    }
-
-                    dtB = pds.Tables["DataBlock7"];
-                    if (dtB != null)
-                    {
-                        //3.일반사항 - 다.건물현황 및 배치도
-                        Table oTableG = rUtil.GetSubTable(oTbl건물현황및배치도, "@B7AcdtPictImage@");
-                        if (oTableG != null)
-                        {
-                            //테이블의 중간에 추가
-                            rUtil.TableInsertRows(oTableG, 0, 2, dtB.Rows.Count - 1);
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock12"];
-                    if (dtB != null)
-                    {
-                        Table oTableH = rUtil.GetSubTable(oTbl건물현황및배치도, "@B12AcdtPictImage@");
-                        if (oTableH != null)
-                        {
-                            //테이블의 끝에 추가
-                            double cnt = Math.Truncate((dtB.Rows.Count + 2) / 3.0);
-                            for (int i = 1; i < cnt; i++)
-                            {
-                                rUtil.TableAddRow(oTableH, 0, 1);
-                                rUtil.TableAddRow(oTableH, 1, 1);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock13"];
-                    if (dtB != null)
-                    {
-                        Table oTableI = rUtil.GetSubTable(oTbl기계배치도, "@B13AcdtPictImage@");
-                        if (oTableI != null)
-                        {
-                            //테이블의 중간에 추가
-                            rUtil.TableInsertRows(oTableI, 0, 2, dtB.Rows.Count - 1);
-                        }
-                    }
-
-
-                    dtB = pds.Tables["DataBlock14"];
-                    if (dtB != null)
-                    {
-                        Table oTableJ = rUtil.GetSubTable(oTbl사고내용, "@B14AcdtPictImage@");
-                        if (oTableJ != null)
-                        {
-                            //테이블의 끝에 추가
-                            double cnt = Math.Truncate((dtB.Rows.Count + 1) / 2.0);
-                            for (int i = 1; i < cnt; i++)
-                            {
-                                rUtil.TableAddRow(oTableJ, 0, 1);
-                                rUtil.TableAddRow(oTableJ, 1, 1);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock15"];
-                    sPrefix = "B15";
-                    if (dtB != null)
-                    {
-                        if (oTbl손해상황 != null)
-                        {
-                            //테이블의 끝에 추가
-                            double cnt = Math.Truncate((dtB.Rows.Count + 1) / 2.0);
-                            for (int i = 1; i < cnt; i++)
-                            {
-                                rUtil.TableAddRow(oTbl손해상황, 1, 1);
-                                rUtil.TableAddRow(oTbl손해상황, 2, 1);
-                            }
-                        }
                     }
 
                     dtB = pds.Tables["DataBlock17"];
@@ -247,10 +151,6 @@ namespace YLW_WebService.ServerSide
                     Table oTbl타보험계약사항_공백 = rUtil.GetTable(lstTable, "@db6OthInsurCoEmpty@");
                     Table oTbl피보험자관련사항 = rUtil.GetTable(lstTable, "@B2IsrdRentCtrt@");
                     Table oTbl목적물현황 = rUtil.GetTable(lstTable, "@B3ObjPrsCndt@");
-                    Table oTbl건물현황및배치도 = rUtil.GetTable(lstTable, "@B7AcdtPictImage@");
-                    Table oTbl기계배치도 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@");
-                    Table oTbl사고내용 = rUtil.GetTable(lstTable, "@B1AcdtDtTm@");
-                    Table oTbl손해상황 = rUtil.GetTable(lstTable, "@B15AcdtPictImage@");
                     Table oTblA = rUtil.GetTable(lstTable, "@B1GivInsurCalcBrdn@");
                     TableRow oTblARow = rUtil.GetTableRow(oTblA?.Elements<TableRow>(), "@B17InsurGivObj@");
                     Table oTbl보험금지급처 = oTblARow?.GetCell(0).Elements<Table>().FirstOrDefault();
@@ -258,12 +158,6 @@ namespace YLW_WebService.ServerSide
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
                     Table oTableC = rUtil.GetSubTable(oTbl보험계약사항, "@B3ObjSymb@");             //2.보험계약사항 - 보험목적물 및 보험가입금액
                     Table oTableD = rUtil.GetSubTable(oTbl피보험자관련사항, "@B4InsurObjNm@");      //3.일반사항 - 가.피보험자 관련사항
-                    Table oTableE = rUtil.GetSubTable(oTbl건물현황및배치도, "@B4ObjSymb_12@");      //3.일반사항 - 다.건물현황 및 배치도
-                    Table oTableF = rUtil.GetSubTable(oTbl기계배치도, "@B4ObjSymb_13@");            //3.일반사항 - 라.기계배치도
-                    Table oTableG = rUtil.GetSubTable(oTbl건물현황및배치도, "@B7AcdtPictImage@");   //3.일반사항 - 다.건물현황 및 배치도
-                    Table oTableH = rUtil.GetSubTable(oTbl건물현황및배치도, "@B12AcdtPictImage@");
-                    Table oTableI = rUtil.GetSubTable(oTbl기계배치도, "@B13AcdtPictImage@");
-                    Table oTableJ = rUtil.GetSubTable(oTbl사고내용, "@B14AcdtPictImage@");
 
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
@@ -457,57 +351,6 @@ namespace YLW_WebService.ServerSide
                     }
                     rUtil.ReplaceTableRow(oTableD.GetRow(drs.Length + 1), "@db4ObjArea@", Utils.AddComma(db4ObjArea));
 
-                    //건물현황 및 배치도
-                    drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
-                    sPrefix = "B4";
-                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock4"].Rows.Add() };
-                    if (drs != null && drs.Length > 0)
-                    {
-                        if (oTableE != null)
-                        {
-                            for (int i = 0; i < drs.Length; i++)
-                            {
-                                DataRow dr = drs[i];
-                                foreach (DataColumn col in dr.Table.Columns)
-                                {
-                                    sKey = "@B4" + col.ColumnName + "_12@";
-                                    sValue = dr[col] + "";
-                                    if (col.ColumnName == "ObjSymb") sValue = sValue.Replace(",", "");
-                                    if (col.ColumnName == "ObjArea") sValue = Utils.AddComma(sValue);
-                                    if (col.ColumnName == "ObjInsurRegsFg")
-                                    {
-                                        if (sValue == "1") { sValue = "가입"; }
-                                        else { sValue = "미가입"; }
-                                    }
-                                    rUtil.ReplaceTableRow(oTableE.GetRow(i + 1), sKey, sValue);
-                                }
-                            }
-                        }
-                    }
-
-                    //기계 배치도
-                    drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 3 OR ObjCatgCd % 10 = 4");
-                    sPrefix = "B4";
-                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock4"].Rows.Add() };
-                    if (drs != null && drs.Length > 0)
-                    {
-                        if (oTableF != null)
-                        {
-                            for (int i = 0; i < drs.Length; i++)
-                            {
-                                DataRow dr = drs[i];
-                                foreach (DataColumn col in dr.Table.Columns)
-                                {
-                                    sKey = "@B4" + col.ColumnName + "_13@";
-                                    sValue = dr[col] + "";
-                                    if (col.ColumnName == "ObjSymb") sValue = sValue.Replace(",", "");
-                                    if (col.ColumnName == "ObjArea") sValue = Utils.AddComma(sValue);
-                                    rUtil.ReplaceTableRow(oTableF.GetRow(i + 1), sKey, sValue);
-                                }
-                            }
-                        }
-                    }
-
                     dtB = pds.Tables["DataBlock6"];
                     sPrefix = "B6";
                     if (dtB != null)
@@ -538,177 +381,6 @@ namespace YLW_WebService.ServerSide
                         }
                     }
                     
-                    
-
-                    dtB = pds.Tables["DataBlock7"];
-                    sPrefix = "B7";
-                    if (dtB != null)
-                    {
-                        if (oTableG != null)
-                        {
-                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                            for (int i = 0; i < dtB.Rows.Count; i++)
-                            {
-                                DataRow dr = dtB.Rows[i];
-                                int rnum = (int)Math.Truncate(i / 1.0) * 2;
-                                int rmdr = i % 1;
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                                sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTableG.GetRow(rnum);
-                                rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
-                                try
-                                {
-                                    Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 4000000L);
-                                }
-                                catch { }
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
-                                sValue = dr["AcdtPictCnts"] + "";
-                                TableRow xrow2 = oTableG.GetRow(rnum + 1);
-                                rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock12"];
-                    sPrefix = "B12";
-                    if (dtB != null)
-                    {
-                        if (oTableH != null)
-                        {
-                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                            if (dtB.Rows.Count % 3 != 0)
-                            {
-                                if (dtB.Rows.Count % 3 >= 1) dtB.Rows.Add();  //두번째 칸을 클리어 해주기 위해서 추가
-                                if (dtB.Rows.Count % 3 >= 2) dtB.Rows.Add();  //세번째 칸을 클리어 해주기 위해서 추가
-                            }
-                            for (int i = 0; i < dtB.Rows.Count; i++)
-                            {
-                                DataRow dr = dtB.Rows[i];
-                                int rnum = (int)Math.Truncate(i / 3.0) * 2;
-                                int rmdr = i % 3;
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                                sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTableH.GetRow(rnum);
-                                rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
-                                try
-                                {
-                                    Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 2000000L, 1400000L);
-                                }
-                                catch { }
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
-                                sValue = dr["AcdtPictCnts"] + "";
-                                TableRow xrow2 = oTableH.GetRow(rnum + 1);
-                                rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock13"];
-                    sPrefix = "B13";
-                    if (dtB != null)
-                    {
-                        if (oTableI != null)
-                        {
-                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                            for (int i = 0; i < dtB.Rows.Count; i++)
-                            {
-                                DataRow dr = dtB.Rows[i];
-                                int rnum = (int)Math.Truncate(i / 1.0) * 2;
-                                int rmdr = i % 1;
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                                sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTableI.GetRow(rnum);
-                                rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
-                                try
-                                {
-                                    Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 4000000L);
-                                }
-                                catch { }
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
-                                sValue = dr["AcdtPictCnts"] + "";
-                                TableRow xrow2 = oTableI.GetRow(rnum + 1);
-                                rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock14"];
-                    sPrefix = "B14";
-                    if (dtB != null)
-                    {
-                        if (oTableJ != null)
-                        {
-                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                            if (dtB.Rows.Count % 2 == 1) dtB.Rows.Add();  //두번째 칸을 클리어 해주기 위해서 추가
-                            for (int i = 0; i < dtB.Rows.Count; i++)
-                            {
-                                DataRow dr = dtB.Rows[i];
-                                int rnum = (int)Math.Truncate(i / 2.0) * 2;
-                                int rmdr = i % 2;
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                                sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTableJ.GetRow(rnum);
-                                rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
-                                try
-                                {
-                                    Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 2500000L, 2000000L);
-                                }
-                                catch { }
-
-                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
-                                sValue = dr["AcdtPictCnts"] + "";
-                                TableRow xrow2 = oTableJ.GetRow(rnum + 1);
-                                rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
-                            }
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock15"];
-                    sPrefix = "B15";
-                    if (dtB != null)
-                    {
-                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                        if (dtB.Rows.Count % 2 == 1) dtB.Rows.Add();  //두번째 칸을 클리어 해주기 위해서 추가
-                        for (int i = 0; i < dtB.Rows.Count; i++)
-                        {
-                            DataRow dr = dtB.Rows[i];
-                            int rnum = (int)Math.Truncate(i / 2.0) * 2 + 1;
-                            int rmdr = i % 2 + 1;
-
-                            TableRow xrow1 = oTbl손해상황.GetRow(rnum);
-
-                            sKey = rUtil.GetFieldName(sPrefix, "ObjNm");
-                            sValue = dr["ObjNm"] + "";
-                            rUtil.SetText(xrow1.GetCell(0), sKey, sValue);
-
-                            sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                            sValue = dr["AcdtPictImage"] + "";
-                            rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
-                            try
-                            {
-                                Image img = Utils.stringToImage(sValue);
-                                rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 2700000L, 2000000L);
-                            }
-                            catch { }
-
-                            sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
-                            sValue = dr["AcdtPictCnts"] + "";
-                            TableRow xrow2 = oTbl손해상황.GetRow(rnum + 1);
-                            rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
-                        }
-                    }
-
                     dtB = pds.Tables["DataBlock17"];
                     sPrefix = "B17";
                     if (dtB != null)
