@@ -203,7 +203,7 @@ namespace YLW_WebService.ServerSide
                                 {
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
-                                    //if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" ? "1" : sValue) + "부";
+                                    //if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" || sValue == "0" ? "1" : sValue) + "부";
                                     if (col.ColumnName == "RmnObjCnt") sValue = Utils.AddComma(sValue); //수량
                                     if (col.ColumnName == "AuctFrDt") sValue = Utils.DateConv(sValue, "."); //경매기간Fr
                                     if (col.ColumnName == "AuctToDt") sValue = Utils.DateConv(sValue, "."); //경매기간To
@@ -232,7 +232,7 @@ namespace YLW_WebService.ServerSide
                                 {
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
-                                    if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" ? "1" : sValue) + "부";
+                                    if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" || sValue == "0" ? "1" : sValue) + "부";
                                     rUtil.ReplaceTableRow(oTable.GetRow(i + 1), sKey, sValue);
                                 }
                             }

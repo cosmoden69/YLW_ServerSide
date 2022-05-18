@@ -203,7 +203,7 @@ namespace YLW_WebService.ServerSide
                                 {
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
-                                    if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" ? "1" : sValue) + "부";
+                                    if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" || sValue == "0" ? "1" : sValue) + "부";
                                     rUtil.ReplaceTableRow(oTable.GetRow(i + 1), sKey, sValue);
                                 }
                             }
