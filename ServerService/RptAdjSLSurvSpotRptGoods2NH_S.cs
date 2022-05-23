@@ -315,7 +315,7 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
-                    
+
                     //Table oTblA = rUtil.GetTable(lstTable, "@B3ObjRmnAmt@"); // 1. 총괄표
                     //TableRow oTblARow = rUtil.GetTableRow(oTblA?.Elements<TableRow>(), "@db3ObjLosAmt@");
 
@@ -377,11 +377,13 @@ namespace YLW_WebService.ServerSide
                                 catch { }
                                 continue;
                             }
+                            
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
                     }
+                    
 
                     dtB = pds.Tables["DataBlock2"];
                     sPrefix = "B2";

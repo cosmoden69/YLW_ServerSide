@@ -35,6 +35,10 @@
                 <xs:element name="SealPhotoEmp" type="xs:string" minOccurs="0" />
                 <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

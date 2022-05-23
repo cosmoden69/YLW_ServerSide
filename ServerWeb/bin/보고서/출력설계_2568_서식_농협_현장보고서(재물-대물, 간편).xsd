@@ -75,6 +75,10 @@
                 <xs:element name="FldRptSbmsDt" type="xs:string" minOccurs="0" />
                 <xs:element name="MidRptSbmsDt" type="xs:string" minOccurs="0" />
                 <xs:element name="AcptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
