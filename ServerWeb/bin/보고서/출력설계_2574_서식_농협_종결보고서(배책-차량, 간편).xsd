@@ -133,6 +133,10 @@
                 <xs:element name="MonSellAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="IsrdChrg" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

@@ -119,6 +119,7 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
+                    Table oTbl표지 = rUtil.GetTable(lstTable, "@B1CclsExptDt@");
                     Table oTbl총괄표 = rUtil.GetTable(lstTable, "@db3ObjInsurRegsAmt@");
                     Table oTbl보험계약사항 = rUtil.GetTable(lstTable, "@B2InsurPrdt@");
                     Table oTbl타보험계약사항 = rUtil.GetTable(lstTable, "@B6OthInsurCo@");
@@ -149,6 +150,8 @@ namespace YLW_WebService.ServerSide
                     oTblRow = rUtil.GetTableRow(oTblA?.Elements<TableRow>(), sKey);
                     Table oTableA = oTblRow?.GetCell(1).Elements<Table>().FirstOrDefault();
 
+                    var db1SurvAsgnEmpManRegNo = ""; //조사자 손해사정등록번호
+                    var db1SurvAsgnEmpAssRegNo = ""; //조사자 보조인 등록번호
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
                     if (dtB != null)
@@ -193,10 +196,39 @@ namespace YLW_WebService.ServerSide
                             //    catch { }
                             //    continue;
                             //}
+                            if (col.ColumnName == "LeadAdjManRegNo")
+                            {
+                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                            }
+                            if (col.ColumnName == "ChrgAdjManRegNo")
+                            {
+                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                            }
+                            if (col.ColumnName == "SurvAsgnEmpManRegNo")
+                            {
+                                if (sValue != "") db1SurvAsgnEmpManRegNo = sValue;
+                            }
+                            if (col.ColumnName == "SurvAsgnEmpAssRegNo")
+                            {
+                                if (sValue != "") db1SurvAsgnEmpAssRegNo = sValue;
+                            }
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
+                    }
+                    if (db1SurvAsgnEmpManRegNo == "")
+                    {
+                        if (db1SurvAsgnEmpAssRegNo != "")
+                        {
+                            db1SurvAsgnEmpAssRegNo = "보조인 등록번호 : 제" + db1SurvAsgnEmpAssRegNo + "호";
+                        }
+                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpAssRegNo);
+                    }
+                    else
+                    {
+                        db1SurvAsgnEmpManRegNo = "손해사정등록번호 : 제" + db1SurvAsgnEmpManRegNo + "호";
+                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpManRegNo);
                     }
 
                     dtB = pds.Tables["DataBlock2"];

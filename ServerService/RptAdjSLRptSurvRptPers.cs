@@ -25,7 +25,7 @@ using YLWService;
 using YLWService.Extensions;
 
 namespace YLW_WebService.ServerSide
-{//음다빈
+{
     public class RptAdjSLRptSurvRptPers
     {
         private string myPath = Application.StartupPath;
@@ -308,7 +308,6 @@ namespace YLW_WebService.ServerSide
                         DataRow dr = dtB.Rows[0];
 
                         sKey = rUtil.GetFieldName(sPrefix, "AcptDt");
-                        //sValue = Utils.PadLeft(dr["AcptDtYear"], 4) + "년 " + Utils.PadLeft(dr["AcptDtMonth"], 2) + "월 " + Utils.PadLeft(dr["AcptDtDays"], 2) + "일";
                         sValue = Utils.PadLeft(dr["AcptDtYear"], 4) + "년" + Utils.PadLeft(dr["AcptDtMonth"], 2) + "월 " + Utils.PadLeft(dr["AcptDtDays"], 2) + "일";
                         rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
 
@@ -318,12 +317,12 @@ namespace YLW_WebService.ServerSide
 
                         foreach (DataColumn col in dtB.Columns)
                         {
-                            if (col.ColumnName == "AcptDtYear") continue;
-                            if (col.ColumnName == "AcptDtMonth") continue;
-                            if (col.ColumnName == "AcptDtDays") continue;
-                            if (col.ColumnName == "LasRptSbmsDtYear") continue;
-                            if (col.ColumnName == "LasRptSbmsDtMonth") continue;
-                            if (col.ColumnName == "LasRptSbmsDtDays") continue;
+                            //if (col.ColumnName == "AcptDtYear") continue;
+                            //if (col.ColumnName == "AcptDtMonth") continue;
+                            //if (col.ColumnName == "AcptDtDays") continue;
+                            //if (col.ColumnName == "LasRptSbmsDtYear") continue;
+                            //if (col.ColumnName == "LasRptSbmsDtMonth") continue;
+                            //if (col.ColumnName == "LasRptSbmsDtDays") continue;
                             sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                             sValue = dr[col] + "";
                             if (col.ColumnName == "MjrCureFrDt") sValue = Utils.DateConv(sValue, ".");

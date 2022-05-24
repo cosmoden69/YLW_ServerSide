@@ -6,7 +6,7 @@
           <xs:element name="DataBlock1" msdata:Locale="">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="DeptName" type="xs:string" minOccurs="0" />
+                 <xs:element name="DeptName" type="xs:string" minOccurs="0" />
                 <xs:element name="EmpWorkAddress" type="xs:string" minOccurs="0" />
                 <xs:element name="DeptFax" type="xs:string" minOccurs="0" />
                 <xs:element name="DeptPhone" type="xs:string" minOccurs="0" />
@@ -22,6 +22,7 @@
                 <xs:element name="AcdtCausCatg1Nm" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg2Nm" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg3Nm" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtCausCatgSNm" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg1" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg2" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg3" type="xs:string" minOccurs="0" />
@@ -46,28 +47,46 @@
                 <xs:element name="AcdtJurdPolcOpni" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtJurdFire" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtJurdFireOpni" type="xs:string" minOccurs="0" />
-                <xs:element name="OthAcdtSurvOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvOpni" type="xs:string" minOccurs="0" />
                 <xs:element name="CltrStpltRspsbBss" type="xs:string" minOccurs="0" />
                 <xs:element name="RgtCpstCnclsRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="RgtCpstOpni" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbBss" type="xs:string" minOccurs="0" />
+                <xs:element name="LegaRspsbSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="CltrStpltRspsbSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNglgBss" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmNglgSrc" type="xs:string" minOccurs="0" />
+                <xs:element name="SharUnraw" type="xs:string" minOccurs="0" />
                 <xs:element name="CompanyName" type="xs:string" minOccurs="0" />
                 <xs:element name="Owner" type="xs:string" minOccurs="0" />
                 <xs:element name="OwnerJpName" type="xs:string" minOccurs="0" />
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
-                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="Vitm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmIsrntRels" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmTel" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAgrmActn" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmReq" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmOthRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvReqDlgtNo" type="xs:string" minOccurs="0" />
                 <xs:element name="PastAcdtCnts" type="xs:string" minOccurs="0" />
-                <xs:element name="CltrStpltRspsbSrc" type="xs:string" minOccurs="0" />
-                <xs:element name="LegaRspsbBss" type="xs:string" minOccurs="0" />
-                <xs:element name="LegaRspsbSrc" type="xs:string" minOccurs="0" />
-                <xs:element name="VitmNglgBss" type="xs:string" minOccurs="0" />
-                <xs:element name="VitmNglgSrc" type="xs:string" minOccurs="0" />
-                <xs:element name="SharUnraw" type="xs:string" minOccurs="0" />
-                <xs:element name="Vitm" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvOpni" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpPrbm" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpNxtPlan" type="xs:string" minOccurs="0" />
+                <xs:element name="FldRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="MidRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="AcptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="MidRprtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="CclsExptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="EstmLosAmtFld" type="xs:string" minOccurs="0" />
+                <xs:element name="EstmLosAmtMid" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -97,7 +116,9 @@
                 <xs:element name="IsrdSbctRels" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdMjrPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdChrg" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdBsnsCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -143,6 +164,7 @@
                 <xs:element name="ObjSelfBearAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="ObjStrtRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjDstcCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="PureLosAmt" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -157,6 +179,7 @@
                 <xs:element name="ObjStrt" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjUsg" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjArea" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ObjLosCnt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="ObjBuyDt" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjInsurRegsFg" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjRmk" type="xs:string" minOccurs="0" />
