@@ -99,6 +99,7 @@
     </Content>
     <Content Include="WebTest.aspx" />
     <Content Include="WebTest1.aspx" />
+    <Content Include="wfOpenRptHsitList.aspx" />
     <Content Include="wfOpenSendSSLImg.aspx" />
     <Content Include="wfOpenSendSSLImg3.aspx" />
     <Content Include="wfOpenSendSSL3.aspx" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="WebTest1.aspx.designer.cs">
       <DependentUpon>WebTest1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfOpenRptHsitList.aspx.cs">
+      <DependentUpon>wfOpenRptHsitList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfOpenRptHsitList.aspx.designer.cs">
+      <DependentUpon>wfOpenRptHsitList.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfOpenSendSSLImg.aspx.cs">
       <DependentUpon>wfOpenSendSSLImg.aspx</DependentUpon>
