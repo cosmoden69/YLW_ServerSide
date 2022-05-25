@@ -25,7 +25,7 @@ using YLWService;
 using YLWService.Extensions;
 
 namespace YLW_WebService.ServerSide
-{
+{//
     public class RptAdjSLRptSurvRptPers
     {
         private string myPath = Application.StartupPath;
