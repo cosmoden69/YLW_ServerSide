@@ -131,7 +131,7 @@ namespace YLW_WebService.ServerSide
                 //StartupPath 경로주의!!
                 rptMain.myPath = HttpContext.Current.Server.MapPath("~/bin");
                 YLWService.Response rsp = rptMain.RptMain(para, ref rptPath, ref rptName);
-                rptName = rptName.Replace("*", "_");  //파일이름에 * 있으면 파일복사시 에러남
+                rptName = rptName.Replace("*", "_");  //파일이름에 * 있으면 파일복사시 에러남 -> '_'로 변경
                 ReportData response = new ReportData() { Response = rsp };
                 if (rsp.Result == 1)
                 {
