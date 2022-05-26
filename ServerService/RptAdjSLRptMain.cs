@@ -27,7 +27,7 @@ using YLWService;
 namespace YLW_WebService.ServerSide
 {
     public class RptAdjSLRptMain
-    {
+    {//인보험
         public string myPath = Application.StartupPath;
 
         public Response RptMain(ReportParam para, ref string rptPath, ref string rptName)
