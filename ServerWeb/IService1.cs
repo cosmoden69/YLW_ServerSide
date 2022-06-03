@@ -54,6 +54,10 @@ namespace YLW_WebService.ServerSide
         string FileDelete(YlwSecurityJson security, DataSet ds);
 
         [OperationContract]
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "/FileUpdate")]
+        DataSet FileUpdate(YlwSecurityJson security, DataSet ds);
+
+        [OperationContract]
         [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "/GetReportPost")]
         ReportData GetReportPost(string streamdata);
 

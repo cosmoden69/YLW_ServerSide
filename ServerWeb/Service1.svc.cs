@@ -114,6 +114,11 @@ namespace YLW_WebService.ServerSide
             return YLWService.YLWServiceModule.FileDelete(security, ds);
         }
 
+        public DataSet FileUpdate(YlwSecurityJson security, DataSet ds)
+        {
+            return YLWService.YLWServiceModule.FileUpdate(security, ds);
+        }
+
         // /OpenPostDocx/{streamdata}의 형식으로 접속되면 호출되어 처리한다.
         public ReportData GetReportPost(string streamdata)
         {
