@@ -53,7 +53,9 @@ namespace YLW_WebService.ServerSide
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
                     Table oTbl감가상각 = rUtil.GetTable(lstTable, "@B3InsurObjDvs@");
                     Table oTbl신축비_수리비 = rUtil.GetTable(lstTable, "@B3RePurcGexpAmt@");
-                    Table oTbl잔존물제거비 = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@");
+                    Table oTbl잔존물제거비용A = rUtil.GetTable(lstTable, "@B0RemainsA@");
+                    Table oTbl잔존물제거비 = rUtil.GetSubTable(oTbl잔존물제거비용A, "@B3RmnObjRmvGexpAmt@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
                     //1-3.감가상각
                     dtB = pds.Tables["DataBlock3"];
@@ -86,10 +88,11 @@ namespace YLW_WebService.ServerSide
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 3 or EvatCd % 10 = 4 or EvatCd % 10 = 5");
                     if (drs == null || drs.Length < 1)
                     {
-                        if (oTbl잔존물제거비 != null) rUtil.TableRemoveRow(oTbl잔존물제거비, 1);
+                        oTbl잔존물제거비용A.Remove();
                     }
                     else
                     {
+                        oTbl잔존물제거비용B?.Remove();
                         if (oTbl잔존물제거비 != null)
                         {
                             //테이블의 중간에 삽입
@@ -114,8 +117,10 @@ namespace YLW_WebService.ServerSide
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
                     Table oTbl감가상각 = rUtil.GetTable(lstTable, "@B3InsurObjDvs@");
                     Table oTbl신축비_수리비 = rUtil.GetTable(lstTable, "@B3RePurcGexpAmt@");
-                    Table oTbl잔존물제거비 = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@");
-                    
+                    Table oTbl잔존물제거비용A = rUtil.GetTable(lstTable, "@B0RemainsA@");
+                    Table oTbl잔존물제거비 = rUtil.GetSubTable(oTbl잔존물제거비용A, "@B3RmnObjRmvGexpAmt@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
+
 
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
@@ -148,7 +153,7 @@ namespace YLW_WebService.ServerSide
 
                         //잔존물제거비용 합계
                         if (!dtB.Columns.Contains("ObjRmnRmvTotal")) dtB.Columns.Add("ObjRmnRmvTotal");
-                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];  // + Utils.ToFloat(dr["RmnObjRmvGexpAmt"]);
+                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];   // + Utils.ToDecimal(dr["RmnObjRmvGexpAmt"]);
 
                         //손해액합계
                         if (!dtB.Columns.Contains("DmgAmtTot")) dtB.Columns.Add("DmgAmtTot");
@@ -242,6 +247,9 @@ namespace YLW_WebService.ServerSide
                         rUtil.ReplaceTable(oTbl신축비_수리비, "@B3EvatRsltRePurcTot@", Utils.AddComma(EvatRsltRePurcTot));
                         rUtil.ReplaceTable(oTbl잔존물제거비, "@B3ObjRmnRmvTot@", Utils.AddComma(ObjRmnRmvTot));
                     }
+
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsA@", "");
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsB@", "");
 
                     doc.Save();
                     wDoc.Close();

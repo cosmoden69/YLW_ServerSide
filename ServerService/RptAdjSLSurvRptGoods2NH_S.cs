@@ -130,10 +130,11 @@ namespace YLW_WebService.ServerSide
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
                     Table oTblA = rUtil.GetTable(lstTable, "@B3ObjRmnAmt@"); // 1. 총괄표
                     Table oTblB = rUtil.GetTable(lstTable, "@B3PureLosAmt@"); // 3. 손해배상책임
-                    Table oTblC = rUtil.GetTable(lstTable, "@B3RePurcGexpAmt@"); // 5. 세부평가내역
+                    Table oTblC = rUtil.GetTable(lstTable, "@B3RstrGexpAmt@"); // 5. 세부평가내역
                     Table oTblD = rUtil.GetTable(lstTable, "@B8RmnObjCost@"); // 6. 잔존물 및 구상 표1
                     Table oTblE = rUtil.GetTable(lstTable, "@B8SucBidDt@"); // 6. 잔존물 및 구상 표2
-                    Table oTblF = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@"); // 6. 잔존물 및 구상 - 잔존물 및 제거비용
+                    Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@"); // 6. 잔존물 및 구상 - 잔존물 및 제거비용
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
                     Table oTbl보험금지급처 = rUtil.GetTable(lstTable, "@B17InsurGivObj@"); // 보험금지급처
 
                     dtB = pds.Tables["DataBlock3"];
@@ -204,14 +205,15 @@ namespace YLW_WebService.ServerSide
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 3");
                     if (drs == null || drs.Length < 1)
                     {
-                        if (oTblF != null) rUtil.TableRemoveRow(oTblF, 1);
+                        oTbl잔존물제거비용.Remove();
                     }
                     else
                     {
-                        if (oTblF != null)
+                        oTbl잔존물제거비용B?.Remove();
+                        if (oTbl잔존물제거비용 != null)
                         {
                             //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTblF, 1, drs.Length - 1);
+                            rUtil.TableInsertRow(oTbl잔존물제거비용, 1, drs.Length - 1);
                         }
                     }
 
@@ -258,16 +260,17 @@ namespace YLW_WebService.ServerSide
                     TableRow oTblARow = rUtil.GetTableRow(oTblA?.Elements<TableRow>(), "@db3ObjLosAmt@");
 
                     Table oTblB = rUtil.GetTable(lstTable, "@B3PureLosAmt@"); // 3. 손해배상책임
-                    Table oTblC = rUtil.GetTable(lstTable, "@B3RePurcGexpAmt@"); // 5. 세부평가내역
+                    Table oTblC = rUtil.GetTable(lstTable, "@B3RstrGexpAmt@"); // 5. 세부평가내역
                     TableRow oTblC_1Row = rUtil.GetTableRow(oTblC?.Elements<TableRow>(), "@B3ObjRstrGexpTot@");
                     TableRow oTblC_2Row = rUtil.GetTableRow(oTblC?.Elements<TableRow>(), "@B3RstrGexpRate@");
                     TableRow oTblC_3Row = rUtil.GetTableRow(oTblC?.Elements<TableRow>(), "@B3Total_A@");
                     Table oTblD = rUtil.GetTable(lstTable, "@B8RmnObjNm@"); // 6. 잔존물 및 구상 표1
                     Table oTblE = rUtil.GetTable(lstTable, "@B8SucBidDt@"); // 6. 잔존물 및 구상 표2
-                    Table oTblF = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@"); // 6. 잔존물 및 구상 - 잔존물제거비용
-                    TableRow oTblF_1Row = rUtil.GetTableRow(oTblF?.Elements<TableRow>(), "@B3ObjRmnRmvTot@");
-                    TableRow oTblF_2Row = rUtil.GetTableRow(oTblF?.Elements<TableRow>(), "@B3RmnObjRmvGexpAmt@");
-                    TableRow oTblF_3Row = rUtil.GetTableRow(oTblF?.Elements<TableRow>(), "@B3Total_B@");
+                    Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3RmnObjRmvGexpAmt@"); // 6. 잔존물 및 구상 - 잔존물제거비용
+                    TableRow oTblF_1Row = rUtil.GetTableRow(oTbl잔존물제거비용?.Elements<TableRow>(), "@B3ObjRmnRmvTot@");
+                    TableRow oTblF_2Row = rUtil.GetTableRow(oTbl잔존물제거비용?.Elements<TableRow>(), "@B3RmnObjRmvGexpAmt@");
+                    TableRow oTblF_3Row = rUtil.GetTableRow(oTbl잔존물제거비용?.Elements<TableRow>(), "@B3Total_B@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
                     Table oTbl보험금지급처 = rUtil.GetTable(lstTable, "@B17InsurGivObj@"); // 보험금지급처
 
                     var db1SurvAsgnEmpManRegNo = ""; //조사자 손해사정등록번호
@@ -389,7 +392,7 @@ namespace YLW_WebService.ServerSide
 
                                 if (!dtB.Columns.Contains("Total_A")) dtB.Columns.Add("Total_A");
                                 {
-                                    dr["Total_A"] = Utils.ToDouble(dr["ObjRstrGexpTot"]) + Utils.ToDouble(dr["RePurcGexpAmt"]);
+                                    dr["Total_A"] = Utils.ToDouble(dr["ObjRstrGexpTot"]) + Utils.ToDouble(dr["RstrGexpAmt"]);
                                 }
 
                                 if (!dtB.Columns.Contains("Total_B")) dtB.Columns.Add("Total_B");
@@ -425,7 +428,7 @@ namespace YLW_WebService.ServerSide
                                     }
                                     
                                     if (col.ColumnName == "ObjRstrGexpTot") sValue = Utils.AddComma(sValue);
-                                    if (col.ColumnName == "RePurcGexpAmt") sValue = Utils.AddComma(sValue);
+                                    if (col.ColumnName == "RstrGexpAmt") sValue = Utils.AddComma(sValue);
                                     if (col.ColumnName == "ObjRmnRmvTot") sValue = Utils.AddComma(sValue);
                                     if (col.ColumnName == "RmnObjRmvGexpAmt") sValue = Utils.AddComma(sValue);
                                     if (col.ColumnName == "PureLosAmt") sValue = Utils.AddComma(sValue);
@@ -486,7 +489,7 @@ namespace YLW_WebService.ServerSide
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
                                     if (col.ColumnName == "EvatAmt") sValue = Utils.AddComma(sValue);
-                                    rUtil.ReplaceTableRow(oTblF.GetRow(ib + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl잔존물제거비용.GetRow(ib + 1), sKey, sValue);
                                 }
                                 ib++;
                             }
@@ -597,6 +600,9 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                     }
+
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsA@", "");
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsB@", "");
 
                     doc.Save();
                     wDoc.Close();

@@ -54,6 +54,7 @@ namespace YLW_WebService.ServerSide
                     Table oTbl신축가액 = rUtil.GetTable(lstTable, "신축가액");
                     Table oTbl손해액 = rUtil.GetTable(lstTable, "@B3ObjRstrTotal@");
                     Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3ObjRmnRmvTotal@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
 
                     // 신축가액
@@ -92,10 +93,11 @@ namespace YLW_WebService.ServerSide
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 3");
                     if (drs == null || drs.Length < 1)
                     {
-                        if (oTbl잔존물제거비용 != null) rUtil.TableRemoveRow(oTbl잔존물제거비용, 1);
+                        oTbl잔존물제거비용.Remove();
                     }
                     else
                     {
+                        oTbl잔존물제거비용B?.Remove();
                         if (oTbl잔존물제거비용 != null)
                         {
                             //테이블의 중간에 삽입
@@ -121,6 +123,7 @@ namespace YLW_WebService.ServerSide
                     Table oTbl손해액 = rUtil.GetTable(lstTable, "@B3ObjRstrTotal@");
                     Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3ObjRmnRmvTotal@");
                     Table oTbl총감가율 = rUtil.GetTable(lstTable, "@db3EvatRsltPasDprcRate@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
                     Table oTableA = rUtil.GetSubTable(oTbl신축가액, "@B3EvatRsltTotal@");
@@ -160,7 +163,7 @@ namespace YLW_WebService.ServerSide
 
                         //잔존물제거비용 합계
                         if (!dtB.Columns.Contains("ObjRmnRmvTotal")) dtB.Columns.Add("ObjRmnRmvTotal");
-                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];  // + Utils.ToFloat(dr["RmnObjRmvGexpAmt"]);
+                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];  // + Utils.ToDecimal(dr["RmnObjRmvGexpAmt"]);
 
                         //보험가액
                         if (!dtB.Columns.Contains("EvatInsurTotal")) dtB.Columns.Add("EvatInsurTotal");
@@ -319,6 +322,9 @@ namespace YLW_WebService.ServerSide
                         rUtil.ReplaceTable(oTbl손해액, "@B3ObjRstrGexpTot@", Utils.AddComma(ObjRstrGexpTot));
                         rUtil.ReplaceTable(oTbl잔존물제거비용, "@B3ObjRmnRmvTot@", Utils.AddComma(ObjRmnRmvTot));
                     }
+
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsA@", "");
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsB@", "");
 
                     doc.Save();
                     wDoc.Close();

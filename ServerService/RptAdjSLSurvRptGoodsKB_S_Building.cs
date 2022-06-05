@@ -54,14 +54,14 @@ namespace YLW_WebService.ServerSide
                     Table oTbl보험가액 = rUtil.GetTable(lstTable, "db5EvatAmtTot1");
                     Table oTbl손해액 = rUtil.GetTable(lstTable, "db5EvatAmtTot2");
                     Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "db5EvatAmtTot3");
-                    
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
 
                     //보험가액
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 1");
                     if (drs != null)
                     {
-                        if(oTbl보험가액 != null)
+                        if (oTbl보험가액 != null)
                         {
                             //테이블의 중간에 삽입
                             rUtil.TableInsertRow(oTbl보험가액, 5, drs.Length - 1);
@@ -83,10 +83,16 @@ namespace YLW_WebService.ServerSide
 
                     //잔존물제거비용
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 3");
-                    if (drs != null)
+                    if (drs == null || drs.Length < 1)
                     {
+                        oTbl잔존물제거비용.Remove();
+                    }
+                    else
+                    {
+                        oTbl잔존물제거비용B?.Remove();
                         if (oTbl잔존물제거비용 != null)
                         {
+                            rUtil.TableRemoveRow(oTbl잔존물제거비용, 5);
                             //테이블의 중간에 삽입
                             rUtil.TableInsertRow(oTbl잔존물제거비용, 2, drs.Length - 1);
                             rUtil.TableMergeCells(oTbl잔존물제거비용, 0, 0, 2, drs.Length + 1);
@@ -110,6 +116,7 @@ namespace YLW_WebService.ServerSide
                     Table oTbl보험가액 = rUtil.GetTable(lstTable, "db5EvatAmtTot1");
                     Table oTbl손해액 = rUtil.GetTable(lstTable, "db5EvatAmtTot2");
                     Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "db5EvatAmtTot3");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
                     ////변수가 replace 되기 전에 테이블을 찾아 놓는다
                     //sKey = rUtil.GetFieldName("B3", "EvatRsltRePurcTot");    //재조달가액 테이블
@@ -198,6 +205,22 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
+                    //보험가액
+                    drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 1");
+                    if (drs.Length < 1)
+                    {
+                        drs = new DataRow[1] { pds.Tables["DataBlock5"].Rows.Add() };
+                        drs[0].SetField("EvatCd", 1);
+                    }
+
+                    //손해액
+                    drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 2");
+                    if (drs.Length < 1)
+                    {
+                        drs = new DataRow[1] { pds.Tables["DataBlock5"].Rows.Add() };
+                        drs[0].SetField("EvatCd", 2);
+                    }
+
                     double db5EvatAmtTot1 = 0;
                     double db5EvatAmtTot2 = 0;
                     double db5EvatAmtTot3 = 0;
@@ -228,7 +251,7 @@ namespace YLW_WebService.ServerSide
                                     rUtil.ReplaceTableRow(oTbl보험가액.GetRow(ia + 7), sKey, sValue);
                                 }
                                 rUtil.ReplaceTableRow(oTbl보험가액.GetRow(ia + 6), "@db5EvatAmtTot1@", Utils.AddComma(db5EvatAmtTot1)); //보험가액표 합계
-                                
+
                                 ia++;
                             }
                             else if (EvatCd % 10 == 2)  //손해액
@@ -267,7 +290,9 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                     }
-                    
+
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsA@", "");
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsB@", "");
 
                     doc.Save();
                     wDoc.Close();

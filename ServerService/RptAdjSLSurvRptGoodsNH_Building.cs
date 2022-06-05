@@ -167,7 +167,7 @@ namespace YLW_WebService.ServerSide
 
                         //잔존물제거비용 합계
                         if (!dtB.Columns.Contains("ObjRmnRmvTotal")) dtB.Columns.Add("ObjRmnRmvTotal");
-                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];  // + Utils.ToFloat(dr["RmnObjRmvGexpAmt"]);
+                        dr["ObjRmnRmvTotal"] = dr["ObjRmnRmvTot"];  // + Utils.ToDecimal(dr["RmnObjRmvGexpAmt"]);
 
                         //보험가액
                         if (!dtB.Columns.Contains("EvatInsurTotal")) dtB.Columns.Add("EvatInsurTotal");
