@@ -79,7 +79,6 @@ namespace YLW_WebService.ServerSide
 
                 string sSampleDocx = myPath + @"\보고서\출력설계_2565_서식_농협_진행보고서(재물)_Head.docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
-
                 RptAdjSLSurvRptGoodsNH_Head toHead = new RptAdjSLSurvRptGoodsNH_Head();
                 string sRet = toHead.SetSample1(sSampleDocx, sSampleXSD, pds, sSample1Relt);
                 if (sRet != "")
@@ -201,7 +200,6 @@ namespace YLW_WebService.ServerSide
                     return new Response() { Result = -1, Message = sRet };
                 }
                 addFiles.Add(sSampleAddFile);
-
 
                 //DOCX 파일합치기 
                 WordprocessingDocument wdoc = WordprocessingDocument.Open(sSample1Relt, true);
