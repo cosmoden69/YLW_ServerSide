@@ -97,7 +97,7 @@ namespace YLW_WebService.ServerSide
                         if (oTbl타보험계약사항 != null)
                         {
                             //테이블의 끝에 추가
-                            rUtil.TableAddRow(oTbl타보험계약사항, 1, dtB.Rows.Count - 1);
+                            rUtil.TableAddRow(oTbl타보험계약사항, 0, dtB.Rows.Count - 1);
                         }
                     }
 
@@ -127,7 +127,7 @@ namespace YLW_WebService.ServerSide
                     }
 
                     //건물범례
-                    drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
+                    drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 1");
                     if (drs != null && drs.Length > 0)
                     {
                         if (oTbl건물범례 != null)
@@ -426,7 +426,7 @@ namespace YLW_WebService.ServerSide
                                     sValue = dr[col] + "";
                                     if (col.ColumnName == "OthCtrtDt") sValue = Utils.DateConv(sValue, ".");
                                     if (col.ColumnName == "OthCtrtExprDt") sValue = Utils.DateConv(sValue, ".");
-                                    rUtil.ReplaceTableRow(oTbl타보험계약사항.GetRow(i + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl타보험계약사항.GetRow(i), sKey, sValue);
                                 }
                             }
                         }
