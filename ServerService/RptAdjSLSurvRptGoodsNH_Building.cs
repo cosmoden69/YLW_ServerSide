@@ -51,6 +51,8 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
+                    Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3ObjRmnRmvTotal@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
                     // 신축비/수리비 행추가
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 1");
@@ -88,18 +90,17 @@ namespace YLW_WebService.ServerSide
 
                     //잔존물제거비 행추가
                     drs = pds.Tables["DataBlock5"]?.Select("EvatCd % 10 = 3");
-                    sKey = rUtil.GetFieldName("B3", "ObjRmnRmvTotal");
-                    Table oTableC = rUtil.GetTable(lstTable, sKey);
                     if (drs == null || drs.Length < 1)
                     {
-                        if (oTableC != null) rUtil.TableRemoveRow(oTableC, 1);
+                        oTbl잔존물제거비용.Remove();
                     }
                     else
                     {
-                        if (oTableC != null)
+                        oTbl잔존물제거비용B?.Remove();
+                        if (oTbl잔존물제거비용 != null)
                         {
                             //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTableC, 1, drs.Length - 1);
+                            rUtil.TableInsertRow(oTbl잔존물제거비용, 1, drs.Length - 1);
                         }
                     }
 
@@ -117,6 +118,8 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
+                    Table oTbl잔존물제거비용 = rUtil.GetTable(lstTable, "@B3ObjRmnRmvTotal@");
+                    Table oTbl잔존물제거비용B = rUtil.GetTable(lstTable, "@B0RemainsB@");
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
                     //sKey = rUtil.GetFieldName("B3", "EvatRsltTotal");    //재조달가액 테이블
@@ -126,9 +129,6 @@ namespace YLW_WebService.ServerSide
 
                     //sKey = rUtil.GetFieldName("B3", "ObjRstrTotal");         //복구공사비 테이블
                     Table oTableB = rUtil.GetTable(lstTable, "@B3ObjRstrTotal@");
-
-                    ////sKey = rUtil.GetFieldName("B3", "ObjRmnRmvTotalal");       //잔존물제거비 테이블
-                    Table oTableC = rUtil.GetTable(lstTable, "@B3ObjRmnRmvTotal");
 
 
                     dtB = pds.Tables["DataBlock1"];
@@ -300,15 +300,18 @@ namespace YLW_WebService.ServerSide
                                         sValue = Utils.AddComma(sValue);
                                         ObjRmnRmvTot += Utils.ToDouble(sValue);
                                     }
-                                    rUtil.ReplaceTableRow(oTableC.GetRow(ic + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl잔존물제거비용.GetRow(ic + 1), sKey, sValue);
                                 }
                                 ic++;
                             }
                         }
                         rUtil.ReplaceTable(oTableA, "@B3EvatRsltRePurcTot@", Utils.AddComma(EvatRsltRePurcTot));
                         rUtil.ReplaceTable(oTableB, "@B3ObjRstrGexpTot@", Utils.AddComma(ObjRstrGexpTot));
-                        rUtil.ReplaceTable(oTableC, "@B3ObjRmnRmvTot@", Utils.AddComma(ObjRmnRmvTot));
+                        rUtil.ReplaceTable(oTbl잔존물제거비용, "@B3ObjRmnRmvTot@", Utils.AddComma(ObjRmnRmvTot));
                     }
+
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsA@", "");
+                    rUtil.ReplaceTables(lstTable, "@B0RemainsB@", "");
 
                     doc.Save();
                     wDoc.Close();

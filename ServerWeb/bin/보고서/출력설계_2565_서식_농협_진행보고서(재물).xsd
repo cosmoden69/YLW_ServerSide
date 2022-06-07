@@ -103,7 +103,10 @@
                 <xs:element name="IsrdSbctRels" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdMjrPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdChrg" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdBsnsCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
+                <xs:element name="IsrdBsnsSmr" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
