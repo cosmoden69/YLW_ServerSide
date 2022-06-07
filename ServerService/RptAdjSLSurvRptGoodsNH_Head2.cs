@@ -52,8 +52,7 @@ namespace YLW_WebService.ServerSide
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
                     Table oTbl기계배치도 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@");
-                    Table oTbl기계범례전체 = rUtil.GetTable(lstTable, "<기계범례>");
-                    Table oTbl기계범례 = rUtil.GetSubTable(oTbl기계범례전체, "@B4ObjSymb_13@");
+                    Table oTbl기계범례 = rUtil.GetTable(lstTable, "@B4ObjSymb_13@");
 
                     //3.일반사항 - 라.기계배치도
                     drs = pds.Tables["DataBlock4"]?.Select("ObjCatgCd % 10 = 3 OR ObjCatgCd % 10 = 4");
@@ -93,8 +92,7 @@ namespace YLW_WebService.ServerSide
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
                     Table oTbl기계배치도 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@");
-                    Table oTbl기계범례전체 = rUtil.GetTable(lstTable, "<기계범례>");
-                    Table oTbl기계범례 = rUtil.GetSubTable(oTbl기계범례전체, "@B4ObjSymb_13@");
+                    Table oTbl기계범례 = rUtil.GetTable(lstTable, "@B4ObjSymb_13@");
 
                     dtB = pds.Tables["DataBlock13"];
                     if (dtB == null || dtB.Rows.Count < 1)

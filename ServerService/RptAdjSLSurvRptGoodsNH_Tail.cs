@@ -51,56 +51,68 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
+                    Table oTbl잔존물_표1 = rUtil.GetTable(lstTable, "@B8RmnObjCost@");
+                    Table oTbl잔존물_표2 = rUtil.GetTable(lstTable, "@B8SucBidDt@");
+                    Table oTbl관련자연락처 = rUtil.GetTable(lstTable, "@B11AcdtPrsCcndGrp@");
+                    Table oTbl유첨 = rUtil.GetTable(lstTable, "@B9FileNo@");
+                    Table oTbl첨부사진 = rUtil.GetTable(lstTable, "@B15AcdtPictImage@");
+                    Table oTbl처리과정 = rUtil.GetTable(lstTable, "@B10PrgMgtDt@");
 
-                    //잔존물가액
-                    dtB = pds.Tables["DataBlock8"];
-                    if (dtB != null)
+                    //1.잔존물_표1
+                    drs = pds.Tables["DataBlock8"]?.Select("TrtCd % 10 = 1");
+                    if (drs != null || drs.Length > 0)
                     {
-                        sKey = rUtil.GetFieldName("B8", "RmnObjStd");
-                        Table oTableA = rUtil.GetTable(lstTable, sKey);
-                        if (oTableA != null)
+                        if (oTbl잔존물_표1 != null)
                         {
                             //테이블의 중간에 삽입
-                            rUtil.TableAddRow(oTableA, 1, dtB.Rows.Count - 1);
+                            rUtil.TableInsertRow(oTbl잔존물_표1, 1, drs.Length - 1);
                         }
                     }
 
+                    //1.잔존물_표2
+                    drs = pds.Tables["DataBlock8"]?.Select("TrtCd % 10 = 2");
+                    if (drs != null || drs.Length > 0)
+                    {
+                        if (oTbl잔존물_표2 != null)
+                        {
+                            //테이블의 중간에 삽입
+                            rUtil.TableInsertRow(oTbl잔존물_표2, 1, drs.Length - 1);
+                        }
+                    }
+
+                    //유첨
                     dtB = pds.Tables["DataBlock9"];
                     sPrefix = "B9";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "FileNo");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl유첨 != null)
                         {
                             //테이블의 끝에 추가
-                            rUtil.TableAddRow(oTable, 1, dtB.Rows.Count - 1);
+                            rUtil.TableAddRow(oTbl유첨, 1, dtB.Rows.Count - 1);
                         }
                     }
 
+                    //사고처리과정표 - 처리과정
                     dtB = pds.Tables["DataBlock10"];
                     sPrefix = "B10";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "PrgMgtDt");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl처리과정 != null)
                         {
                             //테이블의 끝에 추가
-                            rUtil.TableAddRow(oTable, 1, dtB.Rows.Count - 1);
+                            rUtil.TableAddRow(oTbl처리과정, 1, dtB.Rows.Count - 1);
                         }
                     }
 
+                    //2-3.관련자연락처
                     dtB = pds.Tables["DataBlock11"];
                     sPrefix = "B11";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "AcdtPrsCcndGrp");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl관련자연락처 != null)
                         {
                             //테이블의 중간에 추가
-                            rUtil.TableInsertRow(oTable, 1, dtB.Rows.Count - 1);
+                            rUtil.TableInsertRow(oTbl관련자연락처, 1, dtB.Rows.Count - 1);
                         }
                     }
 
@@ -108,12 +120,10 @@ namespace YLW_WebService.ServerSide
                     sPrefix = "B15";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl첨부사진 != null)
                         {
                             //테이블의 중간에 삽입
-                            rUtil.TableInsertRows(oTable, 0, 2, dtB.Rows.Count - 1);
+                            rUtil.TableInsertRows(oTbl첨부사진, 0, 2, dtB.Rows.Count - 1);
                         }
                     }
 
@@ -131,6 +141,12 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
+                    Table oTbl잔존물_표1 = rUtil.GetTable(lstTable, "@B8RmnObjCost@");
+                    Table oTbl잔존물_표2 = rUtil.GetTable(lstTable, "@B8SucBidDt@");
+                    Table oTbl관련자연락처 = rUtil.GetTable(lstTable, "@B11AcdtPrsCcndGrp@");
+                    Table oTbl유첨 = rUtil.GetTable(lstTable, "@B9FileNo@");
+                    Table oTbl첨부사진 = rUtil.GetTable(lstTable, "@B15AcdtPictImage@");
+                    Table oTbl처리과정 = rUtil.GetTable(lstTable, "@B10PrgMgtDt@");
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
                     sKey = rUtil.GetFieldName("B8", "RmnObjStd");
@@ -178,15 +194,38 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
-                    dtB = pds.Tables["DataBlock8"];
                     sPrefix = "B8";
-                    if (dtB != null && dtB.Rows.Count > 0)
+                    drs = pds.Tables["DataBlock8"]?.Select("TrtCd % 10 = 1");
+                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                    if (drs != null && drs.Length > 0)
                     {
-                        if (oTableA != null)
+                        if (oTbl잔존물_표1 != null)
                         {
-                            for (int i = 0; i < dtB.Rows.Count; i++)
+                            for (int i = 0; i < drs.Length; i++)
                             {
-                                DataRow dr = dtB.Rows[i]; ;
+                                DataRow dr = drs[i];
+                                foreach (DataColumn col in dr.Table.Columns)
+                                {
+                                    sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                    sValue = dr[col] + "";
+                                    if (col.ColumnName == "RmnObjCnt") sValue = Utils.AddComma(sValue);
+                                    if (col.ColumnName == "RmnObjCost") sValue = Utils.AddComma(sValue);
+                                    if (col.ColumnName == "RmnObjAmt") sValue = Utils.AddComma(sValue);
+                                    rUtil.ReplaceTableRow(oTbl잔존물_표1.GetRow(i + 1), sKey, sValue);
+                                }
+                            }
+                        }
+                    }
+
+                    drs = pds.Tables["DataBlock8"]?.Select("TrtCd % 10 = 2");
+                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                    if (drs != null && drs.Length > 0)
+                    {
+                        if (oTbl잔존물_표2 != null)
+                        {
+                            for (int i = 0; i < drs.Length; i++)
+                            {
+                                DataRow dr = drs[i];
                                 foreach (DataColumn col in dr.Table.Columns)
                                 {
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
@@ -196,31 +235,17 @@ namespace YLW_WebService.ServerSide
                                     if (col.ColumnName == "AuctToDt") sValue = Utils.DateConv(sValue, ".");
                                     if (col.ColumnName == "SucBidDt") sValue = Utils.DateConv(sValue, ".");
                                     if (col.ColumnName == "RmnObjAmt") sValue = Utils.AddComma(sValue);
-                                    if (col.ColumnName == "TrtCd")
-                                    {
-                                        if (sValue == "300156001") sValue = "당사";
-                                        else if (sValue == "300156002") sValue = "경매";
-                                        rUtil.ReplaceTableRow(oTableA.GetRow(i + 1), "@db8RmnTrtCd@", sValue);
-                                        continue;
-                                    }
-                                    rUtil.ReplaceTableRow(oTableA.GetRow(i + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl잔존물_표2.GetRow(i + 1), sKey, sValue);
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        oTableA.Remove();
-                    }
-
 
                     dtB = pds.Tables["DataBlock9"];
                     sPrefix = "B9";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "FileNo");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl유첨 != null)
                         {
                             if (dtB.Rows.Count < 1) dtB.Rows.Add();
                             for (int i = 0; i < dtB.Rows.Count; i++)
@@ -231,7 +256,7 @@ namespace YLW_WebService.ServerSide
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
                                     if (col.ColumnName == "FileAmt") sValue = Utils.AddComma(sValue == "" || sValue == "0" ? "1" : sValue) + "부";
-                                    rUtil.ReplaceTableRow(oTable.GetRow(i + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl유첨.GetRow(i + 1), sKey, sValue);
                                 }
                             }
                         }
@@ -241,9 +266,7 @@ namespace YLW_WebService.ServerSide
                     sPrefix = "B10";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "PrgMgtDt");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl처리과정 != null)
                         {
                             if (dtB.Rows.Count < 1) dtB.Rows.Add();
                             for (int i = 0; i < dtB.Rows.Count; i++)
@@ -254,7 +277,7 @@ namespace YLW_WebService.ServerSide
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
                                     if (col.ColumnName == "PrgMgtDt") sValue = Utils.DateFormat(sValue, "yyyy년 MM월 dd일");
-                                    rUtil.ReplaceTableRow(oTable.GetRow(i + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl처리과정.GetRow(i + 1), sKey, sValue);
                                 }
                             }
                         }
@@ -264,9 +287,7 @@ namespace YLW_WebService.ServerSide
                     sPrefix = "B11";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "AcdtPrsCcndGrp");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl관련자연락처 != null)
                         {
                             if (dtB.Rows.Count < 1) dtB.Rows.Add();
                             for (int i = 0; i < dtB.Rows.Count; i++)
@@ -276,7 +297,7 @@ namespace YLW_WebService.ServerSide
                                 {
                                     sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
                                     sValue = dr[col] + "";
-                                    rUtil.ReplaceTableRow(oTable.GetRow(i + 1), sKey, sValue);
+                                    rUtil.ReplaceTableRow(oTbl관련자연락처.GetRow(i + 1), sKey, sValue);
                                 }
                             }
                         }
@@ -287,9 +308,7 @@ namespace YLW_WebService.ServerSide
                     sPrefix = "B15";
                     if (dtB != null)
                     {
-                        sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
-                        Table oTable = rUtil.GetTable(lstTable, sKey);
-                        if (oTable != null)
+                        if (oTbl첨부사진 != null)
                         {
                             if (dtB.Rows.Count < 1) dtB.Rows.Add();
                             for (int i = 0; i < dtB.Rows.Count; i++)
@@ -300,7 +319,7 @@ namespace YLW_WebService.ServerSide
 
                                 sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
                                 sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTable.GetRow(rnum);
+                                TableRow xrow1 = oTbl첨부사진.GetRow(rnum);
                                 rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
                                 try
                                 {
@@ -311,7 +330,7 @@ namespace YLW_WebService.ServerSide
 
                                 sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
                                 sValue = dr["AcdtPictCnts"] + "";
-                                TableRow xrow2 = oTable.GetRow(rnum + 1);
+                                TableRow xrow2 = oTbl첨부사진.GetRow(rnum + 1);
                                 rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
                             }
                         }

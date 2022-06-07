@@ -67,6 +67,7 @@ namespace YLW_WebService.ServerSide
                 string sSampleXSD = myPath + @"\보고서\출력설계_2551_서식_종결보고서(재물).xsd";
                 string sSampleAddFile = "";
                 List<string> addFiles = new List<string>();
+                int headpage = 0;
 
                 DataSet pds = new DataSet();
                 pds.ReadXml(sSampleXSD);
@@ -75,8 +76,6 @@ namespace YLW_WebService.ServerSide
                 {
                     pds.ReadXml(xmlReader);
                 }
-
-                int headpage = 0;
 
                 string sSampleDocx = myPath + @"\보고서\출력설계_2551_서식_종결보고서(재물)_Head.docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
