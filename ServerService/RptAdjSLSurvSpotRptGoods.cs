@@ -365,7 +365,14 @@ namespace YLW_WebService.ServerSide
                     rUtil.ReplaceTableRow(oTableA.GetRow(dtB.Rows.Count + 1), "@db2ObjTotAmt@", Utils.AddComma(db2ObjTotAmt));
                     rUtil.ReplaceTableRow(oTableA.GetRow(dtB.Rows.Count + 1), "@db2ObjGivInsurAmt@", Utils.AddComma(db2ObjGivInsurAmt));
                     rUtil.ReplaceTables(lstTable, "@db2EvatStdLosCnts@", db2EvatStdLosCnts);
-                    rUtil.ReplaceTables(lstTable, "@db2ObjRmnAmt@", Utils.AddComma(db2ObjRmnAmt));
+                    if (db2ObjRmnAmt == 0)
+                    {
+                        rUtil.ReplaceTables(lstTable, "@db2ObjRmnAmt@", "해당없음");
+                    }
+                    else
+                    {
+                        rUtil.ReplaceTables(lstTable, "@db2ObjRmnAmt@", Utils.AddComma(db2ObjRmnAmt));
+                    }
 
                     dtB = pds.Tables["DataBlock3"];
                     sPrefix = "B3";
