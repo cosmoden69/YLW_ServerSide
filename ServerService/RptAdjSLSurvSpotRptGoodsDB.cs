@@ -65,6 +65,8 @@ namespace YLW_WebService.ServerSide
                 //Console.WriteLine("{0} : {1}", DateTime.Now.ToString("HH:mm:ss"), "Start");
 
                 string sSampleXSD = myPath + @"\보고서\출력설계_2585_서식_DB_현장보고서(재물).xsd";
+                string sSampleAddFile = "";
+                List<string> addFiles = new List<string>();
 
                 DataSet pds = new DataSet();
                 pds.ReadXml(sSampleXSD);
@@ -74,9 +76,46 @@ namespace YLW_WebService.ServerSide
                     pds.ReadXml(xmlReader);
                 }
 
-                string sSample1Docx = myPath + @"\보고서\출력설계_2585_서식_DB_현장보고서(재물).docx";
+                string sSampleDocx = myPath + @"\보고서\출력설계_2585_서식_DB_현장보고서(재물).docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
-                string sRet = SetSample1(sSample1Docx, sSampleXSD, pds, sSample1Relt);
+                string sRet = SetSample1(sSampleDocx, sSampleXSD, pds, sSample1Relt);
+                if (sRet != "")
+                {
+                    return new Response() { Result = -1, Message = sRet };
+                }
+
+                DataTable dtBT = pds.Tables["DataBlock16"];
+                if (dtBT != null && dtBT.Rows.Count > 0)
+                {
+                    sSampleDocx = myPath + @"\보고서\출력설계_2585_서식_DB_현장보고서(재물)_Pict.docx";
+                    sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                    sRet = SetSample1Pict(sSampleDocx, sSampleXSD, pds, sSampleAddFile);
+                    if (sRet != "")
+                    {
+                        return new Response() { Result = -1, Message = sRet };
+                    }
+                    addFiles.Add(sSampleAddFile);
+                }
+                sSampleDocx = myPath + @"\보고서\출력설계_2585_서식_DB_현장보고서(재물)_Tail.docx";
+                sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                sRet = SetSample1Tail(sSampleDocx, sSampleXSD, pds, sSampleAddFile);
+                if (sRet != "")
+                {
+                    return new Response() { Result = -1, Message = sRet };
+                }
+                addFiles.Add(sSampleAddFile);
+
+                //DOCX 파일합치기 
+                WordprocessingDocument wdoc = WordprocessingDocument.Open(sSample1Relt, true);
+                MainDocumentPart mainPart = wdoc.MainDocumentPart;
+                for (int ii = 0; ii < addFiles.Count; ii++)
+                {
+                    string addFile = addFiles[ii];
+                    RptUtils.AppendFile(mainPart, addFile, true);
+                    Utils.DeleteFile(addFile);
+                }
+                mainPart.Document.Save();
+                wdoc.Close();
 
                 //Console.WriteLine("{0} : {1}", DateTime.Now.ToString("HH:mm:ss"), "End");
 
@@ -132,11 +171,6 @@ namespace YLW_WebService.ServerSide
                     Table oTbl당사 = rUtil.GetTable(lstTable, "@B11RmnObjCost@"); //잔존물 표1
                     Table oTbl옥션 = rUtil.GetTable(lstTable, "@B11SucBidDt@"); //잔존물 표2
                     Table oTbl현장배치도 = rUtil.GetTable(lstTable, "@B12AcdtPictImage@"); //9.현장배치도
-                    Table oTbl체크리스트 = rUtil.GetTable(lstTable, "@B6RprtCnts@"); //체크리스트
-                    Table oTbl사고현장사진 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@"); //2.사진
-                    Table oTbl건물배치도 = rUtil.GetTable(lstTable, "@B14AcdtPictImage@"); //3.건물현황및개요
-                    Table oTbl건물범례 = rUtil.GetTable(lstTable, "@B10ObjSymb@"); //3.건물현황및개요 - 건물범례
-                    Table oTbl사고관련자연락처 = rUtil.GetTable(lstTable, "@B15AcdtPrsCcndNm@"); //사고관련자연락처
 
                     dtB = pds.Tables["DataBlock2"];
                     sPrefix = "B2";
@@ -146,28 +180,6 @@ namespace YLW_WebService.ServerSide
                         {
                             //테이블의 끝에 추가
                             rUtil.TableInsertRow(oTbl손해상황, 1, dtB.Rows.Count - 1);
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock6"];
-                    sPrefix = "B6";
-                    if (dtB != null)
-                    {
-                        if (oTbl체크리스트 != null)
-                        {
-                            //테이블의 끝에 추가
-                            rUtil.TableAddRow(oTbl체크리스트, 1, dtB.Rows.Count - 1);
-                        }
-                    }
-
-                    //3.건물 현황 및 개요 - 건물범례
-                    drs = pds.Tables["DataBlock10"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
-                    if (drs != null && drs.Length > 0)
-                    {
-                        if (oTbl건물범례 != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTbl건물범례, 1, drs.Length - 1);
                         }
                     }
 
@@ -201,38 +213,6 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
-                    dtB = pds.Tables["DataBlock13"];
-                    if (dtB != null)
-                    {
-                        //2.사고현장사진
-                        if (oTbl사고현장사진 != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRows(oTbl사고현장사진, 0, 2, dtB.Rows.Count - 1);
-                        }
-                    }
-
-                    dtB = pds.Tables["DataBlock14"];
-                    if (dtB != null)
-                    {
-                        //3.건물현황및개요
-                        if (oTbl건물배치도 != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRows(oTbl건물배치도, 0, 2, dtB.Rows.Count - 1);
-                        }
-                    }
-                    
-                    dtB = pds.Tables["DataBlock15"];
-                    if (dtB != null)
-                    {
-                        if (oTbl사고관련자연락처 != null)
-                        {
-                            //테이블의 중간에 삽입
-                            rUtil.TableInsertRow(oTbl사고관련자연락처, 1, dtB.Rows.Count - 1);
-                        }
-                    }
-
                     //테이블에 행을 추가하고 일단 저장
                     // Save
                     doc.Save();
@@ -254,11 +234,6 @@ namespace YLW_WebService.ServerSide
                     Table oTbl당사 = rUtil.GetTable(lstTable, "@B11RmnObjCost@"); //잔존물 표1
                     Table oTbl옥션 = rUtil.GetTable(lstTable, "@B11SucBidDt@"); //잔존물 표2
                     Table oTbl현장배치도 = rUtil.GetTable(lstTable, "@B12AcdtPictImage@"); //9.현장배치도
-                    Table oTbl체크리스트 = rUtil.GetTable(lstTable, "@B6RprtCnts@"); //체크리스트
-                    Table oTbl사고현장사진 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@"); //2.사고현장사진
-                    Table oTbl건물배치도 = rUtil.GetTable(lstTable, "@B14AcdtPictImage@"); //3.건물현황및개요
-                    Table oTbl건물범례 = rUtil.GetTable(lstTable, "@B10ObjSymb@"); //3.건물현황및개요 - 건물범례
-                    Table oTbl사고관련자연락처 = rUtil.GetTable(lstTable, "@B15AcdtPrsCcndNm@"); //사고관련자연락처
 
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
@@ -397,24 +372,6 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
-                    dtB = pds.Tables["DataBlock6"];
-                    sPrefix = "B6";
-                    if (dtB != null)
-                    {
-                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                        for (int i = 0; i < dtB.Rows.Count; i++)
-                        {
-                            DataRow dr = dtB.Rows[i];
-
-                            foreach (DataColumn col in dtB.Columns)
-                            {
-                                sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
-                                sValue = dr[col] + "";
-                                rUtil.ReplaceTableRow(oTbl체크리스트.GetRow(i + 1), sKey, sValue);
-                            }
-                        }
-                    }
-
                     dtB = pds.Tables["DataBlock9"];
                     sPrefix = "B9";
                     if (dtB != null)
@@ -460,40 +417,6 @@ namespace YLW_WebService.ServerSide
                         }
                     }
                     rUtil.ReplaceTable(oTbl일반사항, "@db10ObjArea@", Utils.AddComma(db10ObjArea));
-
-                    //건물범례
-                    drs = pds.Tables["DataBlock10"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
-                    sPrefix = "B10";
-                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock10"].Rows.Add() };
-                    if (drs != null && drs.Length > 0)
-                    {
-                        if (oTbl건물범례 != null)
-                        {
-                            for (int i = 0; i < drs.Length; i++)
-                            {
-                                DataRow dr = drs[i];
-                                foreach (DataColumn col in dr.Table.Columns)
-                                {
-                                    sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
-                                    sValue = dr[col] + "";
-                                    if (col.ColumnName == "ObjSymb") sValue = sValue.Replace(",", "");
-                                    if (col.ColumnName == "ObjArea") sValue = Utils.AddComma(sValue);
-                                    if (col.ColumnName == "ObjInsurRegsFg")
-                                    {
-                                        if (sValue == "1")
-                                        {
-                                            sValue = "가입";
-                                        }
-                                        else
-                                        {
-                                            sValue = "미가입";
-                                        }
-                                    }
-                                    rUtil.ReplaceTableRow(oTbl건물범례.GetRow(i + 1), sKey, sValue);
-                                }
-                            }
-                        }
-                    }
 
                     drs = pds.Tables["DataBlock11"]?.Select("TrtCd % 10 = 1");
                     sPrefix = "B11";
@@ -570,7 +493,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
                                 }
                                 catch { }
 
@@ -582,6 +505,282 @@ namespace YLW_WebService.ServerSide
                         }
                     }
                     
+                    doc.Save();
+                    wDoc.Close();
+                }
+            }
+            catch (Exception ec)
+            {
+                sRet = RptUtils.GetMessage(ec.Message, ec.ToString());
+            }
+
+            return sRet;
+        }
+
+        private string SetSample1Pict(string sDocFile, string sXSDFile, DataSet pds, string sWriteFile)
+        {
+            string sRet = "";
+
+            if (!File.Exists(sDocFile)) return RptUtils.GetMessage("원본파일(word)이 존재하지 않습니다.", sDocFile);
+            if (!File.Exists(sXSDFile)) return RptUtils.GetMessage("XSD파일이 존재하지 않습니다.", sXSDFile);
+
+            DataTable dtB = null;
+            string sPrefix = "";
+            string sKey = "";
+            string sValue = "";
+
+            try
+            {
+                System.IO.File.Copy(sDocFile, sWriteFile, true);
+
+                using (WordprocessingDocument wDoc = WordprocessingDocument.Open(sWriteFile, true))
+                {
+                    MainDocumentPart mDoc = wDoc.MainDocumentPart;
+                    Document doc = mDoc.Document;
+                    RptUtils rUtil = new RptUtils(mDoc);
+
+                    IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
+                    Table oTbl현장사진 = rUtil.GetTable(lstTable, "@B16AcdtPictImage@");
+
+                    dtB = pds.Tables["DataBlock16"];
+                    if (dtB != null)
+                    {
+                        if (oTbl현장사진 != null)
+                        {
+                            //테이블의 끝에 추가
+                            double cnt = Math.Truncate((dtB.Rows.Count + 1) / 2.0);
+                            for (int i = 1; i < cnt; i++)
+                            {
+                                rUtil.TableAddRow(oTbl현장사진, 0, 1);
+                                rUtil.TableAddRow(oTbl현장사진, 1, 1);
+                            }
+                        }
+                    }
+
+                    //테이블에 행을 추가하고 일단 저장
+                    // Save
+                    doc.Save();
+                    wDoc.Close();
+                }
+
+                //=== repalce ===
+                using (WordprocessingDocument wDoc = WordprocessingDocument.Open(sWriteFile, true))
+                {
+                    MainDocumentPart mDoc = wDoc.MainDocumentPart;
+                    Document doc = mDoc.Document;
+                    RptUtils rUtil = new RptUtils(mDoc);
+
+                    List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
+                    Table oTbl현장사진 = rUtil.GetTable(lstTable, "@B16AcdtPictImage@");
+
+                    dtB = pds.Tables["DataBlock16"];
+                    sPrefix = "B16";
+                    if (dtB != null)
+                    {
+                        if (oTbl현장사진 != null)
+                        {
+                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
+                            if (dtB.Rows.Count % 2 == 1) dtB.Rows.Add();  //두번째 칸을 클리어 해주기 위해서 추가
+                            for (int i = 0; i < dtB.Rows.Count; i++)
+                            {
+                                DataRow dr = dtB.Rows[i];
+                                int rnum = (int)Math.Truncate(i / 2.0) * 2;
+                                int rmdr = i % 2 + 1;
+
+                                TableRow xrow1 = oTbl현장사진.GetRow(rnum);
+
+                                sKey = rUtil.GetFieldName(sPrefix, "ObjNm");
+                                sValue = dr["ObjNm"] + "";
+                                rUtil.SetText(xrow1.GetCell(0), sKey, sValue);
+
+                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
+                                sValue = dr["AcdtPictImage"] + "";
+                                rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
+                                try
+                                {
+                                    Image img = Utils.stringToImage(sValue);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 3000000L, 2400000L);
+                                }
+                                catch { }
+
+                                sKey = rUtil.GetFieldName(sPrefix, "AcdtPictCnts");
+                                sValue = dr["AcdtPictCnts"] + "";
+                                TableRow xrow2 = oTbl현장사진.GetRow(rnum + 1);
+                                rUtil.SetText(xrow2.GetCell(rmdr), sKey, sValue);
+                            }
+                        }
+                    }
+
+                    doc.Save();
+                    wDoc.Close();
+                }
+            }
+            catch (Exception ec)
+            {
+                sRet = RptUtils.GetMessage(ec.Message, ec.ToString());
+            }
+
+            return sRet;
+        }
+
+        private string SetSample1Tail(string sDocFile, string sXSDFile, DataSet pds, string sWriteFile)
+        {
+            string sRet = "";
+
+            if (!File.Exists(sDocFile)) return RptUtils.GetMessage("원본파일(word)이 존재하지 않습니다.", sDocFile);
+            if (!File.Exists(sXSDFile)) return RptUtils.GetMessage("XSD파일이 존재하지 않습니다.", sXSDFile);
+
+            DataTable dtB = null;
+            DataRow[] drs = null;
+            string sPrefix = "";
+            string sKey = "";
+            string sValue = "";
+
+            try
+            {
+                System.IO.File.Copy(sDocFile, sWriteFile, true);
+
+                using (WordprocessingDocument wDoc = WordprocessingDocument.Open(sWriteFile, true))
+                {
+                    MainDocumentPart mDoc = wDoc.MainDocumentPart;
+                    Document doc = mDoc.Document;
+                    RptUtils rUtil = new RptUtils(mDoc);
+
+                    IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
+                    Table oTbl체크리스트 = rUtil.GetTable(lstTable, "@B6RprtCnts@"); //체크리스트
+                    Table oTbl사고현장사진 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@"); //2.사진
+                    Table oTbl건물배치도 = rUtil.GetTable(lstTable, "@B14AcdtPictImage@"); //3.건물현황및개요
+                    Table oTbl건물범례 = rUtil.GetTable(lstTable, "@B10ObjSymb@"); //3.건물현황및개요 - 건물범례
+                    Table oTbl사고관련자연락처 = rUtil.GetTable(lstTable, "@B15AcdtPrsCcndNm@"); //사고관련자연락처
+
+                    dtB = pds.Tables["DataBlock6"];
+                    sPrefix = "B6";
+                    if (dtB != null)
+                    {
+                        if (oTbl체크리스트 != null)
+                        {
+                            //테이블의 끝에 추가
+                            rUtil.TableAddRow(oTbl체크리스트, 1, dtB.Rows.Count - 1);
+                        }
+                    }
+
+                    //3.건물 현황 및 개요 - 건물범례
+                    drs = pds.Tables["DataBlock10"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
+                    if (drs != null && drs.Length > 0)
+                    {
+                        if (oTbl건물범례 != null)
+                        {
+                            //테이블의 중간에 삽입
+                            rUtil.TableInsertRow(oTbl건물범례, 1, drs.Length - 1);
+                        }
+                    }
+
+                    dtB = pds.Tables["DataBlock13"];
+                    if (dtB != null)
+                    {
+                        //2.사고현장사진
+                        if (oTbl사고현장사진 != null)
+                        {
+                            //테이블의 중간에 삽입
+                            rUtil.TableInsertRows(oTbl사고현장사진, 0, 2, dtB.Rows.Count - 1);
+                        }
+                    }
+
+                    dtB = pds.Tables["DataBlock14"];
+                    if (dtB != null)
+                    {
+                        //3.건물현황및개요
+                        if (oTbl건물배치도 != null)
+                        {
+                            //테이블의 중간에 삽입
+                            rUtil.TableInsertRows(oTbl건물배치도, 0, 2, dtB.Rows.Count - 1);
+                        }
+                    }
+
+                    dtB = pds.Tables["DataBlock15"];
+                    if (dtB != null)
+                    {
+                        if (oTbl사고관련자연락처 != null)
+                        {
+                            //테이블의 중간에 삽입
+                            rUtil.TableInsertRow(oTbl사고관련자연락처, 1, dtB.Rows.Count - 1);
+                        }
+                    }
+
+                    //테이블에 행을 추가하고 일단 저장
+                    // Save
+                    doc.Save();
+                    wDoc.Close();
+                }
+
+                //=== repalce ===
+                using (WordprocessingDocument wDoc = WordprocessingDocument.Open(sWriteFile, true))
+                {
+                    MainDocumentPart mDoc = wDoc.MainDocumentPart;
+                    Document doc = mDoc.Document;
+                    RptUtils rUtil = new RptUtils(mDoc);
+
+                    List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
+
+                    //변수가 replace 되기 전에 테이블을 찾아 놓는다
+                    Table oTbl체크리스트 = rUtil.GetTable(lstTable, "@B6RprtCnts@"); //체크리스트
+                    Table oTbl사고현장사진 = rUtil.GetTable(lstTable, "@B13AcdtPictImage@"); //2.사고현장사진
+                    Table oTbl건물배치도 = rUtil.GetTable(lstTable, "@B14AcdtPictImage@"); //3.건물현황및개요
+                    Table oTbl건물범례 = rUtil.GetTable(lstTable, "@B10ObjSymb@"); //3.건물현황및개요 - 건물범례
+                    Table oTbl사고관련자연락처 = rUtil.GetTable(lstTable, "@B15AcdtPrsCcndNm@"); //사고관련자연락처
+
+                    dtB = pds.Tables["DataBlock6"];
+                    sPrefix = "B6";
+                    if (dtB != null)
+                    {
+                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
+                        for (int i = 0; i < dtB.Rows.Count; i++)
+                        {
+                            DataRow dr = dtB.Rows[i];
+
+                            foreach (DataColumn col in dtB.Columns)
+                            {
+                                sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                sValue = dr[col] + "";
+                                rUtil.ReplaceTableRow(oTbl체크리스트.GetRow(i + 1), sKey, sValue);
+                            }
+                        }
+                    }
+
+                    //건물범례
+                    drs = pds.Tables["DataBlock10"]?.Select("ObjCatgCd % 10 = 1 OR ObjCatgCd % 10 = 2");
+                    sPrefix = "B10";
+                    if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock10"].Rows.Add() };
+                    if (drs != null && drs.Length > 0)
+                    {
+                        if (oTbl건물범례 != null)
+                        {
+                            for (int i = 0; i < drs.Length; i++)
+                            {
+                                DataRow dr = drs[i];
+                                foreach (DataColumn col in dr.Table.Columns)
+                                {
+                                    sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                    sValue = dr[col] + "";
+                                    if (col.ColumnName == "ObjSymb") sValue = sValue.Replace(",", "");
+                                    if (col.ColumnName == "ObjArea") sValue = Utils.AddComma(sValue);
+                                    if (col.ColumnName == "ObjInsurRegsFg")
+                                    {
+                                        if (sValue == "1")
+                                        {
+                                            sValue = "가입";
+                                        }
+                                        else
+                                        {
+                                            sValue = "미가입";
+                                        }
+                                    }
+                                    rUtil.ReplaceTableRow(oTbl건물범례.GetRow(i + 1), sKey, sValue);
+                                }
+                            }
+                        }
+                    }
+
                     dtB = pds.Tables["DataBlock13"];
                     sPrefix = "B13";
                     if (dtB != null)
@@ -602,7 +801,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
                                 }
                                 catch { }
 
@@ -634,7 +833,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 3800000L);
                                 }
                                 catch { }
 
@@ -645,7 +844,7 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                     }
-                    
+
                     dtB = pds.Tables["DataBlock15"];
                     sPrefix = "B15";
                     if (dtB != null)
@@ -663,7 +862,7 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                     }
-                    
+
                     doc.Save();
                     wDoc.Close();
                 }

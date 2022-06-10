@@ -140,7 +140,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 4000000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 6200000L, 4000000L);
                                 }
                                 catch { }
 

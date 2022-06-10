@@ -585,16 +585,21 @@ namespace YLW_WebService.ServerSide
                             {
                                 DataRow dr = dtB.Rows[i];
                                 int rnum = (int)Math.Truncate(i / 2.0) * 2;
-                                int rmdr = i % 2;
+                                int rmdr = i % 2 + 1;
+
+                                TableRow xrow1 = oTbl현장사진.GetRow(rnum);
+
+                                sKey = rUtil.GetFieldName(sPrefix, "ObjNm");
+                                sValue = dr["ObjNm"] + "";
+                                rUtil.SetText(xrow1.GetCell(0), sKey, sValue);
 
                                 sKey = rUtil.GetFieldName(sPrefix, "AcdtPictImage");
                                 sValue = dr["AcdtPictImage"] + "";
-                                TableRow xrow1 = oTbl현장사진.GetRow(rnum);
                                 rUtil.SetText(xrow1.GetCell(rmdr), sKey, "");
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 3000000L, 2400000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 3000000L, 2400000L);
                                 }
                                 catch { }
 

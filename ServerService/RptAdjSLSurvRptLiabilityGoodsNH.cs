@@ -399,7 +399,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 2500000L, 2000000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 2500000L, 2000000L);
                                 }
                                 catch { }
 
@@ -587,7 +587,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 5700000L, 4200000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 5700000L, 4200000L);
                                 }
                                 catch { }
 
@@ -616,7 +616,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4100000L, 3000000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4100000L, 3000000L);
                                 }
                                 catch { }
 

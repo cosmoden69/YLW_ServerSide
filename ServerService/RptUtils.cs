@@ -733,6 +733,19 @@ namespace YLW_WebService.ServerSide
             return oAltChunk;
         }
 
+        public void SetImageNull(TableCell oCell, Image sPic, Int64 xpos, Int64 ypos, Int64 widthEmus, Int64 heightEmus)
+        {
+            if (sPic == null)
+            {
+                sPic = ((System.Drawing.Image)(Properties.Resources.사진없음));
+                SetImage(oCell, sPic, xpos, ypos, (widthEmus < 900000L ? widthEmus : 900000L), (heightEmus < 900000L ? heightEmus : 900000L));
+            }
+            else
+            {
+                SetImage(oCell, sPic, xpos, ypos, widthEmus, heightEmus);
+            }
+        }
+
         public void SetImage(TableCell oCell, Image sPic, Int64 xpos, Int64 ypos, Int64 widthEmus, Int64 heightEmus)
         {
             ImagePart imagePart = _mDoc.AddImagePart(ImagePartType.Png);
@@ -802,7 +815,20 @@ namespace YLW_WebService.ServerSide
                         DistanceFromRight = (UInt32Value)0U
                     });
 
-            oCell.Append(new Paragraph(new Run(element)));
+            Paragraph pg = new Paragraph();
+
+            //Paragraph 가운데 정렬
+            ParagraphProperties pgp = new ParagraphProperties();
+            pgp.Append(new Justification() {  Val = JustificationValues.Center });
+            pg.Append(pgp);
+
+            //TableCell 가운데 정렬
+            TableCellProperties tcp = new TableCellProperties();
+            tcp.Append(new TableCellVerticalAlignment() { Val = TableVerticalAlignmentValues.Center });
+            oCell.Append(tcp);
+
+            pg.Append(new Run(element));
+            oCell.Append(pg);
         }
 
         public string GetText(TableCell oCell)

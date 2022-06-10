@@ -308,12 +308,13 @@ namespace YLW_WebService.ServerSide
                     sPrefix = "B15";
                     if (dtB != null)
                     {
+                        DataTable dtX = dtB.Copy();
                         if (oTbl첨부사진 != null)
                         {
-                            if (dtB.Rows.Count < 1) dtB.Rows.Add();
-                            for (int i = 0; i < dtB.Rows.Count; i++)
+                            if (dtX.Rows.Count < 1) dtX.Rows.Add();
+                            for (int i = 0; i < dtX.Rows.Count; i++)
                             {
-                                DataRow dr = dtB.Rows[i];
+                                DataRow dr = dtX.Rows[i];
                                 int rnum = (int)Math.Truncate(i / 1.0) * 2;
                                 int rmdr = i % 1;
 
@@ -324,7 +325,7 @@ namespace YLW_WebService.ServerSide
                                 try
                                 {
                                     Image img = Utils.stringToImage(sValue);
-                                    rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4200000L, 3300000L);
+                                    rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4200000L, 3300000L);
                                 }
                                 catch { }
 

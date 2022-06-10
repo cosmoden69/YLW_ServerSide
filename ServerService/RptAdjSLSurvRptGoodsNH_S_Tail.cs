@@ -292,7 +292,7 @@ namespace YLW_WebService.ServerSide
                     //            try
                     //            {
                     //                Image img = Utils.stringToImage(sValue);
-                    //                rUtil.SetImage(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4200000L, 3300000L);
+                    //                rUtil.SetImageNull(xrow1.GetCell(rmdr), img, 50000L, 50000L, 4200000L, 3300000L);
                     //            }
                     //            catch { }
 
