@@ -135,10 +135,9 @@
                 <xs:element name="IsrdRmk" type="xs:string" minOccurs="0" />
                 <xs:element name="AcdtCausCatg2Nm" type="xs:string" minOccurs="0" />
                 <xs:element name="MidRprtNo" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -345,6 +344,18 @@
                 <xs:element name="FixSpcf" type="xs:string" minOccurs="0" />
                 <xs:element name="FixCnts" type="xs:string" minOccurs="0" />
                 <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock17" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ExpsGrp" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsGrpNm" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsReqAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ExpsDoLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRslt" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsBss" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

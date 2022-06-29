@@ -62,6 +62,9 @@
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
                 <xs:element name="Vitm" type="xs:string" minOccurs="0" />
                 <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
                 <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />

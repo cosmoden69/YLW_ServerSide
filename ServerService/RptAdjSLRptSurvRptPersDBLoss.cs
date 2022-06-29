@@ -244,15 +244,13 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
                        
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
-                    Table oTbl표지 = rUtil.GetTable(lstTable, "@B2ChrgAdjuster@");
                     Table oTbl계약사항 = rUtil.GetTable(lstTable, "@B3InsurPrdt@");
                     Table oTbl주요쟁점사항 = rUtil.GetTable(lstTable, "@B6ShrtCnts1@");
                     Table oTbl조사자확인사항 = rUtil.GetTable(lstTable, "@B7CureFrDt@");
                     Table oTbl타사가입사항 = rUtil.GetTable(lstTable, "@B8OthINsurCoNm@");
                     Table oTbl사고조사처리과정 = rUtil.GetTable(lstTable, "@B10PrgMgtDt@");
 
-                    var db2SurvAsgnEmpManRegNo = ""; //조사자 손해사정등록번호
-                    var db2SurvAsgnEmpAssRegNo = ""; //조사자 보조인 등록번호
+
                     dtB = pds.Tables["DataBlock2"];
                     sPrefix = "B2";
                     if (dtB != null && dtB.Rows.Count > 0)
@@ -293,38 +291,21 @@ namespace YLW_WebService.ServerSide
                                 catch { }
                                 continue;
                             }
-                            if (col.ColumnName == "LeadAdjManRegNo")
+                            if (col.ColumnName == "LeadAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "(손해사정등록번호 : 제" + sValue + "호)";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "ChrgAdjAssRegNo")
+                            if (col.ColumnName == "ChrgAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "(손해사정등록번호 : 제" + sValue + "호)";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "SurvAsgnEmpManRegNo")
+                            if (col.ColumnName == "BistLicSerl")
                             {
-                                if (sValue != "") db2SurvAsgnEmpManRegNo = sValue;
-                            }
-                            if (col.ColumnName == "SurvAsgnEmpAssRegNo")
-                            {
-                                if (sValue != "") db2SurvAsgnEmpAssRegNo = sValue;
+                                if (sValue != "") sValue = "보 조 인 등록번호 : 제 " + sValue + " 호";
                             }
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
-                    }
-                    if (db2SurvAsgnEmpManRegNo == "")
-                    {
-                        if (db2SurvAsgnEmpAssRegNo != "")
-                        {
-                            db2SurvAsgnEmpAssRegNo = "(보조인 등록번호 : 제" + db2SurvAsgnEmpAssRegNo + "호)";
-                        }
-                        rUtil.ReplaceTable(oTbl표지, "@db2SurvAsgnEmpRegNo@", db2SurvAsgnEmpAssRegNo);
-                    }
-                    else
-                    {
-                        db2SurvAsgnEmpManRegNo = "(손해사정등록번호 : 제" + db2SurvAsgnEmpManRegNo + "호)";
-                        rUtil.ReplaceTable(oTbl표지, "@db2SurvAsgnEmpRegNo@", db2SurvAsgnEmpManRegNo);
                     }
 
                     dtB = pds.Tables["DataBlock3"];

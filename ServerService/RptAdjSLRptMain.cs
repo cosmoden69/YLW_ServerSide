@@ -137,6 +137,12 @@ namespace YLW_WebService.ServerSide
                 RptAdjSLSurvRptLiabilityGoods rpt = new RptAdjSLSurvRptLiabilityGoods(myPath);
                 return rpt.GetReport(para, ref rptPath, ref rptName);
             }
+            //출력설계_2555_서식_종결보고서(배책-대물-차량)
+            else if (para.ReportName == "RptAdjSLSurvRptLiabilityGoods_Car")
+            {
+                RptAdjSLSurvRptLiabilityGoods_Car rpt = new RptAdjSLSurvRptLiabilityGoods_Car(myPath);
+                return rpt.GetReport(para, ref rptPath, ref rptName);
+            }
             //----------------------------------------------------------------------------------------------
             //출력설계_2561_서식_농협_종결보고서(재물)
             else if (para.ReportName == "RptAdjSLSurvRptGoodsNH")

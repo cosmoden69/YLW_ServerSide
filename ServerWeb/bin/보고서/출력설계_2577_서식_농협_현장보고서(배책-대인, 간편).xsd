@@ -104,10 +104,9 @@
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="MidRprtNo" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -145,7 +144,11 @@
             <xs:complexType>
               <xs:sequence>
                 <xs:element name="VitmSubSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="CuerSeq" type="xs:int" minOccurs="0" />
                 <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
                 <xs:element name="DgnsNm" type="xs:string" minOccurs="0" />
                 <xs:element name="VstHosp" type="xs:string" minOccurs="0" />
                 <xs:element name="CureFrDt" type="xs:string" minOccurs="0" />

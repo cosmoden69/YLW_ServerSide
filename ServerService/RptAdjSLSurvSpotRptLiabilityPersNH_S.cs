@@ -159,6 +159,7 @@ namespace YLW_WebService.ServerSide
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
                     Table oTbl손해배상책임 = rUtil.GetTable(lstTable, "@B3LegaRspsbFg@");
+                    Table oTableA = rUtil.GetTable(lstTable, "@B12VitmNm@");
 
                     //dtB = pds.Tables["DataBlock4"];
                     //sPrefix = "B4";
@@ -199,6 +200,22 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
+
+                    dtB = pds.Tables["DataBlock12"];
+                    sPrefix = "B12";
+                    if (dtB != null)
+                    {
+                        if (oTableA != null)
+                        {
+                            double cnt = dtB.Rows.Count;
+                            for (int i = 1; i < cnt; i++)
+                            {
+                                //테이블의 끝에 추가
+                                rUtil.TableInsertRows(oTableA, 2, 2, 1);
+                            }
+                        }
+                    }
+
                     //테이블에 행을 추가하고 일단 저장
                     // Save
                     doc.Save();
@@ -215,15 +232,12 @@ namespace YLW_WebService.ServerSide
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
-                    Table oTbl표지 = rUtil.GetTable(lstTable, "@B1LeadAdjuster@");
                     sKey = "@B1DiMedfeeTot@";
                     Table oTblA = rUtil.GetTable(lstTable, sKey); //추정지급보험금 표
                     Table oTbl손해배상책임 = rUtil.GetTable(lstTable, "@B3LegaRspsbFg@");
-
+                    Table oTableB = rUtil.GetTable(lstTable, "@B12VitmNm@");
                     Table oTableH = rUtil.GetTable(lstTable, "@B13ExpsLosAmt92@");
-
-                    var db1SurvAsgnEmpManRegNo = ""; //조사자 손해사정등록번호
-                    var db1SurvAsgnEmpAssRegNo = ""; //조사자 보조인 등록번호
+                    
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
                     if (dtB != null)
@@ -260,41 +274,24 @@ namespace YLW_WebService.ServerSide
                                 catch { }
                                 continue;
                             }
-                            if (col.ColumnName == "LeadAdjManRegNo")
+                            if (col.ColumnName == "LeadAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "ChrgAdjManRegNo")
+                            if (col.ColumnName == "ChrgAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "SurvAsgnEmpManRegNo")
+                            if (col.ColumnName == "BistLicSerl")
                             {
-                                if (sValue != "") db1SurvAsgnEmpManRegNo = sValue;
-                            }
-                            if (col.ColumnName == "SurvAsgnEmpAssRegNo")
-                            {
-                                if (sValue != "") db1SurvAsgnEmpAssRegNo = sValue;
+                                if (sValue != "") sValue = "보 조 인 등록번호 : 제 " + sValue + " 호";
                             }
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
                     }
-                    if (db1SurvAsgnEmpManRegNo == "")
-                    {
-                        if (db1SurvAsgnEmpAssRegNo != "")
-                        {
-                            db1SurvAsgnEmpAssRegNo = "보조인 등록번호 : 제" + db1SurvAsgnEmpAssRegNo + "호";
-                        }
-                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpAssRegNo);
-                    }
-                    else
-                    {
-                        db1SurvAsgnEmpManRegNo = "손해사정등록번호 : 제" + db1SurvAsgnEmpManRegNo + "호";
-                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpManRegNo);
-                    }
-
+                    
                     dtB = pds.Tables["DataBlock3"];
                     sPrefix = "B3";
                     if (dtB != null)
@@ -406,6 +403,27 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
+
+                    dtB = pds.Tables["DataBlock12"];
+                    sPrefix = "B12";
+                    if (dtB != null)
+                    {
+                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
+                        for (int i = 0; i < dtB.Rows.Count; i++)
+                        {
+                            DataRow dr = dtB.Rows[i];
+                            foreach (DataColumn col in dtB.Columns)
+                            {
+                                sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                sValue = dr[col] + "";
+                                //if (col.ColumnName == "VitmTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue)); //피해자 전화번호
+                                TableRow oRow = rUtil.GetTableRow(oTableB?.Elements<TableRow>(), sKey);
+                                rUtil.ReplaceTableRow(oRow, sKey, sValue);
+                            }
+                        }
+                    }
+
+                    
                     double db13ExpsLosAmt91 = 0;   //소계
                     double db13ExpsLosAmt7 = 0;    //피해자과실
                     double db13ExpsLosAmtCha = 0;  //과실상계후 금액

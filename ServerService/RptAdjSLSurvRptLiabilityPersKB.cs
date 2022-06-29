@@ -127,11 +127,27 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
+                    Table oTbl피해자 = rUtil.GetTable(lstTable, "@B8VitmNm@"); // 2.사고내용 및 진행사항 - 치료경과
                     Table oTbl치료경과 = rUtil.GetTable(lstTable, "@B9CureFrDt@"); // 2.사고내용 및 진행사항 - 치료경과
                     Table oTbl진행사항 = rUtil.GetTable(lstTable, "@B7PrgMgtDt@"); // 2.사고내용 및 진행사항 - 진행사항
                     Table oTbl진행사항2 = rUtil.GetTable(lstTable, "@B71PrgMgtDt@"); // 사고처리과정표
                     Table oTbl보험금지급처 = rUtil.GetTable(lstTable, "@B5InsurGivObj@"); // 4.피해물 및 손해사정 - 보험금지급처
                     Table oTbl유첨서류 = rUtil.GetTable(lstTable, "@B4FileNo@"); //유첨서류
+
+                    dtB = pds.Tables["DataBlock8"];
+                    sPrefix = "B8";
+                    if (dtB != null)
+                    {
+                        if (oTbl피해자 != null)
+                        {
+                            double cnt = dtB.Rows.Count;
+                            for (int i = 1; i < cnt; i++)
+                            {
+                                //테이블의 중간에 추가
+                                rUtil.TableInsertRows(oTbl피해자, 0, 2, 1);
+                            }
+                        }
+                    }
 
                     dtB = pds.Tables["DataBlock9"];
                     sPrefix = "B9";
@@ -192,11 +208,12 @@ namespace YLW_WebService.ServerSide
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
+                    Table oTbl피해자 = rUtil.GetTable(lstTable, "@B8VitmNm@");
                     Table oTbl치료경과 = rUtil.GetTable(lstTable, "@B9CureFrDt@"); // 2.사고내용 및 진행사항 - 치료경과
                     Table oTbl진행사항 = rUtil.GetTable(lstTable, "@B7PrgMgtDt@"); // 2.사고내용 및 진행사항 - 진행사항
                     Table oTbl진행사항2 = rUtil.GetTable(lstTable, "@B71PrgMgtDt@"); // 사고처리과정표
                     Table oTbl피해물및손해사정 = rUtil.GetTable(lstTable, "@db8Vitms@"); // 4.피해물 및 손해사정
-                    TableRow oTbl피해자 = rUtil.GetTableRow(oTbl피해물및손해사정?.Elements<TableRow>(), "@db8Vitms@");
+                    //TableRow oTbl피해자 = rUtil.GetTableRow(oTbl피해물및손해사정?.Elements<TableRow>(), "@db8Vitms@");
                     Table oTbl보험금지급처 = rUtil.GetTable(lstTable, "@B5InsurGivObj@"); // 4.피해물 및 손해사정 - 보험금지급처
                     Table oTbl유첨서류 = rUtil.GetTable(lstTable, "@B4FileNo@"); //유첨서류
 
@@ -245,6 +262,18 @@ namespace YLW_WebService.ServerSide
                                 }
                                 catch { }
                                 continue;
+                            }
+                            if (col.ColumnName == "LeadAdjLicSerl")
+                            {
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
+                            }
+                            if (col.ColumnName == "ChrgAdjLicSerl")
+                            {
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
+                            }
+                            if (col.ColumnName == "BistLicSerl")
+                            {
+                                if (sValue != "") sValue = "보 조 인 등록번호 : 제 " + sValue + " 호";
                             }
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
@@ -325,6 +354,26 @@ namespace YLW_WebService.ServerSide
                         }
                     }
 
+                    dtB = pds.Tables["DataBlock8"];
+                    sPrefix = "B8";
+                    if (dtB != null)
+                    {
+                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
+                        for (int i = 0; i < dtB.Rows.Count; i++)
+                        {
+                            DataRow dr = dtB.Rows[i];
+                            foreach (DataColumn col in dtB.Columns)
+                            {
+                                sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                sValue = dr[col] + "";
+                                if (col.ColumnName == "VitmTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue)); //피해자 전화번호
+                                TableRow oRow = rUtil.GetTableRow(oTbl피해자?.Elements<TableRow>(), sKey);
+                                rUtil.ReplaceTableRow(oRow, sKey, sValue);
+                                
+                            }
+                        }
+                    }
+                    /*
                     var db8Vitms = "";
                     dtB = pds.Tables["DataBlock8"];
                     sPrefix = "B8";
@@ -349,7 +398,7 @@ namespace YLW_WebService.ServerSide
                         }
                     }
                     rUtil.ReplaceTableRow(oTbl피해자, "@db8Vitms@", db8Vitms);
-
+                    */
                     var db9CureData = "";
                     dtB = pds.Tables["DataBlock9"];
                     sPrefix = "B9";

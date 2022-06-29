@@ -117,6 +117,15 @@
     <Compile Include="RptAdjSLSurvRptGoods_Head_Tail.cs" />
     <Compile Include="RptAdjSLSurvRptGoods_Head_Building.cs" />
     <Compile Include="RptAdjSLSurvRptGoods_Head_Machine.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body3.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body4.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body1.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body2.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body5.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Tail.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Head.cs" />
+    <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Head1.cs" />
     <Compile Include="RptAdjSLXSaveReport.cs" />
     <Compile Include="RptAdjSLRptMain.cs" />
     <Compile Include="RptAdjSLRptSurvRptPersMid.cs" />

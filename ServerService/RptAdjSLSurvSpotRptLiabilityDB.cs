@@ -272,6 +272,18 @@ namespace YLW_WebService.ServerSide
                                 catch { }
                                 continue;
                             }
+                            if (col.ColumnName == "LeadAdjLicSerl")
+                            {
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
+                            }
+                            if (col.ColumnName == "ChrgAdjLicSerl")
+                            {
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
+                            }
+                            if (col.ColumnName == "BistLicSerl")
+                            {
+                                if (sValue != "") sValue = "보 조 인 등록번호 : 제 " + sValue + " 호";
+                            }
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
                             rUtil.ReplaceTables(lstTable, sKey, sValue);

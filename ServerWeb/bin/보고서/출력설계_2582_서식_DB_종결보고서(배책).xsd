@@ -8,7 +8,7 @@
               <xs:sequence>
                 <xs:element name="LasRprtNo" type="xs:string" minOccurs="0" />
                 <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
-	  						<xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjuster" type="xs:string" minOccurs="0" />
                 <xs:element name="SurvAsgnEmpNm" type="xs:string" minOccurs="0" />
                 <xs:element name="DeptName" type="xs:string" minOccurs="0" />
@@ -86,6 +86,9 @@
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="LeadAdjPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="ChrgAdjPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpPrbm" type="xs:string" minOccurs="0" />
                 <xs:element name="FdRpNxtPlan" type="xs:string" minOccurs="0" />
                 <xs:element name="CclsExptDt" type="xs:string" minOccurs="0" />
@@ -123,7 +126,7 @@
                 <xs:element name="IsrtRegno1" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrtRegno2" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrtTel" type="xs:string" minOccurs="0" />
-	  						<xs:element name="DoFixReq" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DoFixReq" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DoFixAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DoFixCmnt" type="xs:string" minOccurs="0" />
                 <xs:element name="DoFixBss" type="xs:string" minOccurs="0" />
@@ -256,6 +259,7 @@
                 <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
                 <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
                 <xs:element name="VitmTel" type="xs:string" minOccurs="0" />
+                <xs:element name="DmgCnts" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -295,20 +299,24 @@
           <xs:element name="DataBlock11" msdata:Locale="">
             <xs:complexType>
               <xs:sequence>
+                <xs:element name="DmobSeq" type="xs:int" minOccurs="0" />
                 <xs:element name="DmobNm" type="xs:string" minOccurs="0" />
                 <xs:element name="DmobDmgStts" type="xs:string" minOccurs="0" />
                 <xs:element name="DmobCarNo" type="xs:string" minOccurs="0" />
                 <xs:element name="CarPrdtYear" type="xs:string" minOccurs="0" />
                 <xs:element name="CarTyp" type="xs:string" minOccurs="0" />
                 <xs:element name="FixShop" type="xs:string" minOccurs="0" />
-                <xs:element name="RentCo" type="xs:string" minOccurs="0" />
                 <xs:element name="FixCnts" type="xs:string" minOccurs="0" />
-                <xs:element name="RentFrDt" type="xs:string" minOccurs="0" />
-                <xs:element name="RentToDt" type="xs:string" minOccurs="0" />
                 <xs:element name="FixFrDt" type="xs:string" minOccurs="0" />
                 <xs:element name="FixToDt" type="xs:string" minOccurs="0" />
                 <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="DmobStrtCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="DmobOwn" type="xs:string" minOccurs="0" />
+                <xs:element name="Regno1" type="xs:string" minOccurs="0" />
+                <xs:element name="Regno2" type="xs:string" minOccurs="0" />
+                <xs:element name="OwnAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="OwnTel" type="xs:string" minOccurs="0" />
+                <xs:element name="FixSpcf" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -402,6 +410,20 @@
                 <xs:element name="ExpsLosReq" type="xs:decimal" minOccurs="0" />
                 <xs:element name="ExpsLosAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="ExpsCmnt" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsBss" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock16" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DmobSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsGrp" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsGrpNm" type="xs:string" minOccurs="0" />
+                <xs:element name="ExpsCd" type="xs:int" minOccurs="0" />
+                <xs:element name="ExpsReqAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="ExpsDoLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EvatRslt" type="xs:string" minOccurs="0" />
                 <xs:element name="ExpsBss" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>

@@ -50,6 +50,7 @@
                 <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrtTel" type="xs:string" minOccurs="0" />
                 <xs:element name="IsrdTel" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

@@ -49,8 +49,24 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     IEnumerable<Table> lstTable = doc.Body.Elements<Table>();
-                    
-                    
+                    Table oTableA = rUtil.GetTable(lstTable, "@B8VitmNm@");
+
+                    dtB = pds.Tables["DataBlock8"];
+                    sPrefix = "B8";
+                    if (dtB != null)
+                    {
+                        if (oTableA != null)
+                        {
+                            double cnt = dtB.Rows.Count;
+                            for (int i = 1; i < cnt; i++)
+                            {
+                                //테이블의 끝에 추가
+                                rUtil.TableInsertRows(oTableA, 0, 7, 1);
+                            }
+                        }
+                    }
+
+
 
                     //테이블에 행을 추가하고 일단 저장
                     // Save
@@ -67,7 +83,7 @@ namespace YLW_WebService.ServerSide
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
-
+                    Table oTableA = rUtil.GetTable(lstTable, "@B8VitmNm@");
                     Table oTableC = rUtil.GetTable(lstTable, "@B15ExpsLosAmt92@");
 
                     dtB = pds.Tables["DataBlock1"];
@@ -111,6 +127,29 @@ namespace YLW_WebService.ServerSide
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
                     }
+
+                    dtB = pds.Tables["DataBlock8"];
+                    sPrefix = "B8";
+                    if (dtB != null)
+                    {
+                        if (dtB.Rows.Count < 1) dtB.Rows.Add();
+                        for (int i = 0; i < dtB.Rows.Count; i++)
+                        {
+                            DataRow dr = dtB.Rows[i];
+                            foreach (DataColumn col in dtB.Columns)
+                            {
+                                sKey = rUtil.GetFieldName(sPrefix, col.ColumnName);
+                                sValue = dr[col] + "";
+                                if (col.ColumnName == "VitmTel") sValue = (sValue == "" ? "-" : Utils.TelNumber(sValue)); //피해자 전화번호
+                                TableRow oRow = rUtil.GetTableRow(oTableA?.Elements<TableRow>(), sKey);
+                                rUtil.ReplaceTableRow(oRow, sKey, sValue);
+                            }
+                        }
+                    }
+
+
+
+
 
                     var db9DmgText = "";
 
@@ -396,7 +435,7 @@ namespace YLW_WebService.ServerSide
                             rUtil.ReplaceTableRow(oRow, "@B15ExpsCmnt8@", sExpsCmnt);
                             rUtil.ReplaceTableRow(oRow, "@B15ExpsBss8@", sExpsBss);
                         }
-
+                        
                         //92.합계
                         drs = dtB?.Select("ExpsGrp = 92");
                         if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock15"].Rows.Add() };
@@ -446,6 +485,7 @@ namespace YLW_WebService.ServerSide
                             rUtil.ReplaceTableRow(oRow, "@B15ExpsCmnt9@", sExpsCmnt);
                             rUtil.ReplaceTableRow(oRow, "@B15ExpsBss9@", sExpsBss);
                         }
+
 
                         //93.예상지급보험금
                         drs = dtB?.Select("ExpsGrp = 93");

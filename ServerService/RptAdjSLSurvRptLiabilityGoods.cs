@@ -205,7 +205,7 @@ namespace YLW_WebService.ServerSide
                     RptUtils rUtil = new RptUtils(mDoc);
 
                     List<Table> lstTable = doc.Body.Elements<Table>()?.ToList();
-                    Table oTbl표지 = rUtil.GetTable(lstTable, "@B1LeadAdjuster@");
+                    Table oTableC = rUtil.GetTable(lstTable, "@B8ExpsReqAmt1@");
                     Table oTbl타보험계약사항 = rUtil.GetTable(lstTable, "@B7OthInsurCo@");
 
                     //변수가 replace 되기 전에 테이블을 찾아 놓는다
@@ -220,9 +220,7 @@ namespace YLW_WebService.ServerSide
                     //sKey = "@B2AcdtPictImage2@";
                     //TableRow oTblBRow = rUtil.GetTableRow(oTblB?.Elements<TableRow>(), sKey);
                     //Table oTableB = oTblBRow?.GetCell(1).Elements<Table>().FirstOrDefault();
-
-                    var db1SurvAsgnEmpManRegNo = ""; //조사자 손해사정등록번호
-                    var db1SurvAsgnEmpAssRegNo = ""; //조사자 보조인 등록번호
+                    
                     dtB = pds.Tables["DataBlock1"];
                     sPrefix = "B1";
                     if (dtB != null)
@@ -317,21 +315,17 @@ namespace YLW_WebService.ServerSide
                                 catch { }
                                 continue;
                             }
-                            if (col.ColumnName == "LeadAdjManRegNo")
+                            if (col.ColumnName == "LeadAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "ChrgAdjManRegNo")
+                            if (col.ColumnName == "ChrgAdjLicSerl")
                             {
-                                if (sValue != "") sValue = "손해사정등록번호 : 제" + sValue + "호";
+                                if (sValue != "") sValue = "손해사정 등록번호 : 제 " + sValue + " 호";
                             }
-                            if (col.ColumnName == "SurvAsgnEmpManRegNo")
+                            if (col.ColumnName == "BistLicSerl")
                             {
-                                if (sValue != "") db1SurvAsgnEmpManRegNo = sValue;
-                            }
-                            if (col.ColumnName == "SurvAsgnEmpAssRegNo")
-                            {
-                                if (sValue != "") db1SurvAsgnEmpAssRegNo = sValue;
+                                if (sValue != "") sValue = "보 조 인 등록번호 : 제 " + sValue + " 호";
                             }
                             rUtil.ReplaceHeaderPart(doc, sKey, sValue);
                             rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
@@ -341,19 +335,7 @@ namespace YLW_WebService.ServerSide
                             rUtil.ReplaceTables(lstTable, sKey, sValue);
                         }
                     }
-                    if (db1SurvAsgnEmpManRegNo == "")
-                    {
-                        if (db1SurvAsgnEmpAssRegNo != "")
-                        {
-                            db1SurvAsgnEmpAssRegNo = "보조인 등록번호 : 제" + db1SurvAsgnEmpAssRegNo + "호";
-                        }
-                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpAssRegNo);
-                    }
-                    else
-                    {
-                        db1SurvAsgnEmpManRegNo = "손해사정등록번호 : 제" + db1SurvAsgnEmpManRegNo + "호";
-                        rUtil.ReplaceTable(oTbl표지, "@db1SurvAsgnEmpRegNo@", db1SurvAsgnEmpManRegNo);
-                    }
+                    
 
                     dtB = pds.Tables["DataBlock2"];
                     sPrefix = "B2";
@@ -491,6 +473,217 @@ namespace YLW_WebService.ServerSide
                             }
                         }
                     }
+
+
+                    //손해액 산정내역
+                    dtB = pds.Tables["DataBlock8"];
+                    sPrefix = "B8";
+                    if (dtB != null)
+                    {
+                        //1.수리비
+                        DataRow[] drs = dtB?.Select("ExpsGrp = 1");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        double dReq = 0;
+                        double dAmt = 0;
+                        string sEvatRslt = "";
+                        string sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+
+                        }
+                        TableRow oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt1@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt1@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt1@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt1@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss1@", sExpsBss);
+                        }
+
+                        //2.휴차료
+                        drs = dtB?.Select("ExpsGrp = 2");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt2@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt2@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt2@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt2@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss2@", sExpsBss);
+                        }
+
+                        //3.대차료
+                        drs = dtB?.Select("ExpsGrp = 3");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt3@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt3@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt3@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt3@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss3@", sExpsBss);
+                        }
+
+                        //4.기타비용
+                        drs = dtB?.Select("ExpsGrp = 4");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt4@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt4@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt4@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt4@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss4@", sExpsBss);
+                        }
+
+                        //*소계
+                        drs = dtB?.Select("ExpsGrp = 91");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt91@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt91@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt91@", Utils.AddComma(dAmt));
+                        }
+
+                        //5.과실부담금
+                        drs = dtB?.Select("ExpsGrp = 5");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt5@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt5@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt5@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt5@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss5@", sExpsBss);
+                        }
+
+                        //*합계
+                        drs = dtB?.Select("ExpsGrp = 92");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt92@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt92@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt92@", Utils.AddComma(dAmt));
+                        }
+
+                        //6.자기부담금
+                        drs = dtB?.Select("ExpsGrp = 6");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt6@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt6@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt6@", Utils.AddComma(dAmt));
+                            rUtil.ReplaceTableRow(oRow, "@B8EvatRslt6@", sEvatRslt);
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsBss6@", sExpsBss);
+                        }
+
+                        //*예상지급보험금
+                        drs = dtB?.Select("ExpsGrp = 93");
+                        if (drs.Length < 1) drs = new DataRow[1] { pds.Tables["DataBlock8"].Rows.Add() };
+                        dReq = 0;
+                        dAmt = 0;
+                        sEvatRslt = "";
+                        sExpsBss = "";
+                        for (int i = 0; i < drs.Length; i++)
+                        {
+                            dReq += Utils.ToDouble(drs[i]["ExpsReqAmt"] + "");
+                            dAmt += Utils.ToDouble(drs[i]["ExpsDoLosAmt"] + "");
+                            sEvatRslt = drs[i]["EvatRslt"] + "";
+                            sExpsBss = drs[i]["ExpsBss"] + "";
+                        }
+                        oRow = rUtil.GetTableRow(oTableC?.Elements<TableRow>(), "@B8ExpsReqAmt93@");
+                        if (oRow != null)
+                        {
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsReqAmt93@", Utils.AddComma(dReq));
+                            rUtil.ReplaceTableRow(oRow, "@B8ExpsDoLosAmt93@", Utils.AddComma(dAmt));
+                        }
+                    }
+
+
 
                     doc.Save();
                     wDoc.Close();

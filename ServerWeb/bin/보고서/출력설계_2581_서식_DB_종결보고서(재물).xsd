@@ -82,10 +82,9 @@
                 <xs:element name="CclsExptDt" type="xs:string" minOccurs="0" />
                 <xs:element name="EstmLosAmtFld" type="xs:decimal" minOccurs="0" />
                 <xs:element name="EstmLosAmtMid" type="xs:decimal" minOccurs="0" />
-                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

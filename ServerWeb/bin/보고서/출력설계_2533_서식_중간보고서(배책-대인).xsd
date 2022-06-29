@@ -108,10 +108,9 @@
                 <xs:element name="MidRptSbmsDt" type="xs:string" minOccurs="0" />
                 <xs:element name="ObjSelfBearAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="SurvOpni" type="xs:string" minOccurs="0" />
-                <xs:element name="LeadAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="ChrgAdjManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpManRegNo" type="xs:string" minOccurs="0" />
-                <xs:element name="SurvAsgnEmpAssRegNo" type="xs:string" minOccurs="0" />
+                <xs:element name="LeadAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="ChrgAdjLicSerl" type="xs:string" minOccurs="0" />
+                <xs:element name="BistLicSerl" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -194,6 +193,19 @@
                 <xs:element name="ExpsLosAmt" type="xs:decimal" minOccurs="0" />
                 <xs:element name="ExpsCmnt" type="xs:string" minOccurs="0" />
                 <xs:element name="ExpsBss" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock8" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="VitmSubSeq" type="xs:int" minOccurs="0" />
+                <xs:element name="VitmNm" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmRegno" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmAddress" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmJob" type="xs:string" minOccurs="0" />
+                <xs:element name="VitmTel" type="xs:string" minOccurs="0" />
+                <xs:element name="DmgCnts" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>

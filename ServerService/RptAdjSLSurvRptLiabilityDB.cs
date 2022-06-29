@@ -40,7 +40,7 @@ namespace YLW_WebService.ServerSide
             try
             {
                 YLWService.YlwSecurityJson security = YLWService.YLWServiceModule.SecurityJson.Clone();  //깊은복사
-                security.serviceId = "Metro.Package.AdjSL.BisRprtLiabilityPrintDB";
+                security.serviceId = "Metro.Package.AdjSL.BisRprtLiabilityPrintKB";
                 security.methodId = "Query";
                 security.companySeq = para.CompanySeq;
 
@@ -87,12 +87,18 @@ namespace YLW_WebService.ServerSide
                 }
 
                 string[] arryStartWord = new string[] { "가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하", "가가", "가나", "가다", "가라", "가마", "가바", "가사", "가아", "가자", "가차", "가카", "가타", "가파", "가하" };
-
+                /*
+                var db11Cnt = 0;
+                DataTable dtB = pds.Tables["DataBlock11"];
+                db11Cnt = dtB.Rows.Count;
+                */
                 DataTable dtB = pds.Tables["DataBlock1"];
+                //DataTable dtB = pds.Tables["DataBlock1"];
                 dr = dtB.Rows[0];
 
+
                 //AcptMgmt(대인만 존재:572, 대물만 존재:575, 대인+대물 동시에 존재:573)
-                
+
                 //대인만 존재할 경우(Pers.doc)
                 if ((dr["DIGivInsurAmt"] != null || Utils.ConvertToString(dr["DIGivInsurAmt"]) != "")  // 대인:산정손해액-예상지급보험금은 있고
                     && (dr["DoGivInsurAmt"] == null || Utils.ConvertToString(dr["DoGivInsurAmt"]) == "")) // && 대물:산정손해액 - 예상지급보험금은 없는경우
@@ -106,10 +112,11 @@ namespace YLW_WebService.ServerSide
                         return new Response() { Result = -1, Message = sRet };
                     }
                     addFiles.Add(sSampleAddFile);
+
                 }
                 //대물만 존재할 경우(Goods.doc)
                 else if ((dr["DoGivInsurAmt"] != null || Utils.ConvertToString(dr["DoGivInsurAmt"]) != "")  // 대물:산정손해액-예상지급보험금은 있고
-                    && (dr["DIGivInsurAmt"] == null || Utils.ConvertToString(dr["DIGivInsurAmt"]) == "")) // && 대인:산정손해액 - 예상지급보험금은 없는경우
+                && (dr["DIGivInsurAmt"] == null || Utils.ConvertToString(dr["DIGivInsurAmt"]) == "")) // && 대인:산정손해액 - 예상지급보험금은 없는경우
                 {
                     sSampleDocx = myPath + @"\보고서\출력설계_2582_서식_DB_종결보고서(배책)_Goods.docx";
                     sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
@@ -121,6 +128,7 @@ namespace YLW_WebService.ServerSide
                     }
                     addFiles.Add(sSampleAddFile);
                 }
+
                 //대인과 대물 둘 다 존재할 경우
                 else if ((dr["DoGivInsurAmt"] != null || Utils.ConvertToString(dr["DoGivInsurAmt"]) != "")  // 대물:산정손해액-예상지급보험금도 있고
                     && (dr["DIGivInsurAmt"] != null || Utils.ConvertToString(dr["DIGivInsurAmt"]) != "")) // && 대인:산정손해액 - 예상지급보험금도 있는경우
@@ -137,6 +145,7 @@ namespace YLW_WebService.ServerSide
                         }
                         addFiles.Add(sSampleAddFile);
                     }
+                    
                     //Goods.doc
                     {
                         sSampleDocx = myPath + @"\보고서\출력설계_2582_서식_DB_종결보고서(배책)_Goods.docx";
@@ -149,6 +158,7 @@ namespace YLW_WebService.ServerSide
                         }
                         addFiles.Add(sSampleAddFile);
                     }
+                    
                 }
 
                 //Tail.doc
