@@ -95,8 +95,8 @@ namespace YLW_WebService.ServerSide
                 DataRow[] drs = null;
                 var B5Cnt = 0;
                 dtB = pds.Tables["DataBlock5"];
+                if (dtB.Rows.Count < 1) dtB.Rows.Add();
                 B5Cnt = dtB.Rows.Count;
-
 
                 //Body1 (Ⅲ.일반사항)
                 var ObjSeq1 = 0;
