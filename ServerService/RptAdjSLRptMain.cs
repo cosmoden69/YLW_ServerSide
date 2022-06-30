@@ -45,6 +45,20 @@ namespace YLW_WebService.ServerSide
                 return rpt.GetReport(para, ref rptPath, ref rptName);
             }
 
+            //인보이스 출력
+            //==============================================================================================
+            if (para.ReportName == "RptAdjSLRptViewInvoiceOut1")     //인보험 인보이스 출력
+            {
+                RptAdjSLRptViewInvoiceOut1 rpt = new RptAdjSLRptViewInvoiceOut1(myPath);
+                return rpt.GetReport(para, ref rptPath, ref rptName);
+            }
+            else if (para.ReportName == "RptAdjSLRptViewInvoiceOut2") //물보험 인보이스 출력
+            {
+                RptAdjSLRptViewInvoiceOut2 rpt = new RptAdjSLRptViewInvoiceOut2(myPath);
+                return rpt.GetReport(para, ref rptPath, ref rptName);
+            }
+
+
             //종결보고서
             //==============================================================================================
             //출력설계_1511_서식_종결보고서_표준(인)

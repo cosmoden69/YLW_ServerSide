@@ -369,6 +369,13 @@
     <None Include="bin\보고서\출력설계_1539_서식_MG손해 종결보고서%28일반%29.xsd" />
     <Content Include="bin\보고서\출력설계_1539_정의_MG손해 종결보고서%28일반%29.docx" />
     <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.docx" />
+    <Content Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29.docx" />
+    <None Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_1715_서식_인보이스%28외부용%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29_Image.docx" />
     <None Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29_Pict.docx" />
     <Content Include="bin\보고서\출력설계_2511_정의_현장보고서%28재물%29.docx" />
@@ -560,6 +567,13 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="bin\보고서\출력설계_2642_정의_교부용 손해사정서_배상_현대해상.docx" />
+    <Content Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29.docx" />
+    <None Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2715_서식_인보이스%28물보험 외부용%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29_Image.docx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
