@@ -1,0 +1,103 @@
+<?xml version="1.0" standalone="yes"?>
+  <xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="ROOT" msdata:IsDataSet="true" msdata:Locale="">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DataBlock13" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CustName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDept" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrg" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurChrgMail" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRprtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="AcptDt" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpSeq" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpName" type="xs:string" minOccurs="0" />
+                <xs:element name="DcmgDt" type="xs:string" minOccurs="0" />
+                <xs:element name="CclsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="LasRptSbmsDt" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurPrdt" type="xs:string" minOccurs="0" />
+                <xs:element name="Insurant" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurNo" type="xs:string" minOccurs="0" />
+                <xs:element name="Insured" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtNo" type="xs:string" minOccurs="0" />
+                <xs:element name="AcdtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="Vitm" type="xs:string" minOccurs="0" />
+                <xs:element name="InvcAdjFeeRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="InvcAdjFee" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InvcIctvRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="InvcIctvAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DayExpsRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="DayExps" type="xs:decimal" minOccurs="0" />
+                <xs:element name="TrspExpsRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="TrspExps" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OilAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DocuRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="DocuAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InvcCsltReqRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="InvcCsltReqAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OthRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="OthAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DmndSubTot" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DmndSubTotCof" type="xs:decimal" minOccurs="0" />
+                <xs:element name="TaxNo" type="xs:string" minOccurs="0" />
+                <xs:element name="Owner" type="xs:string" minOccurs="0" />
+                <xs:element name="TaxName" type="xs:string" minOccurs="0" />
+                <xs:element name="BankName" type="xs:string" minOccurs="0" />
+                <xs:element name="AcntNo" type="xs:string" minOccurs="0" />
+                <xs:element name="SealPhoto" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupKey" type="xs:string" minOccurs="0" />
+                <xs:element name="CostRcptFileSeq" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock14" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PrgMgtCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="PrgMgtDt" type="xs:string" minOccurs="0" />
+                <xs:element name="JobCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="DtlTrtCnts" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupKey" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock15" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="BsnTrpFrDt" type="xs:string" minOccurs="0" />
+                <xs:element name="SurvAsgnEmpSeqName" type="xs:string" minOccurs="0" />
+                <xs:element name="DayExps" type="xs:string" minOccurs="0" />
+                <xs:element name="OilAmt" type="xs:string" minOccurs="0" />
+                <xs:element name="TrspExps" type="xs:string" minOccurs="0" />
+                <xs:element name="DocuAmt" type="xs:string" minOccurs="0" />
+                <xs:element name="OthAmt" type="xs:string" minOccurs="0" />
+                <xs:element name="DmndSubTot" type="xs:string" minOccurs="0" />
+                <xs:element name="DptrRign" type="xs:string" minOccurs="0" />
+                <xs:element name="TrspExpsRmk" type="xs:string" minOccurs="0" />
+                <xs:element name="GroupKey" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataBlock16" msdata:Locale="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DeptHeadCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDvsCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurSubTypCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="DyasGap" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InsurGivTypCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurKeepCdName" type="xs:string" minOccurs="0" />
+                <xs:element name="CloseName" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurDmndAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="InsurGivAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="SaveAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="GroupKey" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
