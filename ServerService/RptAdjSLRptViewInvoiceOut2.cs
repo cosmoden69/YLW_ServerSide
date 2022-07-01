@@ -44,14 +44,14 @@ namespace YLW_WebService.ServerSide
                 security.methodId = "PrintOut";
                 security.companySeq = para.CompanySeq;
 
-                JObject jparam = JObject.Parse(para.ParamStr);
+                JObject jparam = para.ParamStr;
 
                 DataSet ds = new DataSet("ROOT");
                 DataTable dt = ds.Tables.Add("DataBlock11");
                 dt.Columns.Add("TaxUnit");
                 dt.Clear();
                 DataRow dr = dt.Rows.Add();
-                dr["TaxUnit"] = jparam["TaxUnit"];
+                dr["TaxUnit"] = (jparam != null ? jparam["TaxUnit"] : "");
 
                 dt = ds.Tables.Add("DataBlock12");
                 dt.Columns.Add("AcptMgmtSeq");
@@ -65,8 +65,8 @@ namespace YLW_WebService.ServerSide
                 dr = dt.Rows.Add();
                 dr["AcptMgmtSeq"] = para.AcptMgmtSeq;   //496, 877
                 dr["ReSurvAsgnNo"] = para.ReSurvAsgnNo;
-                dr["InvcSeq"] = jparam["InvcSeq"];
-                dr["DeptHeadCd"] = jparam["DeptHeadCd"];
+                dr["InvcSeq"] = (jparam != null ? jparam["InvcSeq"] : "");
+                dr["DeptHeadCd"] = (jparam != null ? jparam["DeptHeadCd"] : "");
 
                 DataSet yds = YLWService.YLWServiceModule.CallYlwServiceCallPost(security, ds);
                 if (yds == null)
