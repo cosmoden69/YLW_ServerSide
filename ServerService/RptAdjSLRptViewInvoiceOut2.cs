@@ -100,20 +100,23 @@ namespace YLW_WebService.ServerSide
                 if (dtB != null && dtB.Rows.Count > 0)
                 {
                     string fileSeq = Utils.ConvertToString(dtB.Rows[0]["CostRcptFileSeq"]);
-                    DataSet pds1 = YLWService.MTRServiceModule.CallMTRFileDownload(security, fileSeq, "", "");
-                    if (pds1 != null && pds1.Tables.Count > 0)
+                    if (Utils.ToInt(fileSeq) != 0)
                     {
-                        DataTable dtB1 = pds1.Tables[0];
-                        if (dtB1 != null && dtB1.Rows.Count > 0)
+                        DataSet pds1 = YLWService.MTRServiceModule.CallMTRFileDownload(security, fileSeq, "", "");
+                        if (pds1 != null && pds1.Tables.Count > 0)
                         {
-                            sSampleDocx = myPath + @"\보고서\출력설계_2715_서식_인보이스(물보험 외부용)_Image.docx";
-                            sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
-                            sRet = SetSample_Image(sSampleDocx, sSampleXSD, pds1, sSampleAddFile);
-                            if (sRet != "")
+                            DataTable dtB1 = pds1.Tables[0];
+                            if (dtB1 != null && dtB1.Rows.Count > 0)
                             {
-                                return new Response() { Result = -1, Message = sRet };
+                                sSampleDocx = myPath + @"\보고서\출력설계_2715_서식_인보이스(물보험 외부용)_Image.docx";
+                                sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                                sRet = SetSample_Image(sSampleDocx, sSampleXSD, pds1, sSampleAddFile);
+                                if (sRet != "")
+                                {
+                                    return new Response() { Result = -1, Message = sRet };
+                                }
+                                addFiles.Add(sSampleAddFile);
                             }
-                            addFiles.Add(sSampleAddFile);
                         }
                     }
                 }
