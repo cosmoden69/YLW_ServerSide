@@ -14,7 +14,7 @@ using Newtonsoft.Json.Linq;
 
 namespace YLW_WebService.ServerSide
 {
-    public partial class WebTest1 : System.Web.UI.Page
+    public partial class WebOpenOzReport1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace YLW_WebService.ServerSide
             ////script += " winPop.onload = function() { open('', '_self').close(); }; ";
             //script = " alert('111'); ";
             //ClientScript.RegisterStartupScript(typeof(Page), "run1", "<script language=javascript>" + script + "</script>");
-            ClientScript.RegisterStartupScript(typeof(Page), "run1", "<script language=javascript>WebSvc()</script>");
+            //ClientScript.RegisterStartupScript(typeof(Page), "run1", "<script language=javascript>WebSvc()</script>");
         }
 
         private void WebFormIn_LoadComplete(object sender, EventArgs e)

@@ -47,12 +47,12 @@ namespace YLW_WebService.ServerSide
 
             //인보이스 출력
             //==============================================================================================
-            if (para.ReportName == "RptAdjSLRptViewInvoiceOut1")     //인보험 인보이스 출력
+            if (para.ReportName == "RptAdjSLInvoiceViewBillIssueOut1")     //인보험 인보이스 출력
             {
                 RptAdjSLRptViewInvoiceOut1 rpt = new RptAdjSLRptViewInvoiceOut1(myPath);
                 return rpt.GetReport(para, ref rptPath, ref rptName);
             }
-            else if (para.ReportName == "RptAdjSLRptViewInvoiceOut2") //물보험 인보이스 출력
+            else if (para.ReportName == "RptAdjSLInvoiceViewBillIssueOut2") //물보험 인보이스 출력
             {
                 RptAdjSLRptViewInvoiceOut2 rpt = new RptAdjSLRptViewInvoiceOut2(myPath);
                 return rpt.GetReport(para, ref rptPath, ref rptName);

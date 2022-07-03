@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebTest.aspx.cs" Inherits="YLW_WebService.ServerSide.WebTest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebOpenOzReport.aspx.cs" Inherits="YLW_WebService.ServerSide.WebOpenOzReport" %>
 
 <!DOCTYPE html>
 
@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <script src='functions.js'></script>
 </head>
 <body>
     <form id="form1" runat="server">

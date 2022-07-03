@@ -97,8 +97,8 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebTest.aspx" />
-    <Content Include="WebTest1.aspx" />
+    <Content Include="WebOpenOzReport.aspx" />
+    <Content Include="WebOpenOzReport1.aspx" />
     <Content Include="wfOpenRptHsitList.aspx" />
     <Content Include="wfOpenSendSSLImg.aspx" />
     <Content Include="wfOpenSendSSLImg3.aspx" />
@@ -137,19 +137,19 @@
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
     <Compile Include="webCommon.cs" />
-    <Compile Include="WebTest.aspx.cs">
-      <DependentUpon>WebTest.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport.aspx.cs">
+      <DependentUpon>WebOpenOzReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebTest.aspx.designer.cs">
-      <DependentUpon>WebTest.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport.aspx.designer.cs">
+      <DependentUpon>WebOpenOzReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebTest1.aspx.cs">
-      <DependentUpon>WebTest1.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport1.aspx.cs">
+      <DependentUpon>WebOpenOzReport1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebTest1.aspx.designer.cs">
-      <DependentUpon>WebTest1.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport1.aspx.designer.cs">
+      <DependentUpon>WebOpenOzReport1.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfOpenRptHsitList.aspx.cs">
       <DependentUpon>wfOpenRptHsitList.aspx</DependentUpon>
