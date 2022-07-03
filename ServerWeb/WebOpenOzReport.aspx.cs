@@ -60,7 +60,7 @@ namespace YLW_WebService.ServerSide
                     + "         var oz;                                                                                                          " + Environment.NewLine
                     + "         var strOdiFileName = '" + rptname + "';                                                                          " + Environment.NewLine
                     + "         var strSiteFileName = '" + rptname + "';                                                                         " + Environment.NewLine
-                    + "         xmlString = \"xmlData=<?xml version='1.0' encoding='UTF-8'?>" + xmlString + "\"; " + Environment.NewLine
+                    + "         xmlString = 'xmlData=<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + xmlString + "'; " + Environment.NewLine
                     + "         var xmlString;                                                                                                   " + Environment.NewLine
                     + "         oz = document.getElementById('OZViewer');                                                                        " + Environment.NewLine
                     //+ "         //Default -> 레포트설정에 따라 변경가능                                                                        " + Environment.NewLine
@@ -133,7 +133,11 @@ namespace YLW_WebService.ServerSide
 
                 DataSet yds = YLWService.MTRServiceModule.CallMTRServiceCallPost(security, ds);
                 if (yds == null) return null;
-                string xml = yds.Tables["DataBlock1"].Rows[0]["Params"] + "";
+                //string xml = yds.Tables["DataBlock1"].Rows[0]["Params"] + "";
+
+                string json = yds.Tables["DataBlock1"].Rows[0]["Params"] + "";
+                JsonSerializerSettings settings = new JsonSerializerSettings() { StringEscapeHandling = StringEscapeHandling.EscapeHtml };
+                DataSet pds = JsonConvert.DeserializeObject<DataSet>(json, settings);
 
                 //DataTable dtB = pds.Tables["DataBlock13"];
                 //if (dtB != null && dtB.Rows.Count > 0)
@@ -159,12 +163,61 @@ namespace YLW_WebService.ServerSide
                 //        }
                 //    }
                 //}
-                return xml.Replace("\r", "&#xD;").Replace("\n", "&#xA;").Replace("\t", "&#x9;");
+                //xml = xml.Replace("&", "&amp;");
+                //xml = xml.Replace("\'", "&apos;");
+                //xml = xml.Replace("\"", "&quot;");
+                //xml = xml.Replace("\r", "&#xD;");
+                //xml = xml.Replace("\n", "&#xA;");
+                //xml = xml.Replace("\t", "&#x9;");
+                return objectToXml(pds);
             }
             catch (Exception ex)
             {
                 return "";
             }
+        }
+
+        private string objectToXml(DataSet ds)
+        {
+            var xml = "";
+            xml += "<ROOT>";
+
+            try
+            {
+                for (var t = 0; t < ds.Tables.Count; t++)
+                {
+                    var dt = ds.Tables[t];
+                    var TableNm = dt.TableName;
+
+                    for (var r = 0; r < dt.Rows.Count; r++)
+                    {
+                        xml += "<" + TableNm + ">";
+                        for (var c = 0; c < dt.Columns.Count; c++)
+                        {
+                            var dr = dt.Rows[r];
+                            var colNm = dt.Columns[c];
+                            string rowVal = Utils.ConvertToString(dt.Rows[r][c]);
+
+                            if ((rowVal.ToString()).IndexOf("&") != -1) rowVal = rowVal.Replace("&", "&amp;");
+                            if ((rowVal.ToString()).IndexOf("<") != -1) rowVal = rowVal.Replace("<", "&lt;");
+                            if ((rowVal.ToString()).IndexOf(">") != -1) rowVal = rowVal.Replace(">", "&gt;");
+                            if ((rowVal.ToString()).IndexOf("\'") != -1) rowVal = rowVal.Replace("\'", "&apos;");
+                            if ((rowVal.ToString()).IndexOf("\"") != -1) rowVal = rowVal.Replace("\"", "&quot;");
+                            if ((rowVal.ToString()).IndexOf("\r") != -1) rowVal = rowVal.Replace("\r", "&#xD;");
+                            if ((rowVal.ToString()).IndexOf("\n") != -1) rowVal = rowVal.Replace("\n", "&#xA;");
+                            if ((rowVal.ToString()).IndexOf("\t") != -1) rowVal = rowVal.Replace("\t", "&#x9;");
+                            if ((rowVal.ToString()).IndexOf("\\") != -1) rowVal = rowVal.Replace("\\", "&#92;");
+
+                            xml += "<" + colNm + ">" + rowVal + "</" + colNm + ">";
+                        }
+                        xml += "</" + TableNm + ">";
+                    }
+                }
+            }
+            catch (Exception ex) { throw ex; }
+
+            xml += "</ROOT>";
+            return xml;
         }
     }
 }
