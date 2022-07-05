@@ -61,6 +61,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\YLW_Service\YLWService\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PdfiumViewer">
+      <HintPath>..\..\..\PDFToImage\PdfiumViewer-master\PdfiumViewer\bin\Debug\PdfiumViewer.dll</HintPath>
+    </Reference>
     <Reference Include="ServerService">
       <HintPath>..\ServerService\bin\Debug\ServerService.dll</HintPath>
     </Reference>

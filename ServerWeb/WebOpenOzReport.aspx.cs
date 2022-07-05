@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -157,10 +159,45 @@ namespace YLW_WebService.ServerSide
                                 DataTable dtB1 = pds1.Tables[0];
                                 for (int jj = 0; jj < dtB1.Rows.Count; jj++)
                                 {
-                                    DataRow drB18 = dtB18.Rows.Add();
-                                    drB18["CostRcptFileSeq"] = fileSeq;
-                                    drB18["CostRcptFileSerl"] = jj;
-                                    drB18["AttachFileImage"] = dtB1.Rows[jj]["FileBase64"];
+                                    string ext = Utils.ConvertToString(dtB1.Rows[jj]["FileExt"]);
+                                    string base64 = Utils.ConvertToString(dtB1.Rows[jj]["FileBase64"]);
+                                    if (ext.ToUpper() == "PDF")
+                                    {
+                                        try
+                                        {
+                                            List<System.Drawing.Image> images = GetAllPagesFromPDF(base64);
+                                            foreach (System.Drawing.Image img in images)
+                                            {
+                                                DataRow drB18 = dtB18.Rows.Add();
+                                                drB18["CostRcptFileSeq"] = fileSeq;
+                                                drB18["CostRcptFileSerl"] = jj;
+                                                drB18["AttachFileImage"] = Utils.ImageToString(img);
+                                            }
+                                        }
+                                        catch { }
+                                    }
+                                    else if (ext.ToUpper() == "TIF" || ext.ToUpper() == "TIFF")
+                                    {
+                                        try
+                                        {
+                                            List<System.Drawing.Image> images = GetAllPagesFromBase64String(base64);
+                                            foreach (System.Drawing.Image img in images)
+                                            {
+                                                DataRow drB18 = dtB18.Rows.Add();
+                                                drB18["CostRcptFileSeq"] = fileSeq;
+                                                drB18["CostRcptFileSerl"] = jj;
+                                                drB18["AttachFileImage"] = Utils.ImageToString(img);
+                                            }
+                                        }
+                                        catch { }
+                                    }
+                                    else
+                                    {
+                                        DataRow drB18 = dtB18.Rows.Add();
+                                        drB18["CostRcptFileSeq"] = fileSeq;
+                                        drB18["CostRcptFileSerl"] = jj;
+                                        drB18["AttachFileImage"] = base64;
+                                    }
                                 }
                             }
                         }
@@ -215,6 +252,56 @@ namespace YLW_WebService.ServerSide
 
             xml += "</ROOT>";
             return xml;
+        }
+
+        public static List<System.Drawing.Image> GetAllPagesFromPDF(string inputString)
+        {
+            try
+            {
+                List<System.Drawing.Image> images = new List<System.Drawing.Image>();
+                byte[] imageBytes = Convert.FromBase64String(inputString);
+                MemoryStream ms = new MemoryStream(imageBytes);
+                using (var document = PdfiumViewer.PdfDocument.Load(ms))
+                {
+                    for (int i = 0; i < document.PageCount; i++)
+                    {
+                        var image = document.Render(i, 300, 300, true);
+                        images.Add(image);
+                    }
+                }
+                return images;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<System.Drawing.Image> GetAllPagesFromBase64String(string inputString)
+        {
+            try
+            { 
+                List<System.Drawing.Image> images = new List<System.Drawing.Image>();
+                byte[] imageBytes = Convert.FromBase64String(inputString);
+                MemoryStream ms = new MemoryStream(imageBytes);
+                Bitmap bitmap = (Bitmap)System.Drawing.Image.FromStream(ms);
+                int count = bitmap.GetFrameCount(FrameDimension.Page);
+                for (int idx = 0; idx < count; idx++)
+                {
+                    // save each frame to a bytestream
+                    bitmap.SelectActiveFrame(FrameDimension.Page, idx);
+                    MemoryStream byteStream = new MemoryStream();
+                    bitmap.Save(byteStream, ImageFormat.Png);
+
+                    // and then create a new Image from it
+                    images.Add(System.Drawing.Image.FromStream(byteStream));
+                }
+                return images;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
