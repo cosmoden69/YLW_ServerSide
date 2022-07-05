@@ -166,6 +166,7 @@ namespace YLW_WebService.ServerSide
                                         try
                                         {
                                             List<System.Drawing.Image> images = GetAllPagesFromPDF(base64);
+                                            //List<System.Drawing.Image> images = (new PDFToImageConverter.Converter()).GetAllPagesFromPDF(base64);
                                             foreach (System.Drawing.Image img in images)
                                             {
                                                 DataRow drB18 = dtB18.Rows.Add();
@@ -261,13 +262,21 @@ namespace YLW_WebService.ServerSide
                 List<System.Drawing.Image> images = new List<System.Drawing.Image>();
                 byte[] imageBytes = Convert.FromBase64String(inputString);
                 MemoryStream ms = new MemoryStream(imageBytes);
-                using (var document = PdfiumViewer.PdfDocument.Load(ms))
+                DevExpress.XtraPdfViewer.PdfViewer viewer = new DevExpress.XtraPdfViewer.PdfViewer();
+                viewer.LoadDocument(ms);
+                ms = new MemoryStream();
+                viewer.CreateTiff(ms, 1024);
+                Bitmap bitmap = (Bitmap)System.Drawing.Image.FromStream(ms);
+                int count = bitmap.GetFrameCount(FrameDimension.Page);
+                for (int idx = 0; idx < count; idx++)
                 {
-                    for (int i = 0; i < document.PageCount; i++)
-                    {
-                        var image = document.Render(i, 300, 300, true);
-                        images.Add(image);
-                    }
+                    // save each frame to a bytestream
+                    bitmap.SelectActiveFrame(FrameDimension.Page, idx);
+                    MemoryStream byteStream = new MemoryStream();
+                    bitmap.Save(byteStream, ImageFormat.Png);
+
+                    // and then create a new Image from it
+                    images.Add(System.Drawing.Image.FromStream(byteStream));
                 }
                 return images;
             }
