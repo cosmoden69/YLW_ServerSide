@@ -139,36 +139,33 @@ namespace YLW_WebService.ServerSide
                 JsonSerializerSettings settings = new JsonSerializerSettings() { StringEscapeHandling = StringEscapeHandling.EscapeHtml };
                 DataSet pds = JsonConvert.DeserializeObject<DataSet>(json, settings);
 
-                //DataTable dtB = pds.Tables["DataBlock13"];
-                //if (dtB != null && dtB.Rows.Count > 0)
-                //{
-                //    string fileSeq = Utils.ConvertToString(dtB.Rows[0]["CostRcptFileSeq"]);
-                //    if (Utils.ToInt(fileSeq) != 0)
-                //    {
-                //        DataSet pds1 = YLWService.MTRServiceModule.CallMTRFileDownload(security, fileSeq, "", "");
-                //        if (pds1 != null && pds1.Tables.Count > 0)
-                //        {
-                //            DataTable dtB1 = pds1.Tables[0];
-                //            if (dtB1 != null && dtB1.Rows.Count > 0)
-                //            {
-                //                sSampleDocx = myPath + @"\보고서\출력설계_1715_서식_인보이스(외부용)_Image.docx";
-                //                sSampleAddFile = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
-                //                sRet = SetSample_Image(sSampleDocx, sSampleXSD, pds1, sSampleAddFile);
-                //                if (sRet != "")
-                //                {
-                //                    return new Response() { Result = -1, Message = sRet };
-                //                }
-                //                addFiles.Add(sSampleAddFile);
-                //            }
-                //        }
-                //    }
-                //}
-                //xml = xml.Replace("&", "&amp;");
-                //xml = xml.Replace("\'", "&apos;");
-                //xml = xml.Replace("\"", "&quot;");
-                //xml = xml.Replace("\r", "&#xD;");
-                //xml = xml.Replace("\n", "&#xA;");
-                //xml = xml.Replace("\t", "&#x9;");
+                DataTable dtB = pds.Tables["DataBlock13"];
+                if (dtB != null && dtB.Rows.Count > 0)
+                {
+                    DataTable dtB18 = pds.Tables.Add("DataBlock18");
+                    dtB18.Columns.Add("CostRcptFileSeq");
+                    dtB18.Columns.Add("CostRcptFileSerl");
+                    dtB18.Columns.Add("AttachFileImage");
+                    for (int ii = 0; ii < dtB.Rows.Count; ii++)
+                    {
+                        string fileSeq = Utils.ConvertToString(dtB.Rows[ii]["CostRcptFileSeq"]);
+                        if (Utils.ToInt(fileSeq) != 0)
+                        {
+                            DataSet pds1 = YLWService.MTRServiceModule.CallMTRFileDownload(security, fileSeq, "", "");
+                            if (pds1 != null && pds1.Tables.Count > 0)
+                            {
+                                DataTable dtB1 = pds1.Tables[0];
+                                for (int jj = 0; jj < dtB1.Rows.Count; jj++)
+                                {
+                                    DataRow drB18 = dtB18.Rows.Add();
+                                    drB18["CostRcptFileSeq"] = fileSeq;
+                                    drB18["CostRcptFileSerl"] = jj;
+                                    drB18["AttachFileImage"] = dtB1.Rows[jj]["FileBase64"];
+                                }
+                            }
+                        }
+                    }
+                }
                 return objectToXml(pds);
             }
             catch (Exception ex)
