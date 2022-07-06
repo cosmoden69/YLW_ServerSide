@@ -448,6 +448,24 @@
     <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.docx" />
     <None Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2554_정의_종결보고서%28배책-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.docx" />
+    <Content Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsc">
+      <DependentUpon>출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd</DependentUpon>
+    </Content>
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xss">
+      <DependentUpon>출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd</DependentUpon>
+    </Content>
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body1.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body2.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body3.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body4.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body5.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Head.docx" />
+    <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Tail.docx" />
+    <None Include="bin\보고서\출력설계_2555_정의_종결보고서%28배책-대물-차량%29.docx" />
     <None Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Building.docx" />
     <Content Include="bin\보고서\출력설계_2561_서식_농협_종결보고서%28재물%29_Head.docx" />
