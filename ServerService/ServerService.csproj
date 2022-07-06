@@ -85,6 +85,8 @@
     <Compile Include="RptAdjSLRptEDISSL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DlgAdjSLSurvRptLina.cs" />
+    <Compile Include="RptAdjSLRptViewInvoiceOut2.cs" />
+    <Compile Include="RptAdjSLRptViewInvoiceOut1.cs" />
     <Compile Include="RptAdjSLRptSurvRptPersDmg1528.cs" />
     <Compile Include="RptAdjSLRptSurvRptPersDmg1527.cs" />
     <Compile Include="RptAdjSLRptSurvRptPersDmg1526.cs" />

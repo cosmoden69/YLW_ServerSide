@@ -51,6 +51,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -60,6 +62,9 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\YLW_Service\YLWService\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfiumViewer">
+      <HintPath>..\..\..\PDFToImage\PdfiumViewer-master\PdfiumViewer\bin\Debug\PdfiumViewer.dll</HintPath>
     </Reference>
     <Reference Include="ServerService">
       <HintPath>..\ServerService\bin\Debug\ServerService.dll</HintPath>
@@ -97,8 +102,8 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebTest.aspx" />
-    <Content Include="WebTest1.aspx" />
+    <Content Include="WebOpenOzReport.aspx" />
+    <Content Include="WebOpenOzReport1.aspx" />
     <Content Include="wfOpenRptHsitList.aspx" />
     <Content Include="wfOpenSendSSLImg.aspx" />
     <Content Include="wfOpenSendSSLImg3.aspx" />
@@ -137,19 +142,19 @@
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
     <Compile Include="webCommon.cs" />
-    <Compile Include="WebTest.aspx.cs">
-      <DependentUpon>WebTest.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport.aspx.cs">
+      <DependentUpon>WebOpenOzReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebTest.aspx.designer.cs">
-      <DependentUpon>WebTest.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport.aspx.designer.cs">
+      <DependentUpon>WebOpenOzReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebTest1.aspx.cs">
-      <DependentUpon>WebTest1.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport1.aspx.cs">
+      <DependentUpon>WebOpenOzReport1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebTest1.aspx.designer.cs">
-      <DependentUpon>WebTest1.aspx</DependentUpon>
+    <Compile Include="WebOpenOzReport1.aspx.designer.cs">
+      <DependentUpon>WebOpenOzReport1.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfOpenRptHsitList.aspx.cs">
       <DependentUpon>wfOpenRptHsitList.aspx</DependentUpon>
@@ -369,6 +374,13 @@
     <None Include="bin\보고서\출력설계_1539_서식_MG손해 종결보고서%28일반%29.xsd" />
     <Content Include="bin\보고서\출력설계_1539_정의_MG손해 종결보고서%28일반%29.docx" />
     <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.docx" />
+    <Content Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29.docx" />
+    <None Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_1715_서식_인보이스%28외부용%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_1715_서식_인보이스%28외부용%29_Image.docx" />
     <None Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2511_서식_현장보고서%28재물%29_Pict.docx" />
     <Content Include="bin\보고서\출력설계_2511_정의_현장보고서%28재물%29.docx" />
@@ -560,6 +572,13 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="bin\보고서\출력설계_2642_정의_교부용 손해사정서_배상_현대해상.docx" />
+    <Content Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29.docx" />
+    <None Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2715_서식_인보이스%28물보험 외부용%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2715_서식_인보이스%28물보험 외부용%29_Image.docx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
