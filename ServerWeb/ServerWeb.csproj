@@ -449,15 +449,9 @@
     <None Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2554_정의_종결보고서%28배책-대물%29.docx" />
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.docx" />
-    <Content Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsc">
-      <DependentUpon>출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd</DependentUpon>
-    </Content>
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xss">
-      <DependentUpon>출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd</DependentUpon>
-    </Content>
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body1.docx" />
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body2.docx" />
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29_Body3.docx" />
