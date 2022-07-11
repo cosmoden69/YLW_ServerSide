@@ -90,10 +90,15 @@ namespace YLW_WebService.ServerSide
                     drow["VstHosp"] = dtB2.Rows[0]["InsurCo"];
                     drow["CureSeq"] = 0;
                 }
-                dtBPrg = dtBPrg.Select("", "CureFrDt, CureSeq").CopyToDataTable<DataRow>();
-                dtBPrg.TableName = "DataBlock3";
-                pds.Tables.Remove("DataBlock3");
-                pds.Tables.Add(dtBPrg);
+                DataRow[] drs = null;
+                drs = dtBPrg.Select("", "CureFrDt, CureSeq");
+                if (drs.Length > 0)
+                {
+                    dtBPrg = drs.CopyToDataTable<DataRow>();
+                    dtBPrg.TableName = "DataBlock3";
+                    pds.Tables.Remove("DataBlock3");
+                    pds.Tables.Add(dtBPrg);
+                }
 
                 string sSampleDocx = myPath + @"\보고서\출력설계_1536_서식_DB생명 종결보고서.docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";

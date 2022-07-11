@@ -88,10 +88,15 @@ namespace YLW_WebService.ServerSide
                     drow["VstHosp"] = dtB2.Rows[0]["InsurCo"];
                     drow["CureSeq"] = 0;
                 }
-                dtBPrg = dtBPrg.Select("", "CureFrDt, CureSeq").CopyToDataTable<DataRow>();
-                dtBPrg.TableName = "DataBlock9";
-                pds.Tables.Remove("DataBlock9");
-                pds.Tables.Add(dtBPrg);
+                DataRow[] drs = null;
+                drs = dtBPrg.Select("", "CureFrDt, CureSeq");
+                if (drs.Length > 0)
+                {
+                    dtBPrg = drs.CopyToDataTable<DataRow>();
+                    dtBPrg.TableName = "DataBlock9";
+                    pds.Tables.Remove("DataBlock9");
+                    pds.Tables.Add(dtBPrg);
+                }
 
                 string sSampleDocx = myPath + @"\보고서\출력설계_1535_서식_흥국화재 종결보고서.docx";
                 string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
