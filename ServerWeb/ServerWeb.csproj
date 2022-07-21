@@ -445,9 +445,21 @@
     <Content Include="bin\보고서\출력설계_2553_서식_종결보고서%28배책-대인%29.docx" />
     <None Include="bin\보고서\출력설계_2553_서식_종결보고서%28배책-대인%29.xsd" />
     <Content Include="bin\보고서\출력설계_2553_정의_종결보고서%28배책-대인%29.docx" />
-    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.docx" />
     <None Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2554_정의_종결보고서%28배책-대물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body1.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body1_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body2.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body2_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body3.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body3_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body3_Vitm_Dmob1.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Body3_Vitm_Dmob2.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Head_Insur.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Head_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Head_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2554_서식_종결보고서%28배책-대물%29_Tail.docx" />
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.docx" />
     <None Include="bin\보고서\출력설계_2555_서식_종결보고서%28배책-대물-차량%29.xsd">
       <SubType>Designer</SubType>

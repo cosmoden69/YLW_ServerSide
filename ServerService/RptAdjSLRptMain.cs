@@ -378,6 +378,12 @@ namespace YLW_WebService.ServerSide
                 RptAdjSLSurvSpotRptGoods2 rpt = new RptAdjSLSurvSpotRptGoods2(myPath);
                 return rpt.GetReport(para, ref rptPath, ref rptName);
             }
+            //출력설계_2514_서식_현장보고서(배책-대물)
+            else if (para.ReportName == "RptAdjSLSurvSpotRptLiabilityGoods")
+            {
+                RptAdjSLSurvSpotRptLiabilityGoods rpt = new RptAdjSLSurvSpotRptLiabilityGoods(myPath);
+                return rpt.GetReport(para, ref rptPath, ref rptName);
+            }
             //----------------------------------------------------------------------------------------------
             //농협_현장보고서(재물, 간편) -- 2021-2-23 현재 출력설계서 없음
             else if (para.ReportName == "RptAdjSLSurvSpotRptGoodsNH_S")
