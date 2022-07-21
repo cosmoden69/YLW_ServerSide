@@ -119,6 +119,13 @@
     <Compile Include="RptAdjSLSurvRptGoods_Head_Tail.cs" />
     <Compile Include="RptAdjSLSurvRptGoods_Head_Building.cs" />
     <Compile Include="RptAdjSLSurvRptGoods_Head_Machine.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Tail.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head4_Vitm.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head3_Vitm.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head4.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head3.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head2_Vitm.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head2.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Body3_Vitm_Dmob2.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Body3_Vitm_Dmob1.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Body3_Vitm.cs" />
@@ -133,6 +140,8 @@
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Car_Body5.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Body1.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Body1_Vitm.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head_Vitm.cs" />
+    <Compile Include="RptAdjSLSurvSpotRptLiabilityGoods_Head.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Head_Vitm.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Head_Tail.cs" />
     <Compile Include="RptAdjSLSurvRptLiabilityGoods_Head_Insur.cs" />

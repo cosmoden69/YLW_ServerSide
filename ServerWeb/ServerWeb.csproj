@@ -388,6 +388,21 @@
     <None Include="bin\보고서\출력설계_2512_서식_현장보고서%28재물-대물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2512_서식_현장보고서%28재물-대물%29_Pict.docx" />
     <Content Include="bin\보고서\출력설계_2512_정의_현장보고서%28재물-대물%29.docx" />
+    <None Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>출력설계_2514_서식_현장보고서%28배책-대물%29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head2.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head2_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head3.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head3_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head4.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head4_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Head_Vitm.docx" />
+    <Content Include="bin\보고서\출력설계_2514_서식_현장보고서%28배책-대물%29_Tail.docx" />
+    <Content Include="bin\보고서\출력설계_2514_정의_현장보고서%28배책-대물%29.docx" />
     <None Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Building.docx" />
     <Content Include="bin\보고서\출력설계_2531_서식_중간보고서%28재물%29_Head.docx" />

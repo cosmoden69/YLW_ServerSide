@@ -249,6 +249,12 @@
                 <xs:element name="DmobNm" type="xs:string" minOccurs="0" />
                 <xs:element name="EvatMthd" type="xs:string" minOccurs="0" />
                 <xs:element name="DmobDvs" type="xs:string" minOccurs="0" />
+                <xs:element name="InsurRegsAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="EstmLosAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="SelfBearAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="GivInsurAmt" type="xs:decimal" minOccurs="0" />
+                <xs:element name="DmobDmgStts" type="xs:string" minOccurs="0" />
+                <xs:element name="RmnObjRmvCnts" type="xs:string" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
