@@ -47,7 +47,8 @@ namespace YLW_WebService.ServerSide
                 drs = pds.Tables["DataBlock13"]?.Select("VitmSubSeq = " + vitmSubSeq + " AND DmobSeq = " + dmobSeq + " ");
                 DataTable dt13 = (drs.Length < 1 ? pds.Tables["DataBlock13"].Clone() : drs.CopyToDataTable());
                 drs = pds.Tables["DataBlock14"]?.Select("VitmSubSeq = " + vitmSubSeq + " AND DmobSeq = " + dmobSeq + " ");
-                DataTable dt14 = (drs.Length < 1 ? pds.Tables["DataBlock14"].Clone() : drs.CopyToDataTable());
+                //DataTable dt14 = (drs.Length < 1 ? pds.Tables["DataBlock14"].Clone() : drs.CopyToDataTable());
+                DataTable dt14 = (drs.Length < 1 ? null : drs.CopyToDataTable());  //dt14 없으면 미보존손해 테이블 삭제
 
                 System.IO.File.Copy(sDocFile, sWriteFile, true);
 
