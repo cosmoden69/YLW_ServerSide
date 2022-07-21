@@ -408,9 +408,8 @@
     <Content Include="bin\보고서\출력설계_2533_서식_중간보고서%28배책-대인%29.docx" />
     <None Include="bin\보고서\출력설계_2533_서식_중간보고서%28배책-대인%29.xsd" />
     <Content Include="bin\보고서\출력설계_2533_정의_중간보고서%28배책-대인%29.docx" />
-    <Content Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29.docx" />
-    <None Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29.xsd" />
-    <Content Include="bin\보고서\출력설계_2534_정의_중간보고서%28배책-대물%29.docx" />
+    <Content Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29_Head.docx" />
+    <Content Include="bin\보고서\출력설계_2534_서식_중간보고서%28배책-대물%29_Tail.docx" />
     <None Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29.xsd" />
     <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Building.docx" />
     <Content Include="bin\보고서\출력설계_2541_서식_손해사정서%28재물%29_Head.docx" />
