@@ -45,7 +45,7 @@ namespace YLW_WebService.ServerSide
                 string vitmSubSeq = Utils.ConvertToString(pdr11["VitmSubSeq"]);
                 string dmobSeq = Utils.ConvertToString(pdr11["DmobSeq"]);
                 drs = pds.Tables["DataBlock15"]?.Select("VitmSubSeq = " + vitmSubSeq + " AND DmobSeq = " + dmobSeq + " ", " InsurObjSerl ASC");
-                DataTable dt15 = (drs.Length < 1 ? null : drs.CopyToDataTable());
+                DataTable dt15 = (drs.Length < 1 ? pds.Tables["DataBlock15"].Clone() : drs.CopyToDataTable());
 
                 System.IO.File.Copy(sDocFile, sWriteFile, true);
 

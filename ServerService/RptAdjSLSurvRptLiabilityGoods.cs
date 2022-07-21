@@ -134,7 +134,7 @@ namespace YLW_WebService.ServerSide
                     DataRow dr7 = dtB.Rows[i];
                     string vitmSubSeq = Utils.ConvertToString(dr7["VitmSubSeq"]);
                     drs = pds.Tables["DataBlock8"]?.Select("VitmSubSeq = " + vitmSubSeq + " ", "AcdtPictSerl");
-                    DataTable dt8 = drs.CopyToDataTable();
+                    DataTable dt8 = (drs.Length < 1 ? pds.Tables["DataBlock8"].Clone() : drs.CopyToDataTable());
                     sRet = toHead2.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile, dr7, dt8);
                     if (sRet != "")
                     {
@@ -168,7 +168,7 @@ namespace YLW_WebService.ServerSide
                     DataRow dr7 = dtB.Rows[i];
                     string vitmSubSeq = Utils.ConvertToString(dr7["VitmSubSeq"]);
                     drs = pds.Tables["DataBlock9"]?.Select("VitmSubSeq = " + vitmSubSeq + " ", "AcdtPictSerl");
-                    DataTable dt9 = drs.CopyToDataTable();
+                    DataTable dt9 = (drs.Length < 1 ? pds.Tables["DataBlock9"].Clone() : drs.CopyToDataTable());
                     sRet = toBody1V.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile, dr7, dt9);
                     if (sRet != "")
                     {
@@ -202,7 +202,7 @@ namespace YLW_WebService.ServerSide
                     DataRow dr7 = dtB.Rows[i];
                     string vitmSubSeq = Utils.ConvertToString(dr7["VitmSubSeq"]);
                     drs = pds.Tables["DataBlock10"]?.Select("VitmSubSeq = " + vitmSubSeq + " ", "AcdtPictSerl");
-                    DataTable dt10 = drs.CopyToDataTable();
+                    DataTable dt10 = (drs.Length < 1 ? pds.Tables["DataBlock10"].Clone() : drs.CopyToDataTable());
                     sRet = toBody2V.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile, dr7, dt10, Utils.ConvertToString(i + 1));
                     if (sRet != "")
                     {
@@ -236,7 +236,7 @@ namespace YLW_WebService.ServerSide
                     DataRow dr7 = dtB.Rows[i];
                     string vitmSubSeq = Utils.ConvertToString(dr7["VitmSubSeq"]);
                     drs = pds.Tables["DataBlock11"]?.Select("VitmSubSeq = " + vitmSubSeq + " ");
-                    DataTable dt11 = drs.CopyToDataTable();
+                    DataTable dt11 = (drs.Length < 1 ? pds.Tables["DataBlock11"].Clone() : drs.CopyToDataTable());
                     sRet = toBody3V.SetSample1(sSampleDocx, sSampleXSD, pds, sSampleAddFile, dr7, dt11);
                     if (sRet != "")
                     {
