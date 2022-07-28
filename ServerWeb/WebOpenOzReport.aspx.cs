@@ -34,7 +34,10 @@ namespace YLW_WebService.ServerSide
             string ParamStr = json["ParamStr"].ToString();
             JObject param1 = JObject.Parse(ParamStr);
             string parameterSeq = param1["ParameterSeq"].ToString();
-            string xmlString = GetXmlDataString(companySeq, parameterSeq);
+            string xmlString = "";
+            if (rptname == "RptAdjSLInvoiceViewBillIssueOut1") xmlString = GetXmlDataString(companySeq, parameterSeq);
+            if (rptname == "RptAdjSLInvoiceViewBillIssueOut2") xmlString = GetXmlDataString(companySeq, parameterSeq);
+            if (rptname == "RptAdjSLRsltCostMgmtAttach") xmlString = GetXmlDataString2(companySeq, parameterSeq);
 
             string url = "http://ksystem.metro070.com:8200";
 
@@ -209,6 +212,122 @@ namespace YLW_WebService.ServerSide
             catch (Exception ex)
             {
                 return "";
+            }
+        }
+
+        private string GetXmlDataString2(int companySeq, string parameterSeq)
+        {
+            try
+            {
+                YLWService.YlwSecurityJson security = YLWService.YLWServiceModule.SecurityJson.Clone();  //깊은복사
+                security.serviceId = "Metro.Package.AdjSL.BisAdjSLRptParameters";
+                security.methodId = "Query";
+                security.companySeq = companySeq;
+
+                DataSet ds = new DataSet("ROOT");
+                DataTable dt = ds.Tables.Add("DataBlock1");
+                dt.Columns.Add("ParameterSeq");
+                dt.Clear();
+                DataRow dr = dt.Rows.Add();
+                dr["ParameterSeq"] = parameterSeq;
+
+                DataSet yds = YLWService.MTRServiceModule.CallMTRServiceCallPost(security, ds);
+                if (yds == null) return null;
+                //string xml = yds.Tables["DataBlock1"].Rows[0]["Params"] + "";
+
+                string json = yds.Tables["DataBlock1"].Rows[0]["Params"] + "";
+                JsonSerializerSettings settings = new JsonSerializerSettings() { StringEscapeHandling = StringEscapeHandling.EscapeHtml };
+                DataSet pds = JsonConvert.DeserializeObject<DataSet>(json, settings);
+
+                DataTable dtB = pds.Tables["DataBlock13"];
+                if (dtB != null && dtB.Rows.Count > 0)
+                {
+                    DataTable dtB18 = pds.Tables.Add("DataBlock18");
+                    dtB18.Columns.Add("AcdtNo");
+                    dtB18.Columns.Add("AcdtDt");
+                    dtB18.Columns.Add("CostRcptFileSeq");
+                    dtB18.Columns.Add("CostRcptFileSerl");
+                    dtB18.Columns.Add("AttachFileImage");
+                    for (int ii = 0; ii < dtB.Rows.Count; ii++)
+                    {
+                        string fileSeq = Utils.ConvertToString(dtB.Rows[ii]["CostRcptFileSeq"]);
+                        if (Utils.ToInt(fileSeq) != 0)
+                        {
+                            GetXmlDataString2Sub(security, dtB.Rows[ii], fileSeq, dtB18);
+                        }
+                        string fileSeq2 = Utils.ConvertToString(dtB.Rows[ii]["CostRcptFileSeq2"]);
+                        if (Utils.ToInt(fileSeq2) != 0)
+                        {
+                            GetXmlDataString2Sub(security, dtB.Rows[ii], fileSeq2, dtB18);
+                        }
+                    }
+                }
+                return objectToXml(pds);
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+        }
+
+        private void GetXmlDataString2Sub(YlwSecurityJson security, DataRow dtr, string fileSeq, DataTable dtB18)
+        {
+            string acdtNo = Utils.ConvertToString(dtr["AcdtNo"]);
+            string acdtDt = "";
+
+            DataSet pds1 = YLWService.MTRServiceModule.CallMTRFileDownload(security, fileSeq, "", "");
+            if (pds1 != null && pds1.Tables.Count > 0)
+            {
+                DataTable dtB1 = pds1.Tables[0];
+                for (int jj = 0; jj < dtB1.Rows.Count; jj++)
+                {
+                    string ext = Utils.ConvertToString(dtB1.Rows[jj]["FileExt"]);
+                    string base64 = Utils.ConvertToString(dtB1.Rows[jj]["FileBase64"]);
+                    if (ext.ToUpper() == "PDF")
+                    {
+                        try
+                        {
+                            List<System.Drawing.Image> images = GetAllPagesFromPDF(base64);
+                            //List<System.Drawing.Image> images = (new PDFToImageConverter.Converter()).GetAllPagesFromPDF(base64);
+                            foreach (System.Drawing.Image img in images)
+                            {
+                                DataRow drB18 = dtB18.Rows.Add();
+                                drB18["AcdtNo"] = acdtNo;
+                                drB18["AcdtDt"] = acdtDt;
+                                drB18["CostRcptFileSeq"] = fileSeq;
+                                drB18["CostRcptFileSerl"] = jj;
+                                drB18["AttachFileImage"] = Utils.ImageToString(img);
+                            }
+                        }
+                        catch { }
+                    }
+                    else if (ext.ToUpper() == "TIF" || ext.ToUpper() == "TIFF")
+                    {
+                        try
+                        {
+                            List<System.Drawing.Image> images = GetAllPagesFromBase64String(base64);
+                            foreach (System.Drawing.Image img in images)
+                            {
+                                DataRow drB18 = dtB18.Rows.Add();
+                                drB18["AcdtNo"] = acdtNo;
+                                drB18["AcdtDt"] = acdtDt;
+                                drB18["CostRcptFileSeq"] = fileSeq;
+                                drB18["CostRcptFileSerl"] = jj;
+                                drB18["AttachFileImage"] = Utils.ImageToString(img);
+                            }
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        DataRow drB18 = dtB18.Rows.Add();
+                        drB18["AcdtNo"] = acdtNo;
+                        drB18["AcdtDt"] = acdtDt;
+                        drB18["CostRcptFileSeq"] = fileSeq;
+                        drB18["CostRcptFileSerl"] = jj;
+                        drB18["AttachFileImage"] = base64;
+                    }
+                }
             }
         }
 
