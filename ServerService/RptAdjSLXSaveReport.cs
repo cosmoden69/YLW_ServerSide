@@ -70,9 +70,10 @@ namespace YLW_WebService.ServerSide
                 }
 
                 string fileName = yds.Tables[0].Rows[0]["FileName"] + "";
+                string fileExt = Path.GetExtension(fileName);
                 string fileSeq = yds.Tables[0].Rows[0]["FileSeq"] + "";
 
-                string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + fileExt;
                 string fileBase64 = YLWService.MTRServiceModule.CallMTRFileDownloadBase64(security, fileSeq, "0", "0");
                 if (fileBase64 == "")
                 {
@@ -124,9 +125,10 @@ namespace YLW_WebService.ServerSide
                 }
 
                 string fileName = yds.Tables[0].Rows[0]["FileName"] + "";
+                string fileExt = Path.GetExtension(fileName);
                 string fileSeq = yds.Tables[0].Rows[0]["FileSeq"] + "";
 
-                string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + ".docx";
+                string sSample1Relt = myPath + @"\보고서\Temp\" + Guid.NewGuid().ToString() + fileExt;
                 string fileBase64 = YLWService.MTRServiceModule.CallMTRFileDownloadBase64(security, fileSeq, "0", "0");
                 if (fileBase64 == "")
                 {
