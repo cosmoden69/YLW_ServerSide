@@ -306,7 +306,7 @@ namespace YLW_WebService.ServerSide
                         DataRow dr = dtB.Rows[0];
 
                         sKey = rUtil.GetFieldName(sPrefix, "AcptDt");
-                        sValue = Utils.PadLeft(dr["AcptDtYear"], 4) + "년" + Utils.PadLeft(dr["AcptDtMonth"], 2) + "월 " + Utils.PadLeft(dr["AcptDtDays"], 2) + "일";
+                        sValue = Utils.PadLeft(dr["AcptDtYear"], 4) + "년 " + Utils.PadLeft(dr["AcptDtMonth"], 2) + "월 " + Utils.PadLeft(dr["AcptDtDays"], 2) + "일";
                         rUtil.ReplaceTextAllParagraph(doc, sKey, sValue);
 
                         sKey = rUtil.GetFieldName(sPrefix, "LasRptDt");
